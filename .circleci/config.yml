@@ -1,0 +1,177 @@
+version: 2
+
+jobs:
+  prepare:
+    docker: &docker_node
+      - image: circleci/node:8
+    steps:
+      - checkout
+      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
+      - restore_cache:
+          key: npm-
+      - run: npm install
+      - run: npm install tap-junit
+      - save_cache:
+          key: npm-{{ .Revision }}
+          paths:
+            - ~/.npm
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .npmrc
+            - node_modules
+            - node
+            - module
+            - types
+            - pub
+
+  lint:
+    docker: *docker_node
+    steps:
+      - checkout
+      - attach_workspace: &attach_workspace
+          at: .
+      - run: npm run lint
+
+  spec:
+    docker: *docker_node
+    steps:
+      - checkout
+      - attach_workspace: *attach_workspace
+      - run: npm run spec-all | $(npm bin)/tap-junit --output "/tmp/test-results/spec"
+      - store_test_results: &store_test_results
+          path: /tmp/test-results
+
+  feature:
+    docker: *docker_node
+    steps:
+      - checkout
+      - attach_workspace: *attach_workspace
+      - run: mkdir -p "/tmp/test-results/feature"
+      - run: npm run feature-all -- -- --format "json:/tmp/test-results/feature/feature.cucumber"
+      - store_test_results: *store_test_results
+
+  spelling:
+    docker: *docker_node
+    steps:
+      - checkout
+      - attach_workspace: *attach_workspace
+      - run: npm run spelling
+
+
+  publish:
+    docker:
+      - image: circleci/python:3
+        environment:
+          - BUCKET: private.gameye.com
+    steps:
+      - attach_workspace: *attach_workspace
+      - restore_cache: &restore_cache_pip
+          key: pip-
+      - run: pip install awscli --user
+      - save_cache: &save_cache_pip
+          key: pip-{{ .Revision }}
+          paths:
+            - ~/.cache/pip
+      - run: >
+          ~/.local/bin/aws s3 cp
+          pub/
+          s3://$BUCKET/statistic/$CIRCLE_PROJECT_REPONAME/
+          --recursive
+
+  deploy-notifier:
+    docker: &docker_buildpack
+      - image: circleci/buildpack-deps
+    steps:
+      - run: >
+          curl
+          --request POST
+          --header 'Content-type: application/json'
+          --data '{"text":"Deploy for '$CIRCLE_PROJECT_REPONAME' - '$CIRCLE_TAG'"}'
+          $SLACK_HOOK
+
+  publish-branch:
+    docker:
+      - image: circleci/python:3
+        environment:
+          - BUCKET: private.gameye.org
+    steps:
+      - attach_workspace: *attach_workspace
+      - restore_cache: *restore_cache_pip
+      - run: pip install awscli --user
+      - save_cache: *save_cache_pip
+      - run: >
+          ~/.local/bin/aws s3 cp
+          pub/
+          s3://$BUCKET/statistic/$CIRCLE_PROJECT_REPONAME/
+          --recursive
+
+  deploy-notifier-branch:
+    docker: *docker_buildpack
+    steps:
+      - attach_workspace: *attach_workspace
+      - run: >
+          curl
+          --request POST
+          --header 'Content-type: application/json'
+          --data '{"text":"Deploy for '$CIRCLE_PROJECT_REPONAME' - '$CIRCLE_BRANCH'"}'
+          $SLACK_HOOK
+
+
+
+workflows:
+  version: 2
+  test-and-deploy:
+    jobs:
+      - prepare:
+          context: npm-authorized
+          filters: &filters_all
+            tags:
+              only: /.*?/
+
+      - lint:
+          requires:
+            - prepare
+          filters: *filters_all
+      - spec:
+          requires:
+            - prepare
+          filters: *filters_all
+      - feature:
+          requires:
+            - prepare
+          filters: *filters_all
+      - spelling:
+          requires:
+            - prepare
+          filters: *filters_all
+
+      - publish:
+          context: aws-authorized
+          requires: &requires_publish
+            - lint
+            - spec
+            - feature
+            - spelling
+          filters: &filters_publish
+            branches:
+              ignore: /.*?/
+            tags:
+              only: /.*?/
+      - deploy-notifier:
+          context: slack-production
+          requires:
+            - publish
+          filters: *filters_publish
+      
+      - publish-branch:
+          context: aws-authorized
+          requires: *requires_publish
+          filters: &filters_publish_branch
+            branches:
+              only: master
+      - deploy-notifier-branch:
+          context: slack-staging
+          requires:
+            - publish-branch
+          filters: *filters_publish_branch

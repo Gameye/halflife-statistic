@@ -1,0 +1,7 @@
+.*
+/node_modules/
+/report/
+/node/
+/module/
+/types/
+/pub/

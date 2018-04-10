@@ -1,0 +1,40 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "typescript file",
+            "program": "${file}",
+            "args": [],
+            "cwd": "${workspaceRoot}",
+            "sourceMaps": true,
+            "outFiles": [
+                "${workspaceRoot}/node/**/*.js"
+            ],
+            "preLaunchTask": "watch",
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "feature file",
+            "program": "${workspaceRoot}/node_modules/cucumber/bin/cucumber-js",
+            "args": [
+                "--require",
+                "${workspaceRoot}/node/cucumber/**/*.js",
+                "${file}"
+            ],
+            "cwd": "${workspaceRoot}",
+            "sourceMaps": true,
+            "outFiles": [
+                "${workspaceRoot}/node/**/*.js"
+            ],
+            "preLaunchTask": "watch",
+            "console": "integratedTerminal"
+        },
+    ]
+}
