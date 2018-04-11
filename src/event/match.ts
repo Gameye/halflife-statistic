@@ -1,7 +1,8 @@
 import { EventBase } from "@gameye/statistic-common";
+import { TimestampPayload } from ".";
 
-export type MatchStartEvent = EventBase<"match-start", undefined>;
-export type MatchEndEvent = EventBase<"match-end", undefined>;
+export type MatchStartEvent = EventBase<"match-start", TimestampPayload>;
+export type MatchEndEvent = EventBase<"match-end", TimestampPayload>;
 
-export type GameCommencingEvent = EventBase<"game-commencing", undefined>;
-export type GameOverEvent = EventBase<"game-over", undefined>;
+export type GameCommencingEvent = EventBase<"game-commencing", TimestampPayload>;
+export type GameOverEvent = EventBase<"game-over", TimestampPayload>;

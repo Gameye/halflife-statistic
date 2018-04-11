@@ -33,7 +33,9 @@ export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
             pattern: /^World\s+triggered\s+"Game_Commencing"$/i,
             parse: (halflifeLine) => ({
                 type: "game-commencing",
-                payload: undefined,
+                payload: {
+                    timestamp: halflifeLine.timestamp,
+                },
             }),
         });
 
@@ -42,7 +44,9 @@ export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
             pattern: /^Game\s+Over:\s+(.+)\s+(.+)\s+score\s+(\d+):(\d+)\s+after\s+(\d+)\s+min$/i,
             parse: (halflifeLine) => ({
                 type: "game-over",
-                payload: undefined,
+                payload: {
+                    timestamp: halflifeLine.timestamp,
+                },
             }),
         });
 
@@ -51,7 +55,9 @@ export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
             pattern: /^World\s+triggered\s+"Match_Start"\s+on\s+"(.+)"/i,
             parse: (halflifeLine) => ({
                 type: "match-start",
-                payload: undefined,
+                payload: {
+                    timestamp: halflifeLine.timestamp,
+                },
             }),
         });
 
@@ -60,7 +66,9 @@ export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
             pattern: /^World\s+triggered\s+"Round_start"$/i,
             parse: (halflifeLine) => ({
                 type: "round-start",
-                payload: undefined,
+                payload: {
+                    timestamp: halflifeLine.timestamp,
+                },
             }),
         });
 
@@ -69,7 +77,9 @@ export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
             pattern: /^World\s+triggered\s+"Round_End"$/i,
             parse: (halflifeLine) => ({
                 type: "round-end",
-                payload: undefined,
+                payload: {
+                    timestamp: halflifeLine.timestamp,
+                },
             }),
         });
 
@@ -80,6 +90,7 @@ export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
                 type: "player-connected",
                 payload: {
                     player: this.parsePlayerWithTeam(playerString),
+                    timestamp: halflifeLine.timestamp,
                 },
             }),
         });
@@ -92,6 +103,7 @@ export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
                 payload: {
                     player: this.parsePlayerWithTeam(playerString),
                     reason: halflifeLine.argMap.reason,
+                    timestamp: halflifeLine.timestamp,
                 },
             }),
         });
@@ -104,6 +116,7 @@ export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
                 payload: {
                     assister: this.parsePlayerWithTeam(assisterPlayerString),
                     victim: this.parsePlayerWithTeam(victimPlayerString),
+                    timestamp: halflifeLine.timestamp,
                 },
             }),
         });
@@ -116,6 +129,7 @@ export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
                 payload: {
                     killer: this.parsePlayerWithTeam(killerPlayerString),
                     victim: this.parsePlayerWithTeam(victimPlayerString),
+                    timestamp: halflifeLine.timestamp,
                 },
             }),
         });
@@ -129,6 +143,7 @@ export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
                     player: this.parsePlayerWithTeam(playerString),
                     playerPosition: this.parseArray(locationString).map(Number) as event.PositionModel,
                     cause,
+                    timestamp: halflifeLine.timestamp,
                 },
             }),
         });
@@ -142,6 +157,7 @@ export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
                     player: this.parsePlayerWithoutTeam(playerString),
                     oldTeam,
                     newTeam,
+                    timestamp: halflifeLine.timestamp,
                 },
             }),
         });
@@ -154,6 +170,7 @@ export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
                 payload: {
                     team,
                     clantag,
+                    timestamp: halflifeLine.timestamp,
                 },
             }),
         });
@@ -167,6 +184,7 @@ export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
                     team,
                     score: Number(scoreString),
                     players: Number(playerString),
+                    timestamp: halflifeLine.timestamp,
                 },
             }),
         });

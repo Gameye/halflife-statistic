@@ -39,7 +39,7 @@
     "webpack-cli": "^2.0.14"
   },
   "dependencies": {
-    "@gameye/statistic-common": "0.0.3",
+    "@gameye/statistic-common": "0.0.5",
     "deepkit": "^0.1.1",
     "moment": "^2.22.0",
     "tslib": "^1.9.0"
