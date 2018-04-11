@@ -2,24 +2,24 @@ import { EventBase } from "@gameye/statistic-common";
 import * as test from "blue-tape";
 import { HalflifeLineModel, HalflifeLogParserBase } from "./halflife";
 
-type TestLogParserEvents = EventBase<"halflife-line", HalflifeLineModel>;
-
-class TestLogParser extends HalflifeLogParserBase<TestLogParserEvents> {
-
-    protected *parseLine(
-        line: string,
-    ): Iterable<TestLogParserEvents> {
-        const payload = this.parseHalflifeLine(line);
-
-        if (payload) yield {
-            type: "halflife-line",
-            payload,
-        };
-    }
-}
-
 test("HalflifeLogParserBase", async t => {
     // tslint:disable:max-line-length
+
+    type TestLogParserEvents = EventBase<"halflife-line", HalflifeLineModel>;
+
+    class TestLogParser extends HalflifeLogParserBase<TestLogParserEvents> {
+
+        protected *parseLine(
+            line: string,
+        ): Iterable<TestLogParserEvents> {
+            const payload = this.parseHalflifeLine(line);
+
+            if (payload) yield {
+                type: "halflife-line",
+                payload,
+            };
+        }
+    }
 
     const parser = new TestLogParser();
 
