@@ -9,7 +9,7 @@ export interface HalflifeLineModel {
     argMap: { [key: string]: string };
 }
 
-export interface HalflifeLineParser<
+interface HalflifeLineParser<
     TEvent extends EventBase,
     > {
     pattern: RegExp;
@@ -19,7 +19,14 @@ export interface HalflifeLineParser<
 export abstract class HalflifeLogParserBase<TEvent extends EventBase = any>
     extends RegexLogParserBase<TEvent>
 {
-    protected readonly halflifeParserList = new Array<HalflifeLineParser<TEvent>>();
+    private readonly halflifeParserList = new Array<HalflifeLineParser<TEvent>>();
+
+    protected registerHalflifeParser(
+        pattern: RegExp,
+        parse: (line: HalflifeLineModel, ...args: string[]) => TEvent,
+    ) {
+        this.halflifeParserList.push({ pattern, parse });
+    }
 
     // "Micrux ¬ GAMEYE<3><STEAM_1:0:31398789><CT>"
     // "Smashmint""<2><STEAM_1:1:24748064><>"

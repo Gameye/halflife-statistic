@@ -17,7 +17,8 @@ export type CsGoLogEvents =
     event.PlayerSuicideEvent |
     event.PlayerSwitchedTeamEvent |
     event.TeamPlayingEvent |
-    event.TeamScoreEvent;
+    event.TeamScoreEvent |
+    event.NumberParameterValueEvent;
 
 export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
 
@@ -26,79 +27,87 @@ export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
 
         //#region rules
 
-        const { halflifeParserList } = this;
+        this.registerRegexParser(
+            /^(mp_[a-z_]+)\s+(\d+)/i,
+            (line, name, value) => ({
+                type: "number-parameter-value",
+                payload: {
+                    name, value: Number(value),
+                },
+            }),
+        );
 
         // Game Over: casual mg_active de_dust2 score 16:7 after 15 min
-        halflifeParserList.push({
-            pattern: /^World\s+triggered\s+"Game_Commencing"$/i,
-            parse: (halflifeLine) => ({
+        this.registerHalflifeParser(
+            /^World\s+triggered\s+"Game_Commencing"$/i,
+            halflifeLine => ({
                 type: "game-commencing",
                 payload: {
                     timestamp: halflifeLine.timestamp,
                 },
             }),
-        });
+        );
 
         // Game Over: casual mg_active de_dust2 score 16:7 after 15 min
-        halflifeParserList.push({
-            pattern: /^Game\s+Over:\s+(.+)\s+(.+)\s+score\s+(\d+):(\d+)\s+after\s+(\d+)\s+min$/i,
-            parse: (halflifeLine) => ({
+        this.registerHalflifeParser(
+            /^Game\s+Over:\s+(.+)\s+(.+)\s+score\s+(\d+):(\d+)\s+after\s+(\d+)\s+min$/i,
+            halflifeLine => ({
                 type: "game-over",
                 payload: {
                     timestamp: halflifeLine.timestamp,
                 },
             }),
-        });
+        );
 
         // World triggered "Match_Start" on "de_dust2"
-        halflifeParserList.push({
-            pattern: /^World\s+triggered\s+"Match_Start"\s+on\s+"(.+)"/i,
-            parse: (halflifeLine) => ({
+        this.registerHalflifeParser(
+            /^World\s+triggered\s+"Match_Start"\s+on\s+"(.+)"/i,
+            halflifeLine => ({
                 type: "match-start",
                 payload: {
                     timestamp: halflifeLine.timestamp,
                 },
             }),
-        });
+        );
 
         // World triggered "Round_Start"
-        halflifeParserList.push({
-            pattern: /^World\s+triggered\s+"Round_start"$/i,
-            parse: (halflifeLine) => ({
+        this.registerHalflifeParser(
+            /^World\s+triggered\s+"Round_start"$/i,
+            halflifeLine => ({
                 type: "round-start",
                 payload: {
                     timestamp: halflifeLine.timestamp,
                 },
             }),
-        });
+        );
 
         // World triggered "Round_End"
-        halflifeParserList.push({
-            pattern: /^World\s+triggered\s+"Round_End"$/i,
-            parse: (halflifeLine) => ({
+        this.registerHalflifeParser(
+            /^World\s+triggered\s+"Round_End"$/i,
+            halflifeLine => ({
                 type: "round-end",
                 payload: {
                     timestamp: halflifeLine.timestamp,
                 },
             }),
-        });
+        );
 
         // "Micrux ¬ GAMEYE<3><STEAM_1:0:31398789><>" connected, address ""
-        halflifeParserList.push({
-            pattern: /^(".*?")\s+connected,\s+address\s+"(.*)"$/i,
-            parse: (halflifeLine, playerString, address) => ({
+        this.registerHalflifeParser(
+            /^(".*?")\s+connected,\s+address\s+"(.*)"$/i,
+            (halflifeLine, playerString, address) => ({
                 type: "player-connected",
                 payload: {
                     player: this.parsePlayerWithTeam(playerString),
                     timestamp: halflifeLine.timestamp,
                 },
             }),
-        });
+        );
 
         // "Adam<4><BOT><TERRORIST>" disconnected (reason "Kicked by Console")
-        halflifeParserList.push({
-            pattern: /^(".*?")\s+disconnected$/i,
-            parse: (halflifeLine, playerString) => ({
+        this.registerHalflifeParser(
+            /^(".*?")\s+disconnected$/i,
+            (halflifeLine, playerString) => ({
                 type: "player-disconnected",
                 payload: {
                     player: this.parsePlayerWithTeam(playerString),
@@ -106,12 +115,12 @@ export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
                     timestamp: halflifeLine.timestamp,
                 },
             }),
-        });
+        );
 
         // "Smashmint<13><STEAM_1:1:24748064><CT>" assisted killing "Micrux ¬ GAMEYE<3><STEAM_1:0:31398789><TERRORIST>"
-        halflifeParserList.push({
-            pattern: /^(".*?")\s+assisted\s+killing\s+(".*?")/i,
-            parse: (halflifeLine, assisterPlayerString, victimPlayerString) => ({
+        this.registerHalflifeParser(
+            /^(".*?")\s+assisted\s+killing\s+(".*?")/i,
+            (halflifeLine, assisterPlayerString, victimPlayerString) => ({
                 type: "player-assisted",
                 payload: {
                     assister: this.parsePlayerWithTeam(assisterPlayerString),
@@ -119,12 +128,12 @@ export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
                     timestamp: halflifeLine.timestamp,
                 },
             }),
-        });
+        );
 
         // "Lau<2><STEAM_1:0:16690820><TERRORIST>" [-478 310 4] killed "Micrux ¬ GAMEYE<3><STEAM_1:0:31398789><CT>" [-383 1079 -6] with "p250"
-        halflifeParserList.push({
-            pattern: /^(".*?")\s+\[.*\]\s+killed\s+(".*?")/i,
-            parse: (halflifeLine, killerPlayerString, victimPlayerString) => ({
+        this.registerHalflifeParser(
+            /^(".*?")\s+\[.*\]\s+killed\s+(".*?")/i,
+            (halflifeLine, killerPlayerString, victimPlayerString) => ({
                 type: "player-killed",
                 payload: {
                     killer: this.parsePlayerWithTeam(killerPlayerString),
@@ -132,12 +141,12 @@ export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
                     timestamp: halflifeLine.timestamp,
                 },
             }),
-        });
+        );
 
         // "Lau<2><STEAM_1:0:16690820><TERRORIST>" [-1015 -808 194] committed suicide with "world"
-        halflifeParserList.push({
-            pattern: /^(".*?")\s+(\[.*?\])\s+committed\s+suicide\s+with\s+"(.*?)"/i,
-            parse: (halflifeLine, playerString, locationString, cause) => ({
+        this.registerHalflifeParser(
+            /^(".*?")\s+(\[.*?\])\s+committed\s+suicide\s+with\s+"(.*?)"/i,
+            (halflifeLine, playerString, locationString, cause) => ({
                 type: "player-suicide",
                 payload: {
                     player: this.parsePlayerWithTeam(playerString),
@@ -146,12 +155,12 @@ export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
                     timestamp: halflifeLine.timestamp,
                 },
             }),
-        });
+        );
 
         // "Adam<4><BOT>" switched from team <Unassigned> to <TERRORIST>
-        halflifeParserList.push({
-            pattern: /^(".*?")\s+switched\s+from\s+team\s+\<(.*?)\>\s+to\s+\<(.*?)\>$/i,
-            parse: (halflifeLine, playerString, oldTeam, newTeam) => ({
+        this.registerHalflifeParser(
+            /^(".*?")\s+switched\s+from\s+team\s+\<(.*?)\>\s+to\s+\<(.*?)\>$/i,
+            (halflifeLine, playerString, oldTeam, newTeam) => ({
                 type: "player-switched-team",
                 payload: {
                     player: this.parsePlayerWithoutTeam(playerString),
@@ -160,12 +169,12 @@ export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
                     timestamp: halflifeLine.timestamp,
                 },
             }),
-        });
+        );
 
         // Team playing "TERRORIST": Gameye
-        halflifeParserList.push({
-            pattern: /^Team\s+playing\s+"(.*?)":\s+(.*?)$/i,
-            parse: (halflifeLine, team, clantag) => ({
+        this.registerHalflifeParser(
+            /^Team\s+playing\s+"(.*?)":\s+(.*?)$/i,
+            (halflifeLine, team, clantag) => ({
                 type: "team-playing",
                 payload: {
                     team,
@@ -173,12 +182,12 @@ export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
                     timestamp: halflifeLine.timestamp,
                 },
             }),
-        });
+        );
 
         // Team "TERRORIST" scored "7" with "1" players
-        halflifeParserList.push({
-            pattern: /^Team\s+"(\w*)"\s+scored\s+"(\d+)"\s+with\s+"(\d+)"\s+players/i,
-            parse: (halflifeLine, team, scoreString, playerString) => ({
+        this.registerHalflifeParser(
+            /^Team\s+"(\w*)"\s+scored\s+"(\d+)"\s+with\s+"(\d+)"\s+players/i,
+            (halflifeLine, team, scoreString, playerString) => ({
                 type: "team-score",
                 payload: {
                     team,
@@ -187,7 +196,7 @@ export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
                     timestamp: halflifeLine.timestamp,
                 },
             }),
-        });
+        );
 
         //#endregion
     }

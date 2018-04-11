@@ -1,8 +1,9 @@
 Feature: As an API user I want to know the game scores per player
 
     Scenario Outline:
-        Given I have been playing a game of csgo
-        When collect a log with the contents of <logfile>
+        Given I play a game of csgo
+        And I store logs in <logfile>
+        When I process the logs
         Then player <player> had <kills> kills
         And player <player> had <assists> assists
         And player <player> had <deaths> deaths

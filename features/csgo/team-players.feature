@@ -1,8 +1,9 @@
 Feature: As an API user I want to know which team a player is currently in
 
     Scenario Outline:
-        Given I have been playing a game of csgo
-        When collect a log with the contents of <logfile>
+        Given I play a game of csgo
+        And I store logs in <logfile>
+        When I process the logs
         And team <team 1> consists of <players 1> as the players
         And team <team 2> consists of <players 2> as the players
 

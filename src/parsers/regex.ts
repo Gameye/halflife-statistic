@@ -2,7 +2,7 @@ import { EventBase, LogParserBase } from "@gameye/statistic-common";
 import * as moment from "moment";
 import * as event from "../event";
 
-export interface RegexLineParser<
+interface RegexLineParser<
     TEvent extends EventBase,
     > {
     pattern: RegExp;
@@ -12,7 +12,14 @@ export interface RegexLineParser<
 export abstract class RegexLogParserBase<TEvent extends EventBase = any>
     extends LogParserBase<TEvent>
 {
-    protected readonly regexParserList = new Array<RegexLineParser<TEvent>>();
+    private readonly regexParserList = new Array<RegexLineParser<TEvent>>();
+
+    protected registerRegexParser(
+        pattern: RegExp,
+        parse: (line: string, ...args: string[]) => TEvent,
+    ) {
+        this.regexParserList.push({ pattern, parse });
+    }
 
     protected *parseLine(line: string): Iterable<TEvent> {
         const e = this.parseEventFromLine(line);

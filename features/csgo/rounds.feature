@@ -1,8 +1,9 @@
 Feature: Get rounds from log-files
 
     Scenario Outline:
-        Given I have been playing a game of csgo
-        When collect a log with the contents of <logfile>
+        Given I play a game of csgo
+        And I store logs in <logfile>
+        When I process the logs
         Then I have started <rounds> rounds
         And I have finished <rounds> rounds
     

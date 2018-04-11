@@ -12,16 +12,13 @@ test("HalflifeLogParserBase", async t => {
         constructor() {
             super();
 
-            const { halflifeParserList } = this;
-
-            halflifeParserList.push({
-                pattern: /^.*$/i,
-                parse: (halflifeLine) => ({
+            this.registerHalflifeParser(
+                /^.*$/i,
+                halflifeLine => ({
                     type: "halflife-line",
                     payload: halflifeLine,
                 }),
-
-            });
+            );
         }
     }
 

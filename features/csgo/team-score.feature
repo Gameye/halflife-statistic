@@ -1,8 +1,9 @@
 Feature: Get team score from log-files
 
     Scenario Outline:
-        Given I have been playing a game of csgo
-        When collect a log with the contents of <logfile>
+        Given I play a game of csgo
+        And I store logs in <logfile>
+        When I process the logs
         Then I have finished <rounds> rounds
         And team <team 1> has a score of <score 1>
         And team <team 2> has a score of <score 2>
