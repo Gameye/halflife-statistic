@@ -1,4 +1,4 @@
-# Half-life 2 statistic
+# Halflife statistic
 Statistics for CS:GO and TF2. This project is based on the
 [statistic-primer](https://github.com/Gameye/statistic-primer) project.
 
