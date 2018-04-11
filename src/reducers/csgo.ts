@@ -304,7 +304,7 @@ export class CsGoLogReducer
 
     }
 
-    protected * reduceTeamEvent(
+    protected *reduceTeamEvent(
         event: CsGoLogEvents,
     ): Iterable<StatePatch> {
         const { regularRounds, overtimeRounds } = this;
