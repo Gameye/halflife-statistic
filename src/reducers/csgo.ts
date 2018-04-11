@@ -7,7 +7,7 @@ export class CsGoLogReducer
     extends LogReducerBase<CsGoState, CsGoLogEvents>
 {
 
-    // #region helpers
+    // #region helper state
 
     private gameOver = false;
     private sides = ["CT", "TERRORIST"];
