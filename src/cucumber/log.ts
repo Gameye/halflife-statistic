@@ -37,6 +37,6 @@ cucumber.When(
             projectRoot, "fixtures", "logs", game.name, fileName,
         );
         const lines = await readFileAsLines(filePath);
-        Array.from(reducer.reduce(lines));
+        reducer.reduce(lines);
     },
 );
