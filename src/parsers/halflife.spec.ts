@@ -9,15 +9,19 @@ test("HalflifeLogParserBase", async t => {
 
     class TestLogParser extends HalflifeLogParserBase<TestLogParserEvents> {
 
-        protected *parseLine(
-            line: string,
-        ): Iterable<TestLogParserEvents> {
-            const payload = this.parseHalflifeLine(line);
+        constructor() {
+            super();
 
-            if (payload) yield {
-                type: "halflife-line",
-                payload,
-            };
+            const { halflifeParserList } = this;
+
+            halflifeParserList.push({
+                pattern: /^.*$/i,
+                parse: (halflifeLine) => ({
+                    type: "halflife-line",
+                    payload: halflifeLine,
+                }),
+
+            });
         }
     }
 

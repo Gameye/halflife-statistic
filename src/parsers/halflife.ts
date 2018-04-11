@@ -1,26 +1,30 @@
-import { EventBase, LogParserBase } from "@gameye/statistic-common";
+import { EventBase } from "@gameye/statistic-common";
 import * as moment from "moment";
+import * as event from "../event";
+import { RegexLogParserBase } from "./regex";
 
-export interface HalflifeLineModel<T = any> {
+export interface HalflifeLineModel {
     timestamp: number;
     content: string;
     argMap: { [key: string]: string };
 }
 
-export interface HalflifePlayerModel {
-    key: string;
-    uid: string;
-    name: string;
-    team: string;
+export interface HalflifeLineParser<
+    TEvent extends EventBase,
+    > {
+    pattern: RegExp;
+    parse(halflineLine: HalflifeLineModel, ...args: string[]): TEvent;
 }
 
 export abstract class HalflifeLogParserBase<TEvent extends EventBase = any>
-    extends LogParserBase<TEvent>
+    extends RegexLogParserBase<TEvent>
 {
+    protected readonly halflifeParserList = new Array<HalflifeLineParser<TEvent>>();
+
     // "Micrux ¬ GAMEYE<3><STEAM_1:0:31398789><CT>"
     // "Smashmint""<2><STEAM_1:1:24748064><>"
     // "Smashmint<><12><STEAM_1:1:24748064><Unassigned>"
-    protected parseHalflifePlayer(playerString: string): HalflifePlayerModel {
+    protected parsePlayerWithTeam(playerString: string): event.PlayerWithTeamModel {
         const match = /^"(.*)\<(.*?)\>\<(.*?)\>\<(.*?)\>"$/i.exec(playerString);
         if (match === null) throw new Error(`${playerString} is not a valid player string (did you include the "'s?)`);
 
@@ -30,12 +34,12 @@ export abstract class HalflifeLogParserBase<TEvent extends EventBase = any>
         };
     }
 
-    protected parseHalflifeLine(line: string): HalflifeLineModel | null {
+    protected parseHalflifeLine(line: string): HalflifeLineModel | undefined {
         // tslint:disable:max-line-length
 
-        if (line === null) return null;
+        if (!line) return;
         line = line.trim();
-        if (line === "") return null;
+        if (line === "") return;
 
         let match: RegExpExecArray | null = null;
         if (match === null) {
@@ -48,7 +52,7 @@ export abstract class HalflifeLogParserBase<TEvent extends EventBase = any>
         //     match = /^(\d{2}\/\d{2}\/\d{4})\s\-\s(\d{2}:\d{2}:\d{2}\.\d{3})\s\-\s(.*?)((?:\s+\(\w+\s+".*?"\))*)$/.exec(line);
         // }
 
-        if (!match) return null;
+        if (!match) return;
 
         const [, date, time, content, argMapGroup] = match;
 
@@ -79,4 +83,21 @@ export abstract class HalflifeLogParserBase<TEvent extends EventBase = any>
             timestamp, content, argMap,
         };
     }
+
+    protected parseEventFromLine(line: string): TEvent | undefined {
+        {
+            const e = super.parseEventFromLine(line);
+            if (e) return e;
+        }
+
+        const halflineLine = this.parseHalflifeLine(line);
+        if (halflineLine) for (const parser of this.halflifeParserList) {
+            const match = parser.pattern.exec(halflineLine.content);
+            if (!match) continue;
+
+            const e = parser.parse(halflineLine, ...match.slice(1));
+            if (e) return e;
+        }
+    }
+
 }
