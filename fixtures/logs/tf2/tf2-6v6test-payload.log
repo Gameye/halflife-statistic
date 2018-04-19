@@ -1,0 +1,566 @@
+Auto detecting CPU
+Using default binary: ./srcds_linux
+Server will auto-restart if there is a crash.
+Using Breakpad minidump system. Version: 4462894 AppID: 232250
+Setting breakpad minidump AppID = 232250
+Using breakpad crash handler
+Loaded 9254 VPK file hashes from /home/steam/tf2/tf/tf2_textures.vpk for pure server operation.
+Loaded 9254 VPK file hashes from /home/steam/tf2/tf/tf2_textures.vpk for pure server operation.
+Loaded 465 VPK file hashes from /home/steam/tf2/tf/tf2_sound_vo_english.vpk for pure server operation.
+Loaded 465 VPK file hashes from /home/steam/tf2/tf/tf2_sound_vo_english.vpk for pure server operation.
+Loaded 1328 VPK file hashes from /home/steam/tf2/tf/tf2_sound_misc.vpk for pure server operation.
+Loaded 1328 VPK file hashes from /home/steam/tf2/tf/tf2_sound_misc.vpk for pure server operation.
+Loaded 2134 VPK file hashes from /home/steam/tf2/tf/tf2_misc.vpk for pure server operation.
+Loaded 2134 VPK file hashes from /home/steam/tf2/tf/tf2_misc.vpk for pure server operation.
+Loaded 2134 VPK file hashes from /home/steam/tf2/tf/tf2_misc.vpk for pure server operation.
+Loaded 1217 VPK file hashes from /home/steam/tf2/hl2/hl2_textures.vpk for pure server operation.
+Loaded 574 VPK file hashes from /home/steam/tf2/hl2/hl2_sound_vo_english.vpk for pure server operation.
+Loaded 383 VPK file hashes from /home/steam/tf2/hl2/hl2_sound_misc.vpk for pure server operation.
+Loaded 451 VPK file hashes from /home/steam/tf2/hl2/hl2_misc.vpk for pure server operation.
+Loaded 451 VPK file hashes from /home/steam/tf2/hl2/hl2_misc.vpk for pure server operation.
+Loaded 5 VPK file hashes from /home/steam/tf2/platform/platform_misc.vpk for pure server operation.
+Loaded 5 VPK file hashes from /home/steam/tf2/platform/platform_misc.vpk for pure server operation.
+server_srv.so loaded for "Team Fortress"
+For FCVAR_REPLICATED, ConVar must be defined in client and game .dlls (sv_use_steam_voice)
+ProtoDefs post data loaded.
+ProtoDefs loaded. 12.54 MB used
+ProtoDefs post data loaded.
+ProtoDefs loaded. 12.54 MB used
+maxplayers set to 4
+No '-replayserverdir' parameter found - using default replay folder.
+Replay: Creating thread pool...succeeded.
+Replay: Starting thread pool with 4 threads...succeeded.
+Cleaning files from temp dir, "/home/steam/tf2/tf/replay/server/tmp/" ...no files removed.
+ProtoDefs post data loaded.
+ProtoDefs post data loaded.
+dlopen failed trying to load:
+/home/steam/.steam/sdk32/steamclient.so
+with error:
+/home/steam/.steam/sdk32/steamclient.so: cannot open shared object file: No such file or directory
+Looking up breakpad interfaces from steamclient
+Calling BreakpadMiniDumpSystemInit
+Unknown command "r_decal_cullsize"
+ConVarRef dev_loadtime_map_start doesn't point to an existing ConVar
+maxplayers set to 4
+maxplayers set to 5 (extra slot was added for SourceTV)
+Unknown command "startupmenu"
+Network: IP 172.17.0.2, mode MP, dedicated Yes, ports 50000 SV / 27005 CL
+Initializing Steam libraries for secure Internet server
+[S_API FAIL] SteamAPI_Init() failed; SteamAPI_IsSteamRunning() failed.
+Setting breakpad minidump AppID = 440
+dlopen failed trying to load:
+/home/steam/.steam/sdk32/steamclient.so
+with error:
+/home/steam/.steam/sdk32/steamclient.so: cannot open shared object file: No such file or directory
+Looking up breakpad interfaces from steamclient
+Calling BreakpadMiniDumpSystemInit
+Setting breakpad minidump AppID = 232250
+No account token specified; logging into anonymous game server account.  (Use sv_setsteamaccount to login to a persistent account.)
+ConVarRef room_type doesn't point to an existing ConVar
+Executing dedicated server config file server.cfg
+Using map cycle file 'cfg/mapcycle_default.txt'.  ('cfg/mapcycle.txt' was not found.)
+-- Error --:  empty soundname, .qc error on AE_CL_PLAYSOUND in model player/pyro.mdl, sequence taunt_skating_scorcher_intro, animevent # 9
+-- Error --:  empty soundname, .qc error on AE_CL_PLAYSOUND in model player/pyro.mdl, sequence taunt_skating_scorcher_trick2, animevent # 7
+-- Error --:  empty soundname, .qc error on AE_CL_PLAYSOUND in model player/pyro.mdl, sequence taunt_skating_scorcher_trick1, animevent # 6
+Set motd from file 'cfg/motd_default.txt'.  ('cfg/motd.txt' was not found.)
+Set motd_text from file 'cfg/motd_text_default.txt'.  ('cfg/motd_text.txt' was not found.)
+SV_ActivateServer: setting tickrate to 66.7
+Cannot verify load for invalid steam ID [A:1:0:1]
+Connection to game coordinator established.
+Current item schema is up-to-date with version 7DFE843C.
+'server.cfg' not present; not executing.
+'pl_upward.cfg' not present; not executing.
+echo "Configure..."
+sv_cheats 0
+sv_client_max_interp_ratio 5
+sv_client_min_interp_ratio 1
+sv_client_predict 1
+sv_consistency 1
+sv_gravity 800
+sv_maxcmdrate 66
+sv_maxrate 0
+sv_maxupdaterate 66
+sv_mincmdrate 66
+sv_minrate 20000
+sv_minupdaterate 66
+sv_pausable 1
+sv_pure 2
+sv_pure_kick_clients 1
+sv_restrict_aspect_ratio_fov 0
+sv_timeout 10
+
+tf_arena_first_blood 0
+tf_avoidteammates_pushaway 0
+tf_clamp_airducks 1
+tf_ctf_bonus_time 0
+tf_damage_disablespread 1
+tf_teamtalk 1
+tf_tournament_hide_domination_icons 1
+tf_use_fixed_weaponspreads 1
+tf_weapon_criticals 0
+tf_dropped_weapon_lifetime 0
+tf_preround_push_from_damage_enable 1
+tf_spawn_glows_duration 0
+
+tv_name "Gameye SourceTV Stream"         // Title for SourceTV
+tv_title "Gameye SourceTV Stream"        // Title for SourceTV spectator UI
+tv_maxclients 10   // SourceTV max clients
+tv_autorecord 1                          // Autorecord SourceTV demo
+tv_delay 0            // SourceTV stream delay in seconds
+tv_delaymapchange 1
+tv_relayvoice 0                          
+tv_transmitall 1
+tv_delaymapchange 1                      // Delays map change until broadcast is complete
+
+#mp_tournament_restart                    // Restart Tournament Mode on the current level
+
+say ETF2L config (2016-01-26) loaded.
+say * Please check that the settings are correct for this game mode!
+say * You must record POV demos and take screenshots of all results.
+
+echo "Configure ready..."
+
+Server is hibernating
+SourceTV broadcast active.
+Connection to Steam servers successful.
+   Public IP is 185.94.197.3.
+Assigned anonymous gameserver Steam ID [A:1:3101267974:9840].
+VAC secure mode is activated.
+Configure... 
+
+log on                                 // Enable server logging
+Server logging enabled.
+Server logging data to file logs/L0416000.log
+L 04/16/2018 - 10:42:10: Log file started (file "logs/L0416000.log") (game "/home/steam/tf2/tf") (version "4462894")
+
+mp_maxrounds 2          // Number of rounds to win before the game will end
+L 04/16/2018 - 10:42:10: server_cvar: "mp_maxrounds" "2"
+#tf_flag_caps_per_round 1               // Number of capture before game has end ed
+Unknown command "#tf_flag_caps_per_round"
+mp_tournament 0                        // Disable tournament mode
+
+host_framerate 0
+
+tf_tournament_classlimit_scout -1
+tf_tournament_classlimit_soldier -1
+tf_tournament_classlimit_pyro -1
+tf_tournament_classlimit_demoman -1
+tf_tournament_classlimit_heavy -1
+tf_tournament_classlimit_engineer -1
+tf_tournament_classlimit_medic -1
+tf_tournament_classlimit_sniper -1
+tf_tournament_classlimit_spy -1
+
+mp_allowspectators 1
+mp_bonusroundtime 10
+mp_disable_respawn_times 0
+mp_enableroundwaittime 1
+mp_fadetoblack 0
+mp_footsteps 1
+mp_forcecamera 1
+mp_fraglimit 0
+mp_friendlyfire 0
+mp_highlander 0
+mp_idledealmethod 0
+mp_match_end_at_timelimit 1
+L 04/16/2018 - 10:42:11: server_cvar: "mp_match_end_at_timelimit" "1"
+mp_respawnwavetime 10.0
+mp_stalemate_enable 0
+mp_teams_unbalance_limit 0
+mp_tournament 0
+mp_tournament_allow_non_admin_restart 0
+mp_tournament_stopwatch 1
+
+sv_allow_votes 0
+sv_allow_wait_command 0
+sv_allowupload 0
+sv_alltalk 0
+sv_cheats 0
+sv_client_max_interp_ratio 5
+sv_client_min_interp_ratio 1
+sv_client_predict 1
+sv_consistency 1
+sv_gravity 800
+sv_maxcmdrate 66
+sv_maxrate 0
+sv_maxupdaterate 66
+sv_mincmdrate 66
+sv_minrate 20000
+sv_minupdaterate 66
+sv_pausable 1
+L 04/16/2018 - 10:42:11: server_cvar: "sv_pausable" "1"
+sv_pure 2
+--------------------------------------------------------
+sv_pure set to 2.
+Note: Waiting for the next changelevel to apply the current value.
+--------------------------------------------------------
+sv_pure_kick_clients 1
+sv_restrict_aspect_ratio_fov 0
+sv_timeout 10
+
+tf_arena_first_blood 0
+L 04/16/2018 - 10:42:12: server_cvar: "tf_arena_first_blood" "0"
+tf_avoidteammates_pushaway 0
+tf_clamp_airducks 1
+tf_ctf_bonus_time 0
+L 04/16/2018 - 10:42:12: server_cvar: "tf_ctf_bonus_time" "0"
+tf_damage_disablespread 1
+tf_teamtalk 1
+Unknown command "tf_teamtalk"
+tf_tournament_hide_domination_icons 1
+tf_use_fixed_weaponspreads 1
+L 04/16/2018 - 10:42:12: server_cvar: "tf_use_fixed_weaponspreads" "1"
+tf_weapon_criticals 0
+L 04/16/2018 - 10:42:12: server_cvar: "tf_weapon_criticals" "0"
+L 04/16/2018 - 10:42:12: server_cvar: "sv_tags" "nocrits,payload"
+tf_dropped_weapon_lifetime 0
+Can't use cheat cvar tf_dropped_weapon_lifetime in multiplayer, unless the server has sv_cheats set to 1.
+tf_preround_push_from_damage_enable 1
+tf_spawn_glows_duration 0
+L 04/16/2018 - 10:42:12: server_cvar: "tf_spawn_glows_duration" "0"
+
+tv_name "Gameye SourceTV Stream"         // Title for SourceTV
+tv_title "Gameye SourceTV Stream"        // Title for SourceTV spectator UI
+tv_maxclients 10   // SourceTV max clients
+tv_autorecord 1                          // Autorecord SourceTV demo
+tv_delay 0            // SourceTV stream delay in seconds
+tv_delaymapchange 1
+tv_relayvoice 0                          
+tv_transmitall 1
+tv_delaymapchange 1                      // Delays map change until broadcast is  complete
+
+#mp_tournament_restart                    // Restart Tournament Mode on the curr ent level
+Unknown command "#mp_tournament_restart"
+
+say ETF2L config (2016-01-26) loaded.
+Console: ETF2L config (2016-01-26) loaded.
+L 04/16/2018 - 10:42:12: "Console<0><Console><Console>" say "ETF2L config (2016-01-26) loaded."
+say * Please check that the settings are correct for this game mode!
+Console: * Please check that the settings are correct for this game mode!
+L 04/16/2018 - 10:42:12: "Console<0><Console><Console>" say "* Please check that the settings are correct for this game mode!"
+say * You must record POV demos and take screenshots of all results.
+Console: * You must record POV demos and take screenshots of all results.
+L 04/16/2018 - 10:42:12: "Console<0><Console><Console>" say "* You must record POV demos and take screenshots of all results."
+
+echo "Configure ready..."
+Configure ready... 
+echo "Idle..."
+
+
+echo "Idle..."
+Idle... 
+
+L 04/16/2018 - 10:42:17: "Smashmint<3><[U:1:49496129]><>" connected, address "172.17.0.1:59541"
+Client "Smashmint" connected (172.17.0.1:59541).
+Server waking up from hibernation
+L 04/16/2018 - 10:42:18: "Smashmint<3><[U:1:49496129]><>" STEAM USERID validated
+L 04/16/2018 - 10:42:23: "Smashmint<3><[U:1:49496129]><>" entered the game
+L 04/16/2018 - 10:42:49: "Smashmint<3><[U:1:49496129]><Unassigned>" joined team "Blue"
+L 04/16/2018 - 10:42:51: "Smashmint<3><[U:1:49496129]><Blue>" changed role to "pyro"
+L 04/16/2018 - 10:43:16: "denise<4><[U:1:437819661]><>" connected, address "172.17.0.1:46864"
+Client "denise" connected (172.17.0.1:46864).
+L 04/16/2018 - 10:43:16: "denise<4><[U:1:437819661]><>" STEAM USERID validated
+L 04/16/2018 - 10:43:22: World triggered "Round_Start"
+L 04/16/2018 - 10:43:22: World triggered "Round_Setup_Begin"
+echo "Playing..."
+L 04/16/2018 - 10:43:22: World triggered "Mini_Round_Selected" (round "round_a")
+L 04/16/2018 - 10:43:22: World triggered "Mini_Round_Start"
+Playing... 
+
+CreateFragmentsFromFile: 'user_custom/50/50570c32.dat' doesn't exist.
+L 04/16/2018 - 10:43:39: "denise<4><[U:1:437819661]><>" entered the game
+CreateFragmentsFromFile: 'user_custom/de/deef6fb1.dat' doesn't exist.
+L 04/16/2018 - 10:43:50: "denise<4><[U:1:437819661]><Unassigned>" joined team "Red"
+L 04/16/2018 - 10:43:51: "denise<4><[U:1:437819661]><Red>" changed role to "heavyweapons"
+Entity 971 (class 'tf_weapon_flamethrower') reported ENTITY_CHANGE_NONE but 'm_hFlameManager' changed.
+Entity 971 (class 'tf_weapon_flamethrower') reported ENTITY_CHANGE_NONE but 'm_hFlameManager' changed.
+Entity 971 (class 'tf_weapon_flamethrower') reported ENTITY_CHANGE_NONE but 'm_hFlameManager' changed.
+L 04/16/2018 - 10:44:32: World triggered "Round_Setup_End"
+L 04/16/2018 - 10:45:34: "denise<4><[U:1:437819661]><Red>" triggered "captureblocked" (cp "0") (cpname "#Badwater_cap_1") (position "741 -1685 129")
+L 04/16/2018 - 10:46:01: "Smashmint<3><[U:1:49496129]><Blue>" killed "denise<4><[U:1:437819661]><Red>" with "scorch_shot" (attacker_position "252 -1902 268") (victim_position "899 -1420 133")
+L 04/16/2018 - 10:46:15: Team "Blue" triggered "pointcaptured" (cp "0") (cpname "#Badwater_cap_1") (numcappers "1") (player1 "Smashmint<3><[U:1:49496129]><Blue>") (position1 "1047 -1545 206") 
+L 04/16/2018 - 10:47:30: Team "Blue" triggered "pointcaptured" (cp "1") (cpname "#Badwater_cap_2") (numcappers "1") (player1 "Smashmint<3><[U:1:49496129]><Blue>") (position1 "1461 1093 257") 
+L 04/16/2018 - 10:48:14: "denise<4><[U:1:437819661]><Red>" killed "Smashmint<3><[U:1:49496129]><Blue>" with "minigun" (attacker_position "794 1469 309") (victim_position "377 1553 228")
+L 04/16/2018 - 10:48:59: "Smashmint<3><[U:1:49496129]><Blue>" killed "denise<4><[U:1:437819661]><Red>" with "backburner" (attacker_position "1054 1160 281") (victim_position "794 1469 309")
+L 04/16/2018 - 10:49:33: "denise<4><[U:1:437819661]><Red>" committed suicide with "world" (attacker_position "611 -351 -127")
+L 04/16/2018 - 10:50:42: "Smashmint<3><[U:1:49496129]><Blue>" killed "denise<4><[U:1:437819661]><Red>" with "scorch_shot" (attacker_position "-1191 1092 425") (victim_position "-837 -723 576")
+L 04/16/2018 - 10:51:14: Team "Blue" triggered "pointcaptured" (cp "2") (cpname "#Badwater_cap_3") (numcappers "1") (player1 "Smashmint<3><[U:1:49496129]><Blue>") (position1 "-973 701 512") 
+L 04/16/2018 - 10:51:56: "denise<4><[U:1:437819661]><Red>" committed suicide with "world" (attacker_position "652 -146 -126")
+L 04/16/2018 - 10:52:26: Team "Blue" triggered "pointcaptured" (cp "3") (cpname "#Badwater_cap_4") (numcappers "1") (player1 "Smashmint<3><[U:1:49496129]><Blue>") (position1 "567 -554 499") 
+L 04/16/2018 - 10:52:26: World triggered "Mini_Round_Win" (winner "Blue") (round "round_a")
+L 04/16/2018 - 10:52:26: World triggered "Mini_Round_Length" (seconds "543.99")
+L 04/16/2018 - 10:52:26: World triggered "Round_Win" (winner "Blue")
+L 04/16/2018 - 10:52:26: Team "Red" current score "0" with "1" players
+L 04/16/2018 - 10:52:26: Team "Blue" current score "4" with "1" players
+L 04/16/2018 - 10:52:28: "denise<4><[U:1:437819661]><Red>" committed suicide with "world" (attacker_position "779 -83 480")
+Entity 202 (class 'team_train_watcher') reported ENTITY_CHANGE_NONE but 'm_hGlowEnt' changed.
+L 04/16/2018 - 10:52:36: World triggered "Round_Start"
+L 04/16/2018 - 10:52:36: World triggered "Round_Setup_Begin"
+L 04/16/2018 - 10:52:36: World triggered "Mini_Round_Selected" (round "round_a")
+L 04/16/2018 - 10:52:36: World triggered "Mini_Round_Start"
+L 04/16/2018 - 10:52:36: "Smashmint<3><[U:1:49496129]><Blue>" joined team "Red"
+L 04/16/2018 - 10:52:36: "denise<4><[U:1:437819661]><Red>" joined team "Blue"
+L 04/16/2018 - 10:53:46: World triggered "Round_Setup_End"
+L 04/16/2018 - 10:55:58: "denise<4><[U:1:437819661]><Blue>" changed role to "scout"
+L 04/16/2018 - 10:57:01: Team "Blue" triggered "pointcaptured" (cp "0") (cpname "#Badwater_cap_1") (numcappers "1") (player1 "denise<4><[U:1:437819661]><Blue>") (position1 "925 -1539 129") 
+L 04/16/2018 - 10:57:50: "Smashmint<3><[U:1:49496129]><Red>" triggered "captureblocked" (cp "1") (cpname "#Badwater_cap_2") (position "1834 722 257")
+L 04/16/2018 - 10:58:06: "Smashmint<3><[U:1:49496129]><Red>" triggered "captureblocked" (cp "1") (cpname "#Badwater_cap_2") (position "1562 968 257")
+L 04/16/2018 - 10:58:15: Team "Blue" triggered "pointcaptured" (cp "1") (cpname "#Badwater_cap_2") (numcappers "1") (player1 "denise<4><[U:1:437819661]><Blue>") (position1 "1653 1128 257") 
+L 04/16/2018 - 10:58:18: "Smashmint<3><[U:1:49496129]><Red>" triggered "captureblocked" (cp "2") (cpname "#Badwater_cap_3") (position "1339 969 256")
+L 04/16/2018 - 10:58:32: "Smashmint<3><[U:1:49496129]><Red>" triggered "captureblocked" (cp "2") (cpname "#Badwater_cap_3") (position "955 1561 289")
+L 04/16/2018 - 10:58:45: "Smashmint<3><[U:1:49496129]><Red>" triggered "captureblocked" (cp "2") (cpname "#Badwater_cap_3") (position "867 1416 302")
+L 04/16/2018 - 10:58:58: "Smashmint<3><[U:1:49496129]><Red>" triggered "captureblocked" (cp "2") (cpname "#Badwater_cap_3") (position "210 1416 209")
+L 04/16/2018 - 10:59:12: "Smashmint<3><[U:1:49496129]><Red>" triggered "captureblocked" (cp "2") (cpname "#Badwater_cap_3") (position "-32 1404 236")
+L 04/16/2018 - 10:59:42: "Smashmint<3><[U:1:49496129]><Red>" triggered "captureblocked" (cp "2") (cpname "#Badwater_cap_3") (position "-1122 810 387")
+L 04/16/2018 - 11:00:06: Team "Blue" triggered "pointcaptured" (cp "2") (cpname "#Badwater_cap_3") (numcappers "1") (player1 "denise<4><[U:1:437819661]><Blue>") (position1 "-1072 562 512") 
+L 04/16/2018 - 11:00:07: "Smashmint<3><[U:1:49496129]><Red>" triggered "captureblocked" (cp "3") (cpname "#Badwater_cap_4") (position "-938 719 512")
+L 04/16/2018 - 11:00:43: "Smashmint<3><[U:1:49496129]><Red>" killed "denise<4><[U:1:437819661]><Blue>" with "backburner" (attacker_position "-397 -934 550") (victim_position "46 -1008 496")
+Entity 971 (class 'tf_weapon_flamethrower') reported ENTITY_CHANGE_NONE but 'm_hFlameManager' changed.
+L 04/16/2018 - 11:10:06: World triggered "Round_Overtime"
+L 04/16/2018 - 11:10:11: World triggered "Mini_Round_Win" (winner "Red") (round "round_a")
+L 04/16/2018 - 11:10:11: World triggered "Mini_Round_Length" (seconds "1055.07")
+L 04/16/2018 - 11:10:11: World triggered "Round_Win" (winner "Red")
+L 04/16/2018 - 11:10:11: Team "Red" current score "4" with "1" players
+L 04/16/2018 - 11:10:11: Team "Blue" current score "3" with "1" players
+L 04/16/2018 - 11:10:21: World triggered "Game_Over" reason "Reached Round Limit"
+L 04/16/2018 - 11:10:21: Team "Red" final score "4" with "1" players
+L 04/16/2018 - 11:10:21: Team "Blue" final score "3" with "1" players
+echo "End..."
+End... 
+say The match has ended, thank you for playing!
+Console: The match has ended, thank you for playing!
+L 04/16/2018 - 11:10:22: "Console<0><Console><Console>" say "The match has ended, thank you for playing!"
+say This server will shutdown in 10 seconds
+Console: This server will shutdown in 10 seconds
+L 04/16/2018 - 11:10:22: "Console<0><Console><Console>" say "This server will shutdown in 10 seconds"
+
+CHANGE LEVEL: plr_hightower
+echo "Quit..."
+---- Host_Changelevel ----
+L 04/16/2018 - 11:10:32: Log file closed.
+Server logging data to file logs/L0416001.log
+L 04/16/2018 - 11:10:32: Log file started (file "logs/L0416001.log") (game "/home/steam/tf2/tf") (version "4462894")
+L 04/16/2018 - 11:10:32: Loading map "plr_hightower"
+L 04/16/2018 - 11:10:32: server cvars start
+L 04/16/2018 - 11:10:32: "tf_server_identity_disable_quickplay" = "0"
+L 04/16/2018 - 11:10:32: "sv_registration_successful" = "0"
+L 04/16/2018 - 11:10:32: "sv_registration_message" = "No account specified"
+L 04/16/2018 - 11:10:32: "tf_mm_servermode" = "0"
+L 04/16/2018 - 11:10:32: "tf_mm_strict" = "0"
+L 04/16/2018 - 11:10:32: "tf_mm_trusted" = "0"
+L 04/16/2018 - 11:10:32: "sv_vote_quorum_ratio" = "0.6"
+L 04/16/2018 - 11:10:32: "mp_friendlyfire" = "0"
+L 04/16/2018 - 11:10:32: "mp_fadetoblack" = "0"
+L 04/16/2018 - 11:10:32: "sv_gravity" = "800"
+L 04/16/2018 - 11:10:32: "sv_stopspeed" = "100"
+L 04/16/2018 - 11:10:32: "sv_noclipaccelerate" = "5"
+L 04/16/2018 - 11:10:32: "sv_noclipspeed" = "5"
+L 04/16/2018 - 11:10:32: "sv_specaccelerate" = "5"
+L 04/16/2018 - 11:10:32: "sv_specspeed" = "3"
+L 04/16/2018 - 11:10:32: "sv_specnoclip" = "1"
+L 04/16/2018 - 11:10:32: "sv_maxspeed" = "320"
+L 04/16/2018 - 11:10:32: "sv_accelerate" = "10"
+L 04/16/2018 - 11:10:32: "sv_airaccelerate" = "10"
+L 04/16/2018 - 11:10:32: "sv_wateraccelerate" = "10"
+L 04/16/2018 - 11:10:32: "sv_waterfriction" = "1"
+L 04/16/2018 - 11:10:32: "sv_footsteps" = "1"
+L 04/16/2018 - 11:10:32: "sv_rollspeed" = "200"
+L 04/16/2018 - 11:10:32: "sv_rollangle" = "0"
+L 04/16/2018 - 11:10:32: "sv_friction" = "4"
+L 04/16/2018 - 11:10:32: "sv_bounce" = "0"
+L 04/16/2018 - 11:10:32: "sv_stepsize" = "18"
+L 04/16/2018 - 11:10:32: "r_VehicleViewDampen" = "1"
+L 04/16/2018 - 11:10:32: "r_JeepViewDampenFreq" = "7.0"
+L 04/16/2018 - 11:10:32: "r_JeepViewDampenDamp" = "1.0"
+L 04/16/2018 - 11:10:32: "r_JeepViewZHeight" = "10.0"
+L 04/16/2018 - 11:10:32: "r_AirboatViewDampenFreq" = "7.0"
+L 04/16/2018 - 11:10:32: "r_AirboatViewDampenDamp" = "1.0"
+L 04/16/2018 - 11:10:32: "r_AirboatViewZHeight" = "0.0"
+L 04/16/2018 - 11:10:32: "mp_timelimit" = "0"
+L 04/16/2018 - 11:10:32: "mp_fraglimit" = "0"
+L 04/16/2018 - 11:10:32: "nextlevel" = ""
+L 04/16/2018 - 11:10:32: "mp_respawnwavetime" = "10.0"
+L 04/16/2018 - 11:10:32: "mp_tournament" = "0"
+L 04/16/2018 - 11:10:32: "mp_highlander" = "0"
+L 04/16/2018 - 11:10:32: "tf_arena_preround_time" = "10"
+L 04/16/2018 - 11:10:32: "tf_arena_round_time" = "0"
+L 04/16/2018 - 11:10:32: "tf_arena_max_streak" = "3"
+L 04/16/2018 - 11:10:32: "tf_arena_use_queue" = "1"
+L 04/16/2018 - 11:10:32: "mp_maxrounds" = "2"
+L 04/16/2018 - 11:10:32: "mp_winlimit" = "0"
+L 04/16/2018 - 11:10:32: "mp_disable_respawn_times" = "0"
+L 04/16/2018 - 11:10:32: "mp_stalemate_meleeonly" = "0"
+L 04/16/2018 - 11:10:32: "mp_forceautoteam" = "0"
+L 04/16/2018 - 11:10:32: "mp_autoteambalance" = "1"
+L 04/16/2018 - 11:10:32: "mp_stalemate_enable" = "0"
+L 04/16/2018 - 11:10:32: "mp_match_end_at_timelimit" = "1"
+L 04/16/2018 - 11:10:32: "mp_holiday_nogifts" = "0"
+L 04/16/2018 - 11:10:32: "mp_scrambleteams_auto" = "1"
+L 04/16/2018 - 11:10:32: "mp_scrambleteams_auto_windifference" = "2"
+L 04/16/2018 - 11:10:32: "tf_overtime_nag" = "0"
+L 04/16/2018 - 11:10:32: "tf_passtime_scores_per_round" = "5"
+L 04/16/2018 - 11:10:32: "tf_passtime_ball_damping_scale" = "0.01f"
+L 04/16/2018 - 11:10:32: "tf_passtime_ball_drag_coefficient" = "0.01f"
+L 04/16/2018 - 11:10:32: "tf_passtime_ball_inertia_scale" = "1.0f"
+L 04/16/2018 - 11:10:32: "tf_passtime_ball_mass" = "1.0f"
+L 04/16/2018 - 11:10:32: "tf_passtime_ball_model" = "models/passtime/ball/passtime_ball.mdl"
+L 04/16/2018 - 11:10:32: "tf_passtime_ball_sphere_collision" = "1"
+L 04/16/2018 - 11:10:32: "tf_passtime_ball_sphere_radius" = "7.2f"
+L 04/16/2018 - 11:10:32: "tf_passtime_ball_reset_time" = "15"
+L 04/16/2018 - 11:10:32: "tf_passtime_ball_rotdamping_scale" = "1.0f"
+L 04/16/2018 - 11:10:32: "tf_passtime_ball_seek_range" = "128"
+L 04/16/2018 - 11:10:32: "tf_passtime_ball_seek_speed_factor" = "3f"
+L 04/16/2018 - 11:10:32: "tf_passtime_ball_takedamage" = "1"
+L 04/16/2018 - 11:10:32: "tf_passtime_ball_takedamage_force" = "800.0f"
+L 04/16/2018 - 11:10:32: "tf_passtime_flinch_boost" = "0"
+L 04/16/2018 - 11:10:32: "tf_passtime_mode_homing_lock_sec" = "1.5f"
+L 04/16/2018 - 11:10:32: "tf_passtime_mode_homing_speed" = "1000.0f"
+L 04/16/2018 - 11:10:32: "tf_passtime_overtime_idle_sec" = "5"
+L 04/16/2018 - 11:10:32: "tf_passtime_player_reticles_enemies" = "1"
+L 04/16/2018 - 11:10:32: "tf_passtime_player_reticles_friends" = "2"
+L 04/16/2018 - 11:10:32: "tf_passtime_score_crit_sec" = "5.0f"
+L 04/16/2018 - 11:10:32: "tf_passtime_speedboost_on_get_ball_time" = "2.0f"
+L 04/16/2018 - 11:10:32: "tf_passtime_steal_on_melee" = "1"
+L 04/16/2018 - 11:10:32: "tf_passtime_teammate_steal_time" = "45"
+L 04/16/2018 - 11:10:32: "tf_passtime_throwarc_scout" = "0.1f"
+L 04/16/2018 - 11:10:32: "tf_passtime_throwarc_soldier" = "0.1f"
+L 04/16/2018 - 11:10:32: "tf_passtime_throwarc_pyro" = "0.1f"
+L 04/16/2018 - 11:10:32: "tf_passtime_throwarc_demoman" = "0.15f"
+L 04/16/2018 - 11:10:32: "tf_passtime_throwarc_heavy" = "0.175f"
+L 04/16/2018 - 11:10:32: "tf_passtime_throwarc_engineer" = "0.2f"
+L 04/16/2018 - 11:10:32: "tf_passtime_throwarc_medic" = "0.0f"
+L 04/16/2018 - 11:10:32: "tf_passtime_throwarc_sniper" = "0.0f"
+L 04/16/2018 - 11:10:32: "tf_passtime_throwarc_spy" = "0.0f"
+L 04/16/2018 - 11:10:32: "tf_passtime_throwspeed_scout" = "700.0f"
+L 04/16/2018 - 11:10:32: "tf_passtime_throwspeed_soldier" = "800.0f"
+L 04/16/2018 - 11:10:32: "tf_passtime_throwspeed_pyro" = "750.0f"
+L 04/16/2018 - 11:10:32: "tf_passtime_throwspeed_demoman" = "850.0f"
+L 04/16/2018 - 11:10:32: "tf_passtime_throwspeed_heavy" = "850.0f"
+L 04/16/2018 - 11:10:32: "tf_passtime_throwspeed_engineer" = "850.0f"
+L 04/16/2018 - 11:10:32: "tf_passtime_throwspeed_medic" = "900.0f"
+L 04/16/2018 - 11:10:32: "tf_passtime_throwspeed_sniper" = "900.0f"
+L 04/16/2018 - 11:10:32: "tf_passtime_throwspeed_spy" = "900.0f"
+L 04/16/2018 - 11:10:32: "tf_passtime_throwspeed_velocity_scale" = "0.33f"
+L 04/16/2018 - 11:10:32: "tf_passtime_save_stats" = "0"
+L 04/16/2018 - 11:10:32: "tf_passtime_experiment_telepass" = "0"
+L 04/16/2018 - 11:10:32: "tf_passtime_experiment_instapass_charge" = "0"
+L 04/16/2018 - 11:10:32: "tf_passtime_experiment_autopass" = "0"
+L 04/16/2018 - 11:10:32: "tf_passtime_experiment_instapass" = "0"
+L 04/16/2018 - 11:10:32: "tf_passtime_powerball_decayamount" = "1"
+L 04/16/2018 - 11:10:32: "tf_passtime_powerball_decaysec" = "4.5f"
+L 04/16/2018 - 11:10:32: "tf_passtime_powerball_decaysec_neutral" = "1.5f"
+L 04/16/2018 - 11:10:32: "tf_passtime_powerball_passpoints" = "25"
+L 04/16/2018 - 11:10:32: "tf_passtime_powerball_threshold" = "80"
+L 04/16/2018 - 11:10:32: "tf_passtime_powerball_airtimebonus" = "40"
+L 04/16/2018 - 11:10:32: "tf_passtime_powerball_maxairtimebonus" = "100"
+L 04/16/2018 - 11:10:32: "tf_passtime_powerball_decay_delay" = "10"
+L 04/16/2018 - 11:10:32: "tf_passtime_pack_range" = "512"
+L 04/16/2018 - 11:10:32: "tf_passtime_pack_speed" = "1"
+L 04/16/2018 - 11:10:32: "tf_passtime_pack_hp_per_sec" = "2.0f"
+L 04/16/2018 - 11:10:32: "tf_use_fixed_weaponspreads" = "1"
+L 04/16/2018 - 11:10:32: "tf_max_charge_speed" = "750"
+L 04/16/2018 - 11:10:32: "tf_halloween_allow_truce_during_boss_event" = "0"
+L 04/16/2018 - 11:10:32: "tf_player_name_change_time" = "60"
+L 04/16/2018 - 11:10:32: "tf_spec_xray" = "1"
+L 04/16/2018 - 11:10:32: "tf_spawn_glows_duration" = "0"
+L 04/16/2018 - 11:10:32: "tf_force_holidays_off" = "0"
+L 04/16/2018 - 11:10:32: "tf_birthday" = "0"
+L 04/16/2018 - 11:10:32: "tf_spells_enabled" = "0"
+L 04/16/2018 - 11:10:32: "mp_tournament_stopwatch" = "1"
+L 04/16/2018 - 11:10:32: "mp_tournament_readymode" = "0"
+L 04/16/2018 - 11:10:32: "mp_tournament_readymode_min" = "2"
+L 04/16/2018 - 11:10:32: "mp_tournament_readymode_team_size" = "0"
+L 04/16/2018 - 11:10:32: "mp_tournament_readymode_countdown" = "10"
+L 04/16/2018 - 11:10:32: "mp_windifference" = "0"
+L 04/16/2018 - 11:10:32: "mp_windifference_min" = "0"
+L 04/16/2018 - 11:10:32: "tf_classlimit" = "0"
+L 04/16/2018 - 11:10:32: "tf_medieval" = "0"
+L 04/16/2018 - 11:10:32: "tf_medieval_autorp" = "1"
+L 04/16/2018 - 11:10:32: "tf_arena_force_class" = "0"
+L 04/16/2018 - 11:10:32: "tf_arena_change_limit" = "1"
+L 04/16/2018 - 11:10:32: "tf_arena_override_cap_enable_time" = "-1"
+L 04/16/2018 - 11:10:32: "tf_arena_first_blood" = "0"
+L 04/16/2018 - 11:10:32: "tf_mvm_min_players_to_start" = "3"
+L 04/16/2018 - 11:10:32: "tf_gamemode_arena" = "0"
+L 04/16/2018 - 11:10:32: "tf_gamemode_cp" = "0"
+L 04/16/2018 - 11:10:32: "tf_gamemode_ctf" = "0"
+L 04/16/2018 - 11:10:32: "tf_gamemode_sd" = "0"
+L 04/16/2018 - 11:10:32: "tf_gamemode_rd" = "0"
+L 04/16/2018 - 11:10:32: "tf_gamemode_pd" = "0"
+L 04/16/2018 - 11:10:32: "tf_gamemode_tc" = "0"
+L 04/16/2018 - 11:10:32: "tf_beta_content" = "0"
+L 04/16/2018 - 11:10:32: "tf_gamemode_payload" = "1"
+L 04/16/2018 - 11:10:32: "tf_gamemode_mvm" = "0"
+L 04/16/2018 - 11:10:32: "tf_gamemode_passtime" = "0"
+L 04/16/2018 - 11:10:32: "tf_gamemode_misc" = "0"
+L 04/16/2018 - 11:10:32: "tf_bot_count" = "0"
+L 04/16/2018 - 11:10:32: "tf_gravetalk" = "1"
+L 04/16/2018 - 11:10:32: "tf_ctf_bonus_time" = "0"
+L 04/16/2018 - 11:10:32: "tf_powerup_mode" = "0"
+L 04/16/2018 - 11:10:32: "tf_damage_disablespread" = "1"
+L 04/16/2018 - 11:10:32: "tf_weapon_criticals" = "0"
+L 04/16/2018 - 11:10:32: "tf_weapon_criticals_melee" = "1"
+L 04/16/2018 - 11:10:32: "sv_alltalk" = "0"
+L 04/16/2018 - 11:10:32: "mp_teamplay" = "0"
+L 04/16/2018 - 11:10:32: "mp_falldamage" = "0"
+L 04/16/2018 - 11:10:32: "mp_weaponstay" = "0"
+L 04/16/2018 - 11:10:32: "mp_forcerespawn" = "1"
+L 04/16/2018 - 11:10:32: "mp_footsteps" = "1"
+L 04/16/2018 - 11:10:32: "mp_flashlight" = "0"
+L 04/16/2018 - 11:10:32: "mp_autocrosshair" = "1"
+L 04/16/2018 - 11:10:32: "decalfrequency" = "10"
+L 04/16/2018 - 11:10:32: "mp_teamlist" = "hgrunt;scientist"
+L 04/16/2018 - 11:10:32: "mp_allowNPCs" = "1"
+L 04/16/2018 - 11:10:32: "sv_maxusrcmdprocessticks" = "24"
+L 04/16/2018 - 11:10:32: "tf_playergib" = "1"
+L 04/16/2018 - 11:10:32: "tf_allow_player_use" = "0"
+L 04/16/2018 - 11:10:32: "tf_mvm_death_penalty" = "0"
+L 04/16/2018 - 11:10:32: "sv_password" = ""
+L 04/16/2018 - 11:10:32: "sv_tags" = "nocrits,payload"
+L 04/16/2018 - 11:10:32: "tv_relaypassword" = ""
+L 04/16/2018 - 11:10:32: "tv_password" = ""
+L 04/16/2018 - 11:10:32: "deathmatch" = "1"
+L 04/16/2018 - 11:10:32: "coop" = "0"
+L 04/16/2018 - 11:10:32: "sv_cheats" = "0"
+L 04/16/2018 - 11:10:32: "sv_pausable" = "1"
+L 04/16/2018 - 11:10:32: "sv_contact" = ""
+L 04/16/2018 - 11:10:32: "sv_voiceenable" = "1"
+L 04/16/2018 - 11:10:32: "tv_enable" = "1"
+L 04/16/2018 - 11:10:32: "sv_steamgroup" = ""
+L 04/16/2018 - 11:10:32: server cvars end
+L 04/16/2018 - 11:10:33: Started map "plr_hightower" (CRC "539e837475e69798c2ac8ef32520e291")
+ConVarRef room_type doesn't point to an existing ConVar
+Executing dedicated server config file server.cfg
+Set motd from file 'cfg/motd_default.txt'.  ('cfg/motd.txt' was not found.)
+Set motd_text from file 'cfg/motd_text_default.txt'.  ('cfg/motd_text.txt' was not found.)
+SV_ActivateServer: setting tickrate to 66.7
+L 04/16/2018 - 11:10:38: server_cvar: "tf_gamemode_payload" "0"
+L 04/16/2018 - 11:10:38: server_cvar: "sv_tags" "nocrits"
+L 04/16/2018 - 11:10:38: server_cvar: "sv_tags" "nocrits"
+L 04/16/2018 - 11:10:38: server_cvar: "tf_gamemode_payload" "1"
+L 04/16/2018 - 11:10:38: server_cvar: "sv_tags" "nocrits,payload"
+L 04/16/2018 - 11:10:38: server_cvar: "sv_tags" "nocrits,payload"
+Cannot verify load for invalid steam ID [I:0:0]
+WARNING: ClientActive, but we don't know his SteamID?
+L 04/16/2018 - 11:10:38: "SourceTV<2><BOT><>" entered the game
+L 04/16/2018 - 11:10:38: "SourceTV<2><BOT><Unassigned>" joined team "Spectator"
+L 04/16/2018 - 11:10:38: "SourceTV<2><BOT><Spectator>" changed name to "Gameye SourceTV Stream"
+Recording SourceTV demo to auto-20180416-1110-plr_hightower.dem...
+Quit... 
+'server.cfg' not present; not executing.
+'plr_hightower.cfg' not present; not executing.
+SourceTV broadcast active.
+quit
+
+L 04/16/2018 - 11:10:38: "denise<4><[U:1:437819661]><>" disconnected (reason "Server shutting down")
+Dropped denise from server (Server shutting down)
+L 04/16/2018 - 11:10:38: "Smashmint<3><[U:1:49496129]><>" disconnected (reason "Server shutting down")
+Dropped Smashmint from server (Server shutting down)
+L 04/16/2018 - 11:10:38: "SourceTV<2><BOT><>" disconnected (reason "Server shutting down")
+Dropped SourceTV from server (Server shutting down)
+Completed SourceTV demo "auto-20180416-1110-plr_hightower.dem", recording time 0.0
+L 04/16/2018 - 11:10:38: server_message: "quit"
+L 04/16/2018 - 11:10:38: Log file closed.
+L 04/16/2018 - 11:10:38: server_message: "restart"
+Mon Apr 16 11:10:39 UTC 2018: Server Quit
+
