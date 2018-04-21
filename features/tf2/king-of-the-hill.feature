@@ -1,9 +1,10 @@
 @skip
 Feature: Get team score from log-files
 
-    Scenario Outline:
-        Given I have been playing a game of tf2 with the payload mode
-        When collect a log with the contents of <logfile>
+    Scenario Outline: king-of-the-hill mode
+        Given I play a game of tf2
+        And I store logs in <logfile>
+        When I process the logs
         And team <team 1> has a score of <score 1>
         And team <team 2> has a score of <score 2>
 
