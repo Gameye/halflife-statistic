@@ -16,7 +16,7 @@
                 "${workspaceRoot}/node/**/*.js"
             ],
             "preLaunchTask": "watch",
-            "console": "integratedTerminal"
+            "internalConsoleOptions": "openOnSessionStart"
         },
         {
             "type": "node",
@@ -34,7 +34,8 @@
                 "${workspaceRoot}/node/**/*.js"
             ],
             "preLaunchTask": "watch",
-            "console": "integratedTerminal"
+            "outputCapture": "std",
+            "internalConsoleOptions": "openOnSessionStart"
         },
     ]
 }
