@@ -1,8 +1,10 @@
 @skip
 Feature: As an API user I want to know the number of headshots per player
+
     Scenario Outline:
-        Given I have been playing a game of tf2
-        When collect a log with the contents of <logfile>
+        Given I play a game of tf2
+        And I store logs in <logfile>
+        When I process the logs
         Then player <player> had <headshots> headshots
     
     Examples:
