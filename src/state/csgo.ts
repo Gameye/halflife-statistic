@@ -1,6 +1,6 @@
 import {
     PlayerContainerState, RoundState,
-    StartStopState, TeamContainerState,
+    StartStopState, StatePatch, TeamContainerState,
 } from "@gameye/statistic-common";
 
 export type CsGoState =
@@ -8,3 +8,5 @@ export type CsGoState =
     RoundState &
     PlayerContainerState &
     TeamContainerState;
+
+export type CsGoPatch = StatePatch<CsGoState>;

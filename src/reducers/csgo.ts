@@ -1,6 +1,6 @@
 import { LogReducerBase, PlayerModel, StatePatch, TeamModel } from "@gameye/statistic-common";
 import { CsGoLogEvents, CsGoLogParser } from "../parsers";
-import { CsGoState } from "../state";
+import { CsGoPatch, CsGoState } from "../state";
 
 @LogReducerBase.register("csgo")
 export class CsGoLogReducer
@@ -38,7 +38,7 @@ export class CsGoLogReducer
 
     protected *reduceEvent(
         event: CsGoLogEvents,
-    ): Iterable<StatePatch<CsGoState>> {
+    ): Iterable<CsGoPatch> {
         yield* this.reduceSettingEvent(event);
         yield* this.reduceStartStopEvent(event);
         yield* this.reduceRoundStartStopEvent(event);
@@ -48,7 +48,7 @@ export class CsGoLogReducer
 
     protected * reduceSettingEvent(
         event: CsGoLogEvents,
-    ): Iterable<StatePatch<CsGoState>> {
+    ): Iterable<CsGoPatch> {
         switch (event.type) {
             case "number-parameter-value": {
                 const { payload } = event;
@@ -68,7 +68,7 @@ export class CsGoLogReducer
 
     protected *reduceStartStopEvent(
         event: CsGoLogEvents,
-    ): Iterable<StatePatch<CsGoState>> {
+    ): Iterable<CsGoPatch> {
         const state = this.getState();
 
         switch (event.type) {
@@ -103,7 +103,7 @@ export class CsGoLogReducer
 
     protected *reduceRoundStartStopEvent(
         event: CsGoLogEvents,
-    ): Iterable<StatePatch<CsGoState>> {
+    ): Iterable<CsGoPatch> {
         const { gameOver } = this;
         const state = this.getState();
 
@@ -146,7 +146,7 @@ export class CsGoLogReducer
 
     protected *reducePlayerEvent(
         event: CsGoLogEvents,
-    ): Iterable<StatePatch<CsGoState>> {
+    ): Iterable<CsGoPatch> {
         const state = this.getState();
 
         switch (event.type) {
@@ -168,7 +168,7 @@ export class CsGoLogReducer
                 yield {
                     path: ["player", playerKey],
                     value: playerState,
-                } as StatePatch<CsGoState>;
+                } as CsGoPatch;
                 break;
             }
 
@@ -178,11 +178,10 @@ export class CsGoLogReducer
                 const playerState = state.player[playerKey];
                 if (!playerState) break;
                 if (!playerState.connected) break;
-
                 yield {
                     path: ["player", playerKey, "connected"],
                     value: false,
-                } as StatePatch<CsGoState>;
+                } as CsGoPatch;
                 break;
             }
 
@@ -195,7 +194,7 @@ export class CsGoLogReducer
                             death: 0,
                             kill: 0,
                         },
-                    } as StatePatch<CsGoState>;
+                    } as CsGoPatch;
                 }
                 break;
             }
@@ -211,7 +210,7 @@ export class CsGoLogReducer
                 yield {
                     path: ["player", playerKey, "statistic", statisticKey],
                     value: playerState.statistic[statisticKey] + 1,
-                } as StatePatch<CsGoState>;
+                } as CsGoPatch;
                 break;
             }
 
@@ -231,7 +230,7 @@ export class CsGoLogReducer
                          * kill penalty
                          */
                         value: playerState.statistic[statisticKey] - 1,
-                    } as StatePatch<CsGoState>;
+                    } as CsGoPatch;
                 }
                 else {
                     const playerKey = payload.killer.key;
@@ -246,7 +245,7 @@ export class CsGoLogReducer
                          * increase your kill count
                          */
                         value: playerState.statistic[statisticKey] + 1,
-                    } as StatePatch<CsGoState>;
+                    } as CsGoPatch;
                 }
 
                 {
@@ -262,7 +261,7 @@ export class CsGoLogReducer
                          * own team, your death count will be increased
                          */
                         value: playerState.statistic[statisticKey] + 1,
-                    } as StatePatch<CsGoState>;
+                    } as CsGoPatch;
                 }
 
                 break;
@@ -282,7 +281,7 @@ export class CsGoLogReducer
                          * commiting suicide will increase your death count
                          */
                         value: playerState.statistic[statisticKey] + 1,
-                    } as StatePatch<CsGoState>;
+                    } as CsGoPatch;
                 }
 
                 {
@@ -294,7 +293,7 @@ export class CsGoLogReducer
                          * The killcount can even go below 0!!!
                          */
                         value: playerState.statistic[statisticKey] - 1,
-                    } as StatePatch<CsGoState>;
+                    } as CsGoPatch;
                 }
 
                 break;
@@ -306,7 +305,7 @@ export class CsGoLogReducer
 
     protected *reduceTeamEvent(
         event: CsGoLogEvents,
-    ): Iterable<StatePatch<CsGoState>> {
+    ): Iterable<CsGoPatch> {
         const { regularRounds, overtimeRounds } = this;
 
         switch (event.type) {
