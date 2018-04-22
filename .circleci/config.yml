@@ -18,7 +18,6 @@ jobs:
       - persist_to_workspace:
           root: .
           paths:
-            - .npmrc
             - node_modules
             - node
             - module
@@ -58,13 +57,12 @@ jobs:
       - attach_workspace: *attach_workspace
       - run: npm run spelling
 
-
-  publish:
+  deploy-production:
     docker:
       - image: circleci/python:3
         environment:
           - BUCKET: private.gameye.com
-    steps:
+    steps: &steps_deploy
       - attach_workspace: *attach_workspace
       - restore_cache: &restore_cache_pip
           key: pip-
@@ -79,7 +77,7 @@ jobs:
           s3://$BUCKET/statistic/$CIRCLE_PROJECT_REPONAME/
           --recursive
 
-  deploy-notifier:
+  notify-production: &notify
     docker: &docker_buildpack
       - image: circleci/buildpack-deps
     steps:
@@ -87,91 +85,81 @@ jobs:
           curl
           --request POST
           --header 'Content-type: application/json'
-          --data '{"text":"Deploy for '$CIRCLE_PROJECT_REPONAME' - '$CIRCLE_TAG'"}'
+          --data '{"text":"Deploy '$CIRCLE_PROJECT_REPONAME' - '$CIRCLE_TAG'"}'
           $SLACK_HOOK
 
-  publish-branch:
+  deploy-staging:
     docker:
       - image: circleci/python:3
         environment:
           - BUCKET: private.gameye.org
-    steps:
-      - attach_workspace: *attach_workspace
-      - restore_cache: *restore_cache_pip
-      - run: pip install awscli --user
-      - save_cache: *save_cache_pip
-      - run: >
-          ~/.local/bin/aws s3 cp
-          pub/
-          s3://$BUCKET/statistic/$CIRCLE_PROJECT_REPONAME/
-          --recursive
+    steps: *steps_deploy
 
-  deploy-notifier-branch:
-    docker: *docker_buildpack
-    steps:
-      - attach_workspace: *attach_workspace
-      - run: >
-          curl
-          --request POST
-          --header 'Content-type: application/json'
-          --data '{"text":"Deploy for '$CIRCLE_PROJECT_REPONAME' - '$CIRCLE_BRANCH'"}'
-          $SLACK_HOOK
+  notify-staging: *notify
 
 
 
 workflows:
   version: 2
-  test-and-deploy:
+  main:
     jobs:
       - prepare:
           context: npm-authorized
-          filters: &filters_all
+          filters: &filter_all
             tags:
               only: /.*?/
-
       - lint:
-          requires:
-            - prepare
-          filters: *filters_all
+          requires: [ prepare ]
+          filters: *filter_all
       - spec:
-          requires:
-            - prepare
-          filters: *filters_all
+          requires: [ prepare ]
+          filters: *filter_all
       - feature:
-          requires:
-            - prepare
-          filters: *filters_all
+          requires: [ prepare ]
+          filters: *filter_all
       - spelling:
-          requires:
-            - prepare
-          filters: *filters_all
+          requires: [ prepare ]
+          filters: *filter_all
 
-      - publish:
-          context: aws-authorized
-          requires: &requires_publish
-            - lint
-            - spec
-            - feature
-            - spelling
-          filters: &filters_publish
+      - approve-deploy:
+          type: approval
+          requires: [ lint, spec, feature, spelling ]
+          filters:
             branches:
               ignore: /.*?/
             tags:
-              only: /.*?/
-      - deploy-notifier:
-          context: slack-production
-          requires:
-            - publish
-          filters: *filters_publish
-      
-      - publish-branch:
+              only:
+                # v1.0.0
+                - /^v\d+\.\d+\.\d+$/
+                # v1.0.0-1 / v1.0.0
+                - /^v\d+\.\d+\.\d+(\-\d+)?$/
+
+      - deploy-production:
           context: aws-authorized
-          requires: *requires_publish
-          filters: &filters_publish_branch
+          requires: [ approve-deploy ]
+          filters: &filters_production
             branches:
-              only: master
-      - deploy-notifier-branch:
+              ignore: /.*?/
+            # v1.0.0
+            tags:
+              only: /^v\d+\.\d+\.\d+$/
+
+      - notify-production:
+          context: slack-production
+          requires: [ deploy-production ]
+          filters: *filters_production
+
+      - deploy-staging:
+          context: aws-authorized
+          requires: [ approve-deploy ]
+          filters: &filters_staging
+            branches:
+              ignore: /.*?/
+            # v1.0.0-1 / v1.0.0
+            tags:
+              only: /^v\d+\.\d+\.\d+(\-\d+)?$/
+
+      - notify-staging:
           context: slack-staging
-          requires:
-            - publish-branch
-          filters: *filters_publish_branch
+          requires: [ deploy-staging ]
+          filters: *filters_staging
