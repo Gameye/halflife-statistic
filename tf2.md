@@ -11,7 +11,7 @@ Description: player assisted another player in making a kill
 `L 04/19/2018 - 12:26:38: "Smashmint<4><[U:1:49496129]><Red>" triggered "kill assist" against "elmerbulthuis<8><[U:1:426663176]><Blue>" (assister_position "1016 1014 297") (attacker_position "1161 1212 271") (victim_position "1287 1120 258")`
 
 ### Death
-Description: player died, via a kill or sucide
+Description: player died, via a kill or suicide
 `L 03/26/2018 - 13:21:05: "Smashmint<3><[U:1:49496129]><Blue>" killed "denise<4><[U:1:437819661]><Red>" with "bat" (attacker_position "1160 101 544") (victim_position "1112 53 544")`  
 `L 04/16/2018 - 10:49:33: "denise<4><[U:1:437819661]><Red>" committed suicide with "world" (attacker_position "611 -351 -127")`
 
@@ -19,7 +19,7 @@ Description: player died, via a kill or sucide
 Description: player was killed with a backstab  
 `L 04/17/2018 - 14:37:58: "Smashmint<3><[U:1:49496129]><Blue>" killed "Micrux ¬ GAMEYE<4><[U:1:62797578]><Red>" with "eternal_reward" (customkill "backstab") (attacker_position "-530 -92 296") (victim_position "-474 -92 296")`
 
-### Defense
+### Defence
 Description: player defended a controlpoint from a takeover  
 `L 04/16/2018 - 14:40:08: "Smashmint<3><[U:1:49496129]><Red>" triggered "captureblocked" (cp "0") (cpname "#Badwater_cap_1") (position "-1182 -1570 0")`
 
@@ -40,7 +40,7 @@ Description: player launched an ubercharge
 `L 04/16/2018 - 14:43:17: "Micrux ¬ GAMEYE<4><[U:1:62797578]><Blue>" triggered "chargedeployed"`
 
 ### Revenge
-Description: player got revenge by killig his nemesis   
+Description: player got revenge by killing his nemesis   
 `L 04/16/2018 - 14:31:27: "Micrux ¬ GAMEYE<4><[U:1:62797578]><Red>" triggered "revenge" against "Smashmint<3><[U:1:49496129]><Blue>"`
 
 ## Detecting the game mode
