@@ -9,6 +9,6 @@ Feature: As an API user I want to know the number of headshots per player
     
     Examples:
         | logfile                          | player          | headshots |
-        | tf2-6v6test-koth.log             | Smashmint       | 1         |
-        | tf2-6v6test-koth.log             | Micrux ¬ GAMEYE | 0         |
+        | tf2-6v6test-payload-v4.log       | Smashmint       | 1         |
+        | tf2-6v6test-payload-v4.log       | Micrux ¬ GAMEYE | 0         |
         | tf2-6v6test-control-point-v2.log | Smashmint       | 1         |
