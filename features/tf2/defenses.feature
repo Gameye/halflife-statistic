@@ -11,5 +11,5 @@ Feature: As an API user I want to know the number of defenses per player
         | logfile                    | player     | defenses |
         | tf2-6v6test-payload.log    | Smashmint  | 9        |
         | tf2-6v6test-payload.log    | denise     | 1        |
-        | tf2-6v6test-payload-v2.log | Smashmint  | 0        |
-        | tf2-6v6test-payload-v2.log | denise     | 1        |
+        | tf2-6v6test-payload-v2.log | Smashmint  | 1        |
+        | tf2-6v6test-payload-v2.log | denise     | 0        |
