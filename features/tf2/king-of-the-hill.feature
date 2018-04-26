@@ -10,4 +10,4 @@ Feature: Get team score from log-files
 
     Examples:
         | logfile              | team 1 | team 2 | score 1 | score 2 | 
-        | tf2-6v6test-koth.log | Blue   | Red    | 2       | 1       | 
+        | tf2-6v6test-koth.log | Blue   | Red    | 2       | 0       | 

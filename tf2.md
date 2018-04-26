@@ -43,6 +43,20 @@ Description: player launched an ubercharge
 Description: player got revenge by killing his nemesis   
 `L 04/16/2018 - 14:31:27: "Micrux ¬ GAMEYE<4><[U:1:62797578]><Red>" triggered "revenge" against "Smashmint<3><[U:1:49496129]><Blue>"`
 
+## Other game events
+
+### Round ended
+Description: round has ended  
+`L 04/25/2018 - 14:47:09: World triggered "Round_Win" (winner "Blue")`  
+
+### Match start
+Description: we take the start of the first round as an indicator that the match has started  
+`L 04/16/2018 - 14:20:48: World triggered "Round_Start"`
+
+### Match ended
+Description: match has ended  
+`L 04/25/2018 - 14:49:03: World triggered "Game_Over" reason "Reached Round Limit"`  
+
 ## Detecting the game mode
 
 ### Control Point
