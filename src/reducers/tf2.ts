@@ -7,6 +7,7 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
 {
     // TODO: implement the reducer ;-)
     private gameOver: boolean = false;
+    private roundId: string = "";
     private roundCount: number = 0;
 
     protected createParser() {
@@ -29,7 +30,7 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
     ): Iterable<Tf2Patch> {
         // yield* this.reduceSettingEvent(event);
         yield* this.reduceStartStopEvent(event);
-        // yield* this.reduceRoundStartStopEvent(event);
+        yield* this.reduceRoundStartStopEvent(event);
         // yield* this.reducePlayerEvent(event);
         // yield* this.reduceTeamEvent(event);
     }
@@ -55,6 +56,73 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
                     path: ["stop"],
                     value: stop,
                 };
+                break;
+            }
+        }
+    }
+
+    protected *reduceRoundStartStopEvent(
+        event: Tf2LogEvents,
+    ): Iterable<Tf2Patch> {
+        const { gameOver } = this;
+        const state = this.getState();
+
+        switch (event.type) {
+            case "round-start": {
+                this.gameOver = false;
+                if (this.roundCount === 0) {
+                    yield {
+                        path: ["startedRounds"],
+                        value: 0,
+                    };
+                    yield {
+                        path: ["finishedRounds"],
+                        value: 0,
+                    };
+                }
+                this.roundCount++;
+                if (gameOver) break;
+                yield {
+                    path: ["startedRounds"],
+                    value: state.startedRounds + 1,
+                };
+                break;
+            }
+            case "round-end": {
+                if (gameOver) break;
+                yield {
+                    path: ["finishedRounds"],
+                    value: state.finishedRounds + 1,
+                };
+                break;
+            }
+            case "game-over": {
+                if (gameOver) break;
+                this.gameOver = true;
+                break;
+            }
+            // case "mini-round-start": {
+            //     if (gameOver) break;
+            //     this.roundId = event.payload.round;
+            //     yield {
+            //         path: ["startedRounds"],
+            //         value: state.startedRounds + 1,
+            //     };
+            //     break;
+            // }
+            // case "mini-round-end": {
+            //     if (gameOver) break;
+            //     if (this.roundId !== event.payload.round) break;
+            //     this.roundId = ""; // reset the roundId
+            //     yield {
+            //         path: ["finishedRounds"],
+            //         value: state.finishedRounds + 1,
+            //     };
+            //     break;
+            // }
+            case "game-over": {
+                if (gameOver) break;
+                this.gameOver = true;
                 break;
             }
         }

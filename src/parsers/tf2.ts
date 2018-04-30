@@ -11,7 +11,9 @@ export type Tf2LogEvents = // assume we share events with CsGo ...
     event.GameOverEvent |
     event.MatchStartEvent |
     event.RoundStartEvent |
+    event.MiniRoundStartEvent |
     event.RoundEndEvent |
+    event.MiniRoundEndEvent |
     event.PlayerConnectedEvent |
     event.PlayerDisconnectedEvent |
     event.PlayerAssistedEvent |
@@ -37,7 +39,41 @@ export class Tf2LogParser extends HalflifeLogParserBase<Tf2LogEvents> {
             }),
         );
 
-        // L 04/16/2018 - 10:52:26: World triggered "Round_Win" (winner "Blue")
+        // this.registerHalflifeParser(
+        //     /^World\s+triggered\s+"Mini_Round_Selected"\s+\(round\s+"(.+?)"\)$/i,
+        //     (halflifeLine, roundId) => ({
+        //         type: "mini-round-start",
+        //         payload: {
+        //             timestamp: halflifeLine.timestamp,
+        //             round: roundId,
+        //         },
+        //     }),
+        // );
+
+        // this.registerHalflifeParser(
+        //     /^World\s+triggered\s+"Mini_Round_start"$/i,
+        //     halflifeLine => ({
+        //         type: "mini-round-start",
+        //         payload: {
+        //             timestamp: halflifeLine.timestamp,
+        //             round: "test",
+        //         },
+        //     }),
+        // );
+
+        // L 04/16/2018 - 10:52:26: World triggered "Mini_Round_Win" (winner "Blue")
+        // this.registerHalflifeParser(
+        //     /^World\s+triggered\s+"Mini_Round_Win"\s+\(winner "(.+?)"\)\s+\(round "(.+?)"\)$/i,
+        //     (halflifeLine, winnerId, roundId) => ({
+        //         type: "mini-round-end",
+        //         payload: {
+        //             timestamp: halflifeLine.timestamp,
+        //             round: roundId,
+        //             winner: winnerId,
+        //         },
+        //     }),
+        // );
+
         this.registerHalflifeParser(
             /^World\s+triggered\s+"Round_Win"$/i,
             halflifeLine => ({
