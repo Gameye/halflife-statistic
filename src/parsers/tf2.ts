@@ -11,9 +11,9 @@ export type Tf2LogEvents = // assume we share events with CsGo ...
     event.GameOverEvent |
     event.MatchStartEvent |
     event.RoundStartEvent |
-    event.MiniRoundStartEvent |
+    // event.MiniRoundStartEvent |
     event.RoundEndEvent |
-    event.MiniRoundEndEvent |
+    // event.MiniRoundEndEvent |
     event.PlayerConnectedEvent |
     event.PlayerDisconnectedEvent |
     event.PlayerAssistedEvent |
