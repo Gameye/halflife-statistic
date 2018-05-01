@@ -101,25 +101,6 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
                 this.gameOver = true;
                 break;
             }
-            // case "mini-round-start": {
-            //     if (gameOver) break;
-            //     this.roundId = event.payload.round;
-            //     yield {
-            //         path: ["startedRounds"],
-            //         value: state.startedRounds + 1,
-            //     };
-            //     break;
-            // }
-            // case "mini-round-end": {
-            //     if (gameOver) break;
-            //     if (this.roundId !== event.payload.round) break;
-            //     this.roundId = ""; // reset the roundId
-            //     yield {
-            //         path: ["finishedRounds"],
-            //         value: state.finishedRounds + 1,
-            //     };
-            //     break;
-            // }
             case "game-over": {
                 if (gameOver) break;
                 this.gameOver = true;
