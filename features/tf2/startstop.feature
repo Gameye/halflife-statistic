@@ -8,5 +8,5 @@ Feature: Get start and stop times from log-files
         And I have a game stop timestamp <stop>
     
     Examples:
-        | logfile                          | start          | stop           |
-        | tf2-6v6test-payload.log          | 1523875402000  | 1523877021000  |
+        | logfile                          | start                 | stop                  |
+        | tf2-6v6test-payload.log          | 04/16/2018 - 10:43:22 | 04/16/2018 - 11:10:21 |
