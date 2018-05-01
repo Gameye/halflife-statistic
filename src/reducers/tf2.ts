@@ -6,7 +6,9 @@ import { Tf2Patch, Tf2State } from "../state";
 export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
 {
     // TODO: implement the reducer ;-)
-    private gameOver = false;
+    private gameOver: boolean = false;
+    private roundId: string = "";
+    private roundCount: number = 0;
 
     protected createParser() {
         return new Tf2LogParser();
@@ -28,7 +30,7 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
     ): Iterable<Tf2Patch> {
         // yield* this.reduceSettingEvent(event);
         yield* this.reduceStartStopEvent(event);
-        // yield* this.reduceRoundStartStopEvent(event);
+        yield* this.reduceRoundStartStopEvent(event);
         // yield* this.reducePlayerEvent(event);
         // yield* this.reduceTeamEvent(event);
     }
@@ -42,15 +44,6 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
             case "round-start": {
                 const start = event.payload.timestamp;
                 if (!state.start) yield {
-                    path: ["start"],
-                    value: start,
-                };
-                break;
-            }
-
-            case "game-commencing": {
-                const start = event.payload.timestamp;
-                yield {
                     path: ["start"],
                     value: start,
                 };
@@ -75,19 +68,19 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
         const state = this.getState();
 
         switch (event.type) {
-            case "match-start": {
-                this.gameOver = false;
-                yield {
-                    path: ["startedRounds"],
-                    value: 0,
-                };
-                yield {
-                    path: ["finishedRounds"],
-                    value: 0,
-                };
-                break;
-            }
             case "round-start": {
+                this.gameOver = false;
+                if (this.roundCount === 0) {
+                    yield {
+                        path: ["startedRounds"],
+                        value: 0,
+                    };
+                    yield {
+                        path: ["finishedRounds"],
+                        value: 0,
+                    };
+                }
+                this.roundCount++;
                 if (gameOver) break;
                 yield {
                     path: ["startedRounds"],
@@ -103,6 +96,30 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
                 };
                 break;
             }
+            case "game-over": {
+                if (gameOver) break;
+                this.gameOver = true;
+                break;
+            }
+            // case "mini-round-start": {
+            //     if (gameOver) break;
+            //     this.roundId = event.payload.round;
+            //     yield {
+            //         path: ["startedRounds"],
+            //         value: state.startedRounds + 1,
+            //     };
+            //     break;
+            // }
+            // case "mini-round-end": {
+            //     if (gameOver) break;
+            //     if (this.roundId !== event.payload.round) break;
+            //     this.roundId = ""; // reset the roundId
+            //     yield {
+            //         path: ["finishedRounds"],
+            //         value: state.finishedRounds + 1,
+            //     };
+            //     break;
+            // }
             case "game-over": {
                 if (gameOver) break;
                 this.gameOver = true;
