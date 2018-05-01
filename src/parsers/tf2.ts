@@ -39,6 +39,31 @@ export class Tf2LogParser extends HalflifeLogParserBase<Tf2LogEvents> {
             }),
         );
 
+        // L 04/16/2018 - 10:42:17: "Smashmint<3><[U:1:49496129]><>" connected, address "172.17.0.1:59541"
+        this.registerHalflifeParser(
+            /^(".*?")\s+connected,\s+address\s+"(.*)"$/i,
+            (halflifeLine, playerString, address) => ({
+                type: "player-connected",
+                payload: {
+                    player: this.parsePlayerWithTeam(playerString),
+                    timestamp: halflifeLine.timestamp,
+                },
+            }),
+        );
+
+        // "Adam<4><BOT><TERRORIST>" disconnected (reason "Kicked by Console")
+        this.registerHalflifeParser(
+            /^(".*?")\s+disconnected$/i,
+            (halflifeLine, playerString) => ({
+                type: "player-disconnected",
+                payload: {
+                    player: this.parsePlayerWithTeam(playerString),
+                    reason: halflifeLine.argMap.reason,
+                    timestamp: halflifeLine.timestamp,
+                },
+            }),
+        );
+
         // this.registerHalflifeParser(
         //     /^World\s+triggered\s+"Mini_Round_Selected"\s+\(round\s+"(.+?)"\)$/i,
         //     (halflifeLine, roundId) => ({
