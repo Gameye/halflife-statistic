@@ -9,6 +9,12 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
     private gameOver: boolean = false;
     private roundId: string = "";
     private roundCount: number = 0;
+    private sides = ["Red", "Blue"];
+    private sideScoreHelper = [0, 0];
+    private teamNameHelper = ["1", "2"];
+    private playerHelper: {
+        [key: string]: number;
+    } = {};
 
     protected createParser() {
         return new Tf2LogParser();
@@ -31,7 +37,7 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
         // yield* this.reduceSettingEvent(event);
         yield* this.reduceStartStopEvent(event);
         yield* this.reduceRoundStartStopEvent(event);
-        // yield* this.reducePlayerEvent(event);
+        yield* this.reducePlayerEvent(event);
         // yield* this.reduceTeamEvent(event);
     }
 
@@ -108,4 +114,224 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
             }
         }
     }
+
+    protected *reduceTeamEvent(
+        event: Tf2LogEvents,
+    ): Iterable<Tf2Patch> {
+
+        switch (event.type) {
+
+            // case "team-playing": {
+            //     const { payload } = event;
+            //     const sideIndex = this.getSideIndex(payload.team);
+            //     const teamIndex = this.getTeamIndex(sideIndex);
+            //     if (teamIndex < 0) break;
+            //     this.teamNameHelper[teamIndex] = payload.clantag;
+
+            //     yield {
+            //         path: ["team"],
+            //         value: this.makeTeamState(),
+            //     };
+            //     break;
+            // }
+
+            // case "team-score": {
+            //     const { payload } = event;
+            //     const sideIndex = this.getSideIndex(payload.team);
+            //     if (sideIndex < 0) break;
+            //     this.sideScoreHelper[sideIndex] = payload.score;
+
+            //     yield {
+            //         path: ["team"],
+            //         value: this.makeTeamState(),
+            //     };
+            //     break;
+            // }
+
+            // case "round-start":
+            // case "round-end": {
+            //     yield {
+            //         path: ["team"],
+            //         value: this.makeTeamState(),
+            //     };
+            //     break;
+            // }
+
+            // case "player-switched-team": {
+            //     const { payload } = event;
+            //     const playerKey = payload.player.key;
+            //     const sideIndex = this.getSideIndex(payload.newTeam);
+
+            //     this.playerHelper[playerKey] = sideIndex;
+
+            //     yield {
+            //         path: ["team"],
+            //         value: this.makeTeamState(),
+            //     };
+            //     break;
+            // }
+
+        }
+
+    }
+
+    protected *reducePlayerEvent(
+        event: Tf2LogEvents,
+    ): Iterable<Tf2Patch> {
+        const state = this.getState();
+
+        switch (event.type) {
+
+            case "player-connected": {
+                const playerKey = event.payload.player.key;
+                const playerState: PlayerModel = {
+                    connected: true,
+                    playerKey,
+                    uid: event.payload.player.uid,
+                    name: event.payload.player.name,
+                    statistic: {
+                        assist: 0,
+                        death: 0,
+                        kill: 0,
+                    },
+                };
+
+                yield {
+                    path: ["player", playerKey],
+                    value: playerState,
+                } as Tf2Patch;
+                break;
+            }
+
+            case "player-disconnected": {
+                const playerKey = event.payload.player.key;
+
+                const playerState = state.player[playerKey];
+                if (!playerState) break;
+                if (!playerState.connected) break;
+                yield {
+                    path: ["player", playerKey, "connected"],
+                    value: false,
+                } as Tf2Patch;
+                break;
+            }
+
+            case "match-start": {
+                for (const playerKey of Object.keys(state.player).map(String)) {
+                    yield {
+                        path: ["player", playerKey, "statistic"],
+                        value: {
+                            assist: 0,
+                            death: 0,
+                            kill: 0,
+                        },
+                    } as Tf2Patch;
+                }
+                break;
+            }
+
+            case "player-assisted": {
+                const { payload } = event;
+
+                const playerKey = payload.assister.key;
+                const playerState = state.player[playerKey];
+                if (!playerState) break;
+
+                const statisticKey = "assist";
+                yield {
+                    path: ["player", playerKey, "statistic", statisticKey],
+                    value: playerState.statistic[statisticKey] + 1,
+                } as Tf2Patch;
+                break;
+            }
+
+            case "player-killed": {
+                const { payload } = event;
+
+                if (payload.killer.team === payload.victim.team) {
+                    const playerKey = payload.killer.key;
+                    const playerState = state.player[playerKey];
+                    if (!playerState) break;
+
+                    const statisticKey = "kill";
+                    yield {
+                        path: ["player", playerKey, "statistic", statisticKey],
+                        /**
+                         * Killing someone from your own team will result in a
+                         * kill penalty
+                         */
+                        value: playerState.statistic[statisticKey] - 1,
+                    } as Tf2Patch;
+                }
+                else {
+                    const playerKey = payload.killer.key;
+                    const playerState = state.player[playerKey];
+                    if (!playerState) break;
+
+                    const statisticKey = "kill";
+                    yield {
+                        path: ["player", playerKey, "statistic", statisticKey],
+                        /**
+                         * Ofcourse killing someone from another team will
+                         * increase your kill count
+                         */
+                        value: playerState.statistic[statisticKey] + 1,
+                    } as Tf2Patch;
+                }
+
+                {
+                    const playerKey = payload.victim.key;
+                    const playerState = state.player[playerKey];
+                    if (!playerState) break;
+
+                    const statisticKey = "death";
+                    yield {
+                        path: ["player", playerKey, "statistic", statisticKey],
+                        /**
+                         * If you are killed by anyone, even someone from your
+                         * own team, your death count will be increased
+                         */
+                        value: playerState.statistic[statisticKey] + 1,
+                    } as Tf2Patch;
+                }
+
+                break;
+            }
+
+            case "player-suicide": {
+                const { payload } = event;
+                const playerKey = payload.player.key;
+                const playerState = state.player[playerKey];
+                if (!playerState) break;
+
+                {
+                    const statisticKey = "death";
+                    yield {
+                        path: ["player", playerKey, "statistic", statisticKey],
+                        /**
+                         * commiting suicide will increase your death count
+                         */
+                        value: playerState.statistic[statisticKey] + 1,
+                    } as Tf2Patch;
+                }
+
+                // {
+                //     const statisticKey = "kill";
+                //     yield {
+                //         path: ["player", playerKey, "statistic", statisticKey],
+                //         /**
+                //          * Commiting suicide will result in a kill penalty!
+                //          * The killcount can even go below 0!!!
+                //          */
+                //         value: playerState.statistic[statisticKey] - 1,
+                //     } as Tf2Patch;
+                // }
+
+                break;
+            }
+
+        }
+
+    }
+
 }
