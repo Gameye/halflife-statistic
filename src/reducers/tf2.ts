@@ -23,6 +23,18 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
         "player-destructed": "destruction",
         "player-ubercharged": "ubercharge",
     };
+    private zeroStatistics = {
+        assist: 0,
+        death: 0,
+        kill: 0,
+        headshot: 0,
+        backstab: 0,
+        revenge: 0,
+        domination: 0,
+        defense: 0,
+        destruction: 0,
+        ubercharge: 0,
+    };
 
     protected createParser() {
         return new Tf2LogParser();
@@ -197,18 +209,7 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
                     playerKey,
                     uid: event.payload.player.uid,
                     name: event.payload.player.name,
-                    statistic: {
-                        assist: 0,
-                        death: 0,
-                        kill: 0,
-                        headshot: 0,
-                        backstab: 0,
-                        revenge: 0,
-                        domination: 0,
-                        defense: 0,
-                        destruction: 0,
-                        ubercharge: 0,
-                    },
+                    statistic: this.zeroStatistics,
                 };
 
                 yield {
@@ -235,11 +236,7 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
                 for (const playerKey of Object.keys(state.player).map(String)) {
                     yield {
                         path: ["player", playerKey, "statistic"],
-                        value: {
-                            assist: 0,
-                            death: 0,
-                            kill: 0,
-                        },
+                        value: this.zeroStatistics,
                     } as Tf2Patch;
                 }
                 break;
