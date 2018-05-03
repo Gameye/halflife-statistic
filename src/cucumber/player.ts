@@ -4,6 +4,34 @@ import * as cucumber from "cucumber";
 import { GameBag, TestWorld } from ".";
 
 cucumber.Then(
+    /^the players (.*) were active in the game$/i,
+    async function (playerNames: string | string[]) {
+        playerNames = String(playerNames).split(/\s*,\s*/).filter(Boolean);
+
+        const { bag } = this as TestWorld<GameBag>;
+        const { game } = bag;
+        if (!game) throw new Error(`game not set`);
+
+        const { reducer } = game;
+        const state: PlayerContainerState = reducer.getState();
+
+        const expectedPlayerHash = playerNames.reduce(
+            (o, i) => Object.assign(o, { [i]: true }),
+            {} as { [name: string]: true },
+        );
+
+        const actualPlayerHash = Object.values(state.player).
+            map(p => p.name).
+            reduce(
+                (o, i) => Object.assign(o, { [i]: true }),
+                {} as { [name: string]: true },
+        );
+
+        assert.deepEqual(actualPlayerHash, expectedPlayerHash);
+    },
+);
+
+cucumber.Then(
     /^player (.+) had (\-?\d+) ([a-z]+)s$/i,
     async function (playerName, statisticCount, statisticKey) {
         playerName = String(playerName);
