@@ -1,4 +1,3 @@
-@skip
 Feature: As an API user I want to know the number of revenges per player
     
     Scenario Outline:

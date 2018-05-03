@@ -15,6 +15,11 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
     private playerHelper: {
         [key: string]: number;
     } = {};
+    private statsHelper = {
+        "player-assisted": "assist",
+        "player-dominated": "domination",
+        "player-revenged": "revenge",
+    };
 
     protected createParser() {
         return new Tf2LogParser();
@@ -195,6 +200,8 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
                         kill: 0,
                         headshot: 0,
                         backstab: 0,
+                        revenge: 0,
+                        domination: 0,
                     },
                 };
 
@@ -232,14 +239,17 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
                 break;
             }
 
-            case "player-assisted": {
+            case "player-assisted":
+            case "player-dominated":
+            case "player-revenged": {
                 const { payload } = event;
 
                 const playerKey = payload.assister.key;
                 const playerState = state.player[playerKey];
                 if (!playerState) break;
 
-                const statisticKey = "assist";
+                const statisticKey = this.statsHelper[event.type];
+
                 yield {
                     path: ["player", playerKey, "statistic", statisticKey],
                     value: playerState.statistic[statisticKey] + 1,

@@ -11,12 +11,12 @@ export type Tf2LogEvents = // assume we share events with CsGo ...
     event.GameOverEvent |
     event.MatchStartEvent |
     event.RoundStartEvent |
-    // event.MiniRoundStartEvent |
     event.RoundEndEvent |
-    // event.MiniRoundEndEvent |
     event.PlayerConnectedEvent |
     event.PlayerDisconnectedEvent |
     event.PlayerAssistedEvent |
+    event.PlayerRevengeEvent |
+    event.PlayerDominationEvent |
     event.PlayerKilledEvent |
     event.PlayerSuicideEvent |
     event.PlayerSwitchedTeamEvent |
@@ -82,6 +82,32 @@ export class Tf2LogParser extends HalflifeLogParserBase<Tf2LogEvents> {
             /^(".*?")\s+triggered\s+"kill assist"\s+against\s+(".*?")/i,
             (halflifeLine, assisterPlayerString, victimPlayerString) => ({
                 type: "player-assisted",
+                payload: {
+                    assister: this.parsePlayerWithTeam(assisterPlayerString),
+                    victim: this.parsePlayerWithTeam(victimPlayerString),
+                    timestamp: halflifeLine.timestamp,
+                },
+            }),
+        );
+
+        // L 04/16/2018 - 14:31:27: "Micrux ¬ GAMEYE<4><[U:1:62797578]><Red>" triggered "revenge" against "Smashmint<3><[U:1:49496129]><Blue>"
+        this.registerHalflifeParser(
+            /^(".*?")\s+triggered\s+"revenge"\s+against\s+(".*?")/i,
+            (halflifeLine, assisterPlayerString, victimPlayerString) => ({
+                type: "player-revenged",
+                payload: {
+                    assister: this.parsePlayerWithTeam(assisterPlayerString),
+                    victim: this.parsePlayerWithTeam(victimPlayerString),
+                    timestamp: halflifeLine.timestamp,
+                },
+            }),
+        );
+
+        // L 04/16/2018 - 14:30:51: "Smashmint<3><[U:1:49496129]><Blue>" triggered "domination" against "Micrux ¬ GAMEYE<4><[U:1:62797578]><Red>"
+        this.registerHalflifeParser(
+            /^(".*?")\s+triggered\s+"domination"\s+against\s+(".*?")/i,
+            (halflifeLine, assisterPlayerString, victimPlayerString) => ({
+                type: "player-dominated",
                 payload: {
                     assister: this.parsePlayerWithTeam(assisterPlayerString),
                     victim: this.parsePlayerWithTeam(victimPlayerString),
