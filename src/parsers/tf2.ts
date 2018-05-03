@@ -23,6 +23,7 @@ export type Tf2LogEvents = // assume we share events with CsGo ...
     event.PlayerKilledEvent |
     event.PlayerSuicideEvent |
     event.PlayerSwitchedTeamEvent |
+    event.PlayerJoinedTeamEvent |
     event.TeamPlayingEvent |
     event.TeamScoreEvent |
     event.NumberParameterValueEvent;
@@ -71,7 +72,7 @@ export class Tf2LogParser extends HalflifeLogParserBase<Tf2LogEvents> {
         this.registerHalflifeParser(
             /^(".*?")\s+joined\s+team\s+"(.*?)"$/i,
             (halflifeLine, playerString, newTeam) => ({
-                type: "player-switched-team",
+                type: "player-joined-team",
                 payload: {
                     player: this.parsePlayerWithTeam(playerString),
                     oldTeam: "player_team",
