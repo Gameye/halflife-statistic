@@ -1,3 +1,5 @@
+@skip
+
 Feature: As an API user I want to know the game scores per player
 
     Scenario Outline:
