@@ -193,6 +193,8 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
                         assist: 0,
                         death: 0,
                         kill: 0,
+                        headshot: 0,
+                        backstab: 0,
                     },
                 };
 
@@ -247,53 +249,35 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
 
             case "player-killed": {
                 const { payload } = event;
+                const playerKey = payload.killer.key;
+                const playerState = state.player[playerKey];
 
-                if (payload.killer.team === payload.victim.team) {
-                    const playerKey = payload.killer.key;
-                    const playerState = state.player[playerKey];
-                    if (!playerState) break;
+                if (!playerState) break;
 
-                    const statisticKey = "kill";
+                const fiendlyFire = (payload.killer.team === payload.victim.team);
+                // Killing someone from your own team will result in a kill penalty
+                const killScore = (fiendlyFire ? -1 : +1);
+
+                yield {
+                    path: ["player", playerKey, "statistic", "kill"],
+                    value: playerState.statistic.kill + killScore,
+                } as Tf2Patch;
+
+                if (payload.customkill) {
                     yield {
-                        path: ["player", playerKey, "statistic", statisticKey],
-                        /**
-                         * Killing someone from your own team will result in a
-                         * kill penalty
-                         */
-                        value: playerState.statistic[statisticKey] - 1,
-                    } as Tf2Patch;
-                }
-                else {
-                    const playerKey = payload.killer.key;
-                    const playerState = state.player[playerKey];
-                    if (!playerState) break;
-
-                    const statisticKey = "kill";
-                    yield {
-                        path: ["player", playerKey, "statistic", statisticKey],
-                        /**
-                         * Ofcourse killing someone from another team will
-                         * increase your kill count
-                         */
-                        value: playerState.statistic[statisticKey] + 1,
+                        path: ["player", playerKey, "statistic", payload.customkill],
+                        value: playerState.statistic[payload.customkill] + killScore,
                     } as Tf2Patch;
                 }
 
-                {
-                    const playerKey = payload.victim.key;
-                    const playerState = state.player[playerKey];
-                    if (!playerState) break;
-
-                    const statisticKey = "death";
-                    yield {
-                        path: ["player", playerKey, "statistic", statisticKey],
-                        /**
-                         * If you are killed by anyone, even someone from your
-                         * own team, your death count will be increased
-                         */
-                        value: playerState.statistic[statisticKey] + 1,
-                    } as Tf2Patch;
-                }
+                yield {
+                    path: ["player", playerKey, "statistic", "death"],
+                    /**
+                     * If you are killed by anyone, even someone from your
+                     * own team, your death count will be increased
+                     */
+                    value: playerState.statistic.death + 1,
+                } as Tf2Patch;
 
                 break;
             }

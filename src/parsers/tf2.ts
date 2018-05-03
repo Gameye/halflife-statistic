@@ -91,14 +91,18 @@ export class Tf2LogParser extends HalflifeLogParserBase<Tf2LogEvents> {
         );
 
         // L 04/19/2018 - 12:09:37: "Smashmint<4><[U:1:49496129]><Red>" killed "denise<3><[U:1:437819661]><Blue>" with "loch_n_load" (attacker_position "-806 -419 559") (victim_position "-1215 321 508")
+        // L 04/17/2018 - 14:37:58: "Smashmint<3><[U:1:49496129]><Blue>" killed "Micrux ¬ GAMEYE<4><[U:1:62797578]><Red>" with "eternal_reward" (customkill "backstab") (attacker_position "-530 -92 296") (victim_position "-474 -92 296")
+        // L 04 / 19 / 2018 - 15: 17: 21: "Smashmint<3><[U:1:49496129]><Blue>" killed "denise<4><[U:1:437819661]><Red>" with "the_classic"(customkill "headshot")(attacker_position "-1432 737 -141")(victim_position "-1517 46 -376")
         this.registerHalflifeParser(
-            /^(".*?")\s+killed\s+(".*?")/i,
-            (halflifeLine, killerPlayerString, victimPlayerString) => ({
+            /^(".*?")\s+killed\s+(".*?")\s+with\s+"(.*?)"/i,
+            (halflifeLine, killerPlayerString, victimPlayerString, weapon) => ({
                 type: "player-killed",
                 payload: {
                     killer: this.parsePlayerWithTeam(killerPlayerString),
                     victim: this.parsePlayerWithTeam(victimPlayerString),
                     timestamp: halflifeLine.timestamp,
+                    weapon,
+                    customkill: halflifeLine.argMap.customkill,
                 },
             }),
         );

@@ -36,6 +36,8 @@ export type PlayerSuicideEvent = EventBase<"player-suicide", PlayerSuicidePayloa
 export interface PlayerKilledPayload extends TimestampPayload {
     killer: PlayerWithTeamModel;
     victim: PlayerWithTeamModel;
+    weapon?: string;
+    customkill?: string;
 }
 export type PlayerKilledEvent = EventBase<"player-killed", PlayerKilledPayload>;
 
