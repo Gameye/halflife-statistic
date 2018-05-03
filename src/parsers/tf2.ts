@@ -110,7 +110,7 @@ export class Tf2LogParser extends HalflifeLogParserBase<Tf2LogEvents> {
                 type: "player-suicide",
                 payload: {
                     player: this.parsePlayerWithTeam(playerString),
-                    playerPosition: halflifeLine.argMap.attacker_position.split(" ").map(parseInt) as event.PositionModel,
+                    playerPosition: halflifeLine.argMap.attacker_position.split(" ").map(Number) as event.PositionModel,
                     cause,
                     timestamp: halflifeLine.timestamp,
                 },
