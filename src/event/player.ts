@@ -48,13 +48,28 @@ export interface PlayerAssistedPayload extends TimestampPayload {
 export type PlayerAssistedEvent = EventBase<"player-assisted", PlayerAssistedPayload>;
 
 export interface PlayerRevengePayload extends TimestampPayload {
-    assister: PlayerWithTeamModel;
+    player: PlayerWithTeamModel;
     victim: PlayerWithTeamModel;
 }
 export type PlayerRevengeEvent = EventBase<"player-revenged", PlayerRevengePayload>;
 
 export interface PlayerDominationPayload extends TimestampPayload {
-    assister: PlayerWithTeamModel;
+    player: PlayerWithTeamModel;
     victim: PlayerWithTeamModel;
 }
 export type PlayerDominationEvent = EventBase<"player-dominated", PlayerDominationPayload>;
+
+export interface PlayerDefensePayload extends TimestampPayload {
+    player: PlayerWithTeamModel;
+}
+export type PlayerDefenseEvent = EventBase<"player-defensed", PlayerDefensePayload>;
+
+export interface PlayerDestructionPayload extends TimestampPayload {
+    player: PlayerWithTeamModel;
+}
+export type PlayerDestructionEvent = EventBase<"player-destructed", PlayerDestructionPayload>;
+
+export interface PlayerUberchargePayload extends TimestampPayload {
+    player: PlayerWithTeamModel;
+}
+export type PlayerUberchargeEvent = EventBase<"player-ubercharged", PlayerUberchargePayload>;

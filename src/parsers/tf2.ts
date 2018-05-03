@@ -16,7 +16,10 @@ export type Tf2LogEvents = // assume we share events with CsGo ...
     event.PlayerDisconnectedEvent |
     event.PlayerAssistedEvent |
     event.PlayerRevengeEvent |
+    event.PlayerDestructionEvent |
     event.PlayerDominationEvent |
+    event.PlayerDefenseEvent |
+    event.PlayerUberchargeEvent |
     event.PlayerKilledEvent |
     event.PlayerSuicideEvent |
     event.PlayerSwitchedTeamEvent |
@@ -77,6 +80,7 @@ export class Tf2LogParser extends HalflifeLogParserBase<Tf2LogEvents> {
                 },
             }),
         );
+
         // L 04/19/2018 - 12:26:38: "Smashmint<4><[U:1:49496129]><Red>" triggered "kill assist" against "elmerbulthuis<8><[U:1:426663176]><Blue>" (assister_position "1016 1014 297") (attacker_position "1161 1212 271") (victim_position "1287 1120 258")
         this.registerHalflifeParser(
             /^(".*?")\s+triggered\s+"kill assist"\s+against\s+(".*?")/i,
@@ -93,10 +97,10 @@ export class Tf2LogParser extends HalflifeLogParserBase<Tf2LogEvents> {
         // L 04/16/2018 - 14:31:27: "Micrux ¬ GAMEYE<4><[U:1:62797578]><Red>" triggered "revenge" against "Smashmint<3><[U:1:49496129]><Blue>"
         this.registerHalflifeParser(
             /^(".*?")\s+triggered\s+"revenge"\s+against\s+(".*?")/i,
-            (halflifeLine, assisterPlayerString, victimPlayerString) => ({
+            (halflifeLine, revengePlayerString, victimPlayerString) => ({
                 type: "player-revenged",
                 payload: {
-                    assister: this.parsePlayerWithTeam(assisterPlayerString),
+                    player: this.parsePlayerWithTeam(revengePlayerString),
                     victim: this.parsePlayerWithTeam(victimPlayerString),
                     timestamp: halflifeLine.timestamp,
                 },
@@ -106,11 +110,45 @@ export class Tf2LogParser extends HalflifeLogParserBase<Tf2LogEvents> {
         // L 04/16/2018 - 14:30:51: "Smashmint<3><[U:1:49496129]><Blue>" triggered "domination" against "Micrux ¬ GAMEYE<4><[U:1:62797578]><Red>"
         this.registerHalflifeParser(
             /^(".*?")\s+triggered\s+"domination"\s+against\s+(".*?")/i,
-            (halflifeLine, assisterPlayerString, victimPlayerString) => ({
+            (halflifeLine, dominatingPlayerString, victimPlayerString) => ({
                 type: "player-dominated",
                 payload: {
-                    assister: this.parsePlayerWithTeam(assisterPlayerString),
+                    player: this.parsePlayerWithTeam(dominatingPlayerString),
                     victim: this.parsePlayerWithTeam(victimPlayerString),
+                    timestamp: halflifeLine.timestamp,
+                },
+            }),
+        );
+        // L 04/16/2018 - 14:40:08: "Smashmint<3><[U:1:49496129]><Red>" triggered "captureblocked" (cp "0") (cpname "#Badwater_cap_1") (position "-1182 -1570 0")
+        this.registerHalflifeParser(
+            /^(".*?")\s+triggered\s+"captureblocked"/i,
+            (halflifeLine, playerString) => ({
+                type: "player-defensed",
+                payload: {
+                    player: this.parsePlayerWithTeam(playerString),
+                    timestamp: halflifeLine.timestamp,
+                },
+            }),
+        );
+
+        // L 04/16/2018 - 14:33:01: "Smashmint<3><[U:1:49496129]><Blue>" triggered "killedobject" (object "OBJ_DISPENSER") (weapon "back_scatter") (objectowner "Micrux ¬ GAMEYE<4><[U:1:62797578]><Red>") (attacker_position "-1011 -285 502")
+        this.registerHalflifeParser(
+            /^(".*?")\s+triggered\s+"killedobject"/i,
+            (halflifeLine, playerString) => ({
+                type: "player-destructed",
+                payload: {
+                    player: this.parsePlayerWithTeam(playerString),
+                    timestamp: halflifeLine.timestamp,
+                },
+            }),
+        );
+        // L 04/16/2018 - 14:43:17: "Micrux ¬ GAMEYE<4><[U:1:62797578]><Blue>" triggered "chargedeployed"
+        this.registerHalflifeParser(
+            /^(".*?")\s+triggered\s+"chargedeployed"/i,
+            (halflifeLine, playerString) => ({
+                type: "player-ubercharged",
+                payload: {
+                    player: this.parsePlayerWithTeam(playerString),
                     timestamp: halflifeLine.timestamp,
                 },
             }),
