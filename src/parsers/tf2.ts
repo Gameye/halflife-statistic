@@ -206,6 +206,20 @@ export class Tf2LogParser extends HalflifeLogParserBase<Tf2LogEvents> {
                 },
             }),
         );
+
+        // L 04/19/2018 - 12:38:53: Team "Red" final score "2" with "1" players
+        this.registerHalflifeParser(
+            /^Team\s+"(\w*)"\s+final score\s+"(\d+)"\s+with\s+"(\d+)"\s+players/i,
+            (halflifeLine, team, scoreString, playerString) => ({
+                type: "team-score",
+                payload: {
+                    team,
+                    score: Number(scoreString),
+                    players: Number(playerString),
+                    timestamp: halflifeLine.timestamp,
+                },
+            }),
+        );
     }
 
 }

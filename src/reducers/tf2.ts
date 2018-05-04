@@ -171,8 +171,26 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
                 } as Tf2Patch;
                 break;
             }
+
+            case "team-score": {
+                const teamKey = event.payload.team;
+                this.activeTeams.team[teamKey].statistic.score = event.payload.score;
+
+                yield {
+                    path: ["team"],
+                    value: this.activeTeams.team,
+                };
+
+                // TODO: should we make the reduce payload as small as possible ...
+                // yield {
+                //     path: ["team", teamKey, "statistic", "score"],
+                //     value: this.activeTeams.team[teamKey].statistic.score,
+                // };
+                break;
+            }
         }
     }
+
     protected *reducePlayerEvent(
         event: Tf2LogEvents,
     ): Iterable<Tf2Patch> {
