@@ -1,5 +1,5 @@
 import { EventBase } from "@gameye/statistic-common";
-import { PlayerWithoutTeamModel, TimestampPayload } from ".";
+import { PlayerWithoutTeamModel, PlayerWithTeamModel, TimestampPayload } from ".";
 
 export interface TeamPlayingPayload extends TimestampPayload {
     team: string;
@@ -21,3 +21,9 @@ export interface PlayerSwitchedTeamPayload extends TimestampPayload {
 
 }
 export type PlayerSwitchedTeamEvent = EventBase<"player-switched-team", PlayerSwitchedTeamPayload>;
+
+export interface PlayerJoinedTeamPayload extends TimestampPayload {
+    player: PlayerWithTeamModel;
+    newTeam: string;
+}
+export type PlayerJoinedTeamEvent = EventBase<"player-joined-team", PlayerJoinedTeamPayload>;

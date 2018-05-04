@@ -27,7 +27,7 @@ cucumber.Then(
                 {} as { [name: string]: true },
         );
 
-        assert.equal(actualPlayerHash, expectedPlayerHash);
+        assert.deepEqual(actualPlayerHash, expectedPlayerHash);
     },
 );
 
