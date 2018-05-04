@@ -9,7 +9,7 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
     private gameOver: boolean = false;
     private roundId: string = "";
     private roundCount: number = 0;
-
+    private gameMode: string = "";
     // private sides = ["Red", "Blue"];
     // private sideScoreHelper = [0, 0];
     // private teamNameHelper = ["1", "2"];
@@ -49,6 +49,7 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
         return {
             start: null,
             stop: null,
+            // mode: null,
             startedRounds: 0,
             finishedRounds: 0,
             player: {},
@@ -72,6 +73,19 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
         const state = this.getState();
 
         switch (event.type) {
+
+            case "string-parameter-value": {
+                if (event.payload.name === "gameMode") {
+                    this.gameMode = event.payload.value;
+                    // TODO: should a patch type for gameMode ?
+                    // yield {
+                    //     path: ["mode"],
+                    //     value: this.gameMode,
+                    // };
+                }
+                break;
+            }
+
             case "round-start": {
                 const start = event.payload.timestamp;
                 if (!state.start) yield {

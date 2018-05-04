@@ -26,12 +26,28 @@ export type Tf2LogEvents = // assume we share events with CsGo ...
     event.PlayerJoinedTeamEvent |
     event.TeamPlayingEvent |
     event.TeamScoreEvent |
+    event.StringParameterValueEvent |
     event.NumberParameterValueEvent;
 
 export class Tf2LogParser extends HalflifeLogParserBase<Tf2LogEvents> {
 
     constructor() {
         super();
+
+        // Loading game mode payload
+        // Loading game mode koth
+        // Loading game mode cp
+        // Loading game mode payloadrace
+        this.registerRegexParser(
+            /^Loading game mode\s+(\w+)/i,
+            (line, gameMode) => ({
+                type: "string-parameter-value",
+                payload: {
+                    name: "gameMode",
+                    value: gameMode,
+                },
+            }),
+        );
         // L 04/16/2018 - 10:43:22: World triggered "Round_Start"
         this.registerHalflifeParser(
             /^World\s+triggered\s+"Round_start"$/i,
