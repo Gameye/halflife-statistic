@@ -26,12 +26,28 @@ export type Tf2LogEvents = // assume we share events with CsGo ...
     event.PlayerJoinedTeamEvent |
     event.TeamPlayingEvent |
     event.TeamScoreEvent |
+    event.StringParameterValueEvent |
     event.NumberParameterValueEvent;
 
 export class Tf2LogParser extends HalflifeLogParserBase<Tf2LogEvents> {
 
     constructor() {
         super();
+
+        // Loading game mode payload
+        // Loading game mode koth
+        // Loading game mode cp
+        // Loading game mode payloadrace
+        this.registerRegexParser(
+            /^Loading game mode\s+(\w+)/i,
+            (line, gameMode) => ({
+                type: "string-parameter-value",
+                payload: {
+                    name: "gameMode",
+                    value: gameMode,
+                },
+            }),
+        );
         // L 04/16/2018 - 10:43:22: World triggered "Round_Start"
         this.registerHalflifeParser(
             /^World\s+triggered\s+"Round_start"$/i,
@@ -202,6 +218,20 @@ export class Tf2LogParser extends HalflifeLogParserBase<Tf2LogEvents> {
             halflifeLine => ({
                 type: "game-over",
                 payload: {
+                    timestamp: halflifeLine.timestamp,
+                },
+            }),
+        );
+
+        // L 04/19/2018 - 12:38:53: Team "Red" final score "2" with "1" players
+        this.registerHalflifeParser(
+            /^Team\s+"(\w*)"\s+final score\s+"(\d+)"\s+with\s+"(\d+)"\s+players/i,
+            (halflifeLine, team, scoreString, playerString) => ({
+                type: "team-score",
+                payload: {
+                    team,
+                    score: Number(scoreString),
+                    players: Number(playerString),
                     timestamp: halflifeLine.timestamp,
                 },
             }),

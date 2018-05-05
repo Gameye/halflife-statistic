@@ -9,7 +9,7 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
     private gameOver: boolean = false;
     private roundId: string = "";
     private roundCount: number = 0;
-
+    private gameMode: string = "";
     // private sides = ["Red", "Blue"];
     // private sideScoreHelper = [0, 0];
     // private teamNameHelper = ["1", "2"];
@@ -49,6 +49,7 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
         return {
             start: null,
             stop: null,
+            // mode: null,
             startedRounds: 0,
             finishedRounds: 0,
             player: {},
@@ -72,6 +73,19 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
         const state = this.getState();
 
         switch (event.type) {
+
+            case "string-parameter-value": {
+                if (event.payload.name === "gameMode") {
+                    this.gameMode = event.payload.value;
+                    // TODO: should a patch type for gameMode ?
+                    // yield {
+                    //     path: ["mode"],
+                    //     value: this.gameMode,
+                    // };
+                }
+                break;
+            }
+
             case "round-start": {
                 const start = event.payload.timestamp;
                 if (!state.start) yield {
@@ -171,8 +185,26 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
                 } as Tf2Patch;
                 break;
             }
+
+            case "team-score": {
+                const teamKey = event.payload.team;
+                this.activeTeams.team[teamKey].statistic.score = event.payload.score;
+
+                yield {
+                    path: ["team"],
+                    value: this.activeTeams.team,
+                };
+
+                // TODO: should we make the reduce payload as small as possible ...
+                // yield {
+                //     path: ["team", teamKey, "statistic", "score"],
+                //     value: this.activeTeams.team[teamKey].statistic.score,
+                // };
+                break;
+            }
         }
     }
+
     protected *reducePlayerEvent(
         event: Tf2LogEvents,
     ): Iterable<Tf2Patch> {
