@@ -19,7 +19,7 @@ Description: player died, via a kill or suicide
 Description: player was killed with a backstab  
 `L 04/17/2018 - 14:37:58: "Smashmint<3><[U:1:49496129]><Blue>" killed "Micrux ¬ GAMEYE<4><[U:1:62797578]><Red>" with "eternal_reward" (customkill "backstab") (attacker_position "-530 -92 296") (victim_position "-474 -92 296")`
 
-### Defence
+### Defense
 Description: player defended a controlpoint from a takeover  
 `L 04/16/2018 - 14:40:08: "Smashmint<3><[U:1:49496129]><Red>" triggered "captureblocked" (cp "0") (cpname "#Badwater_cap_1") (position "-1182 -1570 0")`
 
