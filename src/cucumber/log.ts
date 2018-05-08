@@ -40,3 +40,24 @@ cucumber.When(
         reducer.reduce(lines);
     },
 );
+
+cucumber.When(
+    /^I process the logs until line (\d+)$/i,
+    async function (line) {
+        line = Number(line);
+
+        const { bag } = this as TestWorld<LogBag & GameBag>;
+        const { game, log } = bag;
+        if (!game) throw new Error(`game not set`);
+        if (!log) throw new Error(`log not set`);
+
+        const { reducer } = game;
+        const { fileName } = log;
+
+        const filePath = path.join(
+            projectRoot, "fixtures", "logs", game.name, fileName,
+        );
+        const lines = await readFileAsLines(filePath);
+        reducer.reduce(lines.slice(0, line));
+    },
+);
