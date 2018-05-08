@@ -1,4 +1,3 @@
-@skip
 Feature: Get team score from log-files
 
     Scenario Outline: control points mode
