@@ -4,7 +4,6 @@ const pkg = require("./package");
 
 module.exports = {
     mode: "none",
-    target: "node",
     // devtool: "inline-source-map",
     entry: "./node/factory.js",
     output: {
