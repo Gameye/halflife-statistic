@@ -1,0 +1,325 @@
+Auto detecting CPU
+Using default binary: ./srcds_linux
+Server will auto-restart if there is a crash.
+Using Breakpad minidump system. Version: 4478108 AppID: 232250
+Setting breakpad minidump AppID = 232250
+Using breakpad crash handler
+Loaded 9256 VPK file hashes from /home/steam/tf2/tf/tf2_textures.vpk for pure server operation.
+Loaded 9256 VPK file hashes from /home/steam/tf2/tf/tf2_textures.vpk for pure server operation.
+Loaded 465 VPK file hashes from /home/steam/tf2/tf/tf2_sound_vo_english.vpk for pure server operation.
+Loaded 465 VPK file hashes from /home/steam/tf2/tf/tf2_sound_vo_english.vpk for pure server operation.
+Loaded 1328 VPK file hashes from /home/steam/tf2/tf/tf2_sound_misc.vpk for pure server operation.
+Loaded 1328 VPK file hashes from /home/steam/tf2/tf/tf2_sound_misc.vpk for pure server operation.
+Loaded 2136 VPK file hashes from /home/steam/tf2/tf/tf2_misc.vpk for pure server operation.
+Loaded 2136 VPK file hashes from /home/steam/tf2/tf/tf2_misc.vpk for pure server operation.
+Loaded 2136 VPK file hashes from /home/steam/tf2/tf/tf2_misc.vpk for pure server operation.
+Loaded 1217 VPK file hashes from /home/steam/tf2/hl2/hl2_textures.vpk for pure server operation.
+Loaded 574 VPK file hashes from /home/steam/tf2/hl2/hl2_sound_vo_english.vpk for pure server operation.
+Loaded 383 VPK file hashes from /home/steam/tf2/hl2/hl2_sound_misc.vpk for pure server operation.
+Loaded 451 VPK file hashes from /home/steam/tf2/hl2/hl2_misc.vpk for pure server operation.
+Loaded 451 VPK file hashes from /home/steam/tf2/hl2/hl2_misc.vpk for pure server operation.
+Loaded 5 VPK file hashes from /home/steam/tf2/platform/platform_misc.vpk for pure server operation.
+Loaded 5 VPK file hashes from /home/steam/tf2/platform/platform_misc.vpk for pure server operation.
+server_srv.so loaded for "Team Fortress"
+For FCVAR_REPLICATED, ConVar must be defined in client and game .dlls (sv_use_steam_voice)
+ProtoDefs post data loaded.
+ProtoDefs loaded. 12.54 MB used
+ProtoDefs post data loaded.
+ProtoDefs loaded. 12.54 MB used
+maxplayers set to 4
+No '-replayserverdir' parameter found - using default replay folder.
+Replay: Creating thread pool...succeeded.
+Replay: Starting thread pool with 4 threads...succeeded.
+Cleaning files from temp dir, "/home/steam/tf2/tf/replay/server/tmp/" ...no files removed.
+ProtoDefs post data loaded.
+ProtoDefs post data loaded.
+dlopen failed trying to load:
+/home/steam/.steam/sdk32/steamclient.so
+with error:
+/home/steam/.steam/sdk32/steamclient.so: cannot open shared object file: No such file or directory
+Looking up breakpad interfaces from steamclient
+Calling BreakpadMiniDumpSystemInit
+Unknown command "r_decal_cullsize"
+ConVarRef dev_loadtime_map_start doesn't point to an existing ConVar
+maxplayers set to 4
+maxplayers set to 5 (extra slot was added for SourceTV)
+Unknown command "startupmenu"
+Network: IP 172.17.0.2, mode MP, dedicated Yes, ports 50000 SV / 27005 CL
+Initializing Steam libraries for secure Internet server
+[S_API FAIL] SteamAPI_Init() failed; SteamAPI_IsSteamRunning() failed.
+Setting breakpad minidump AppID = 440
+dlopen failed trying to load:
+/home/steam/.steam/sdk32/steamclient.so
+with error:
+/home/steam/.steam/sdk32/steamclient.so: cannot open shared object file: No such file or directory
+Looking up breakpad interfaces from steamclient
+Calling BreakpadMiniDumpSystemInit
+Setting breakpad minidump AppID = 232250
+No account token specified; logging into anonymous game server account.  (Use sv_setsteamaccount to login to a persistent account.)
+ConVarRef room_type doesn't point to an existing ConVar
+Executing dedicated server config file server.cfg
+Using map cycle file 'cfg/mapcycle_default.txt'.  ('cfg/mapcycle.txt' was not found.)
+-- Error --:  empty soundname, .qc error on AE_CL_PLAYSOUND in model player/pyro.mdl, sequence taunt_skating_scorcher_intro, animevent # 9
+-- Error --:  empty soundname, .qc error on AE_CL_PLAYSOUND in model player/pyro.mdl, sequence taunt_skating_scorcher_trick2, animevent # 7
+-- Error --:  empty soundname, .qc error on AE_CL_PLAYSOUND in model player/pyro.mdl, sequence taunt_skating_scorcher_trick1, animevent # 6
+Set motd from file 'cfg/motd_default.txt'.  ('cfg/motd.txt' was not found.)
+Set motd_text from file 'cfg/motd_text_default.txt'.  ('cfg/motd_text.txt' was not found.)
+SV_ActivateServer: setting tickrate to 66.7
+Cannot verify load for invalid steam ID [A:1:0:1]
+Connection to game coordinator established.
+Current item schema is up-to-date with version D15F0C0E.
+'server.cfg' not present; not executing.
+'cp_badlands.cfg' not present; not executing.
+echo "Configure..."
+mp_enableroundwaittime 1
+mp_fadetoblack 0
+mp_footsteps 1
+mp_forcecamera 1
+mp_fraglimit 0
+mp_friendlyfire 0
+mp_highlander 0
+mp_idledealmethod 0
+mp_match_end_at_timelimit 1
+mp_respawnwavetime 10.0
+mp_stalemate_enable 0
+mp_teams_unbalance_limit 0
+mp_tournament 2
+mp_tournament_allow_non_admin_restart 0
+mp_tournament_stopwatch 1
+
+sv_allow_votes 0
+sv_allow_wait_command 0
+sv_allowupload 0
+sv_alltalk 0
+sv_cheats 0
+sv_client_max_interp_ratio 5
+sv_client_min_interp_ratio 1
+sv_client_predict 1
+sv_consistency 1
+sv_gravity 800
+sv_maxcmdrate 66
+sv_maxrate 0
+sv_maxupdaterate 66
+sv_mincmdrate 66
+sv_minrate 20000
+sv_minupdaterate 66
+sv_pausable 1
+sv_pure 2
+sv_pure_kick_clients 1
+sv_restrict_aspect_ratio_fov 0
+sv_timeout 10
+
+tf_arena_first_blood 0
+tf_avoidteammates_pushaway 0
+tf_clamp_airducks 1
+tf_ctf_bonus_time 0
+tf_damage_disablespread 1
+tf_teamtalk 1
+tf_tournament_hide_domination_icons 1
+tf_use_fixed_weaponspreads 1
+tf_weapon_criticals 0
+tf_dropped_weapon_lifetime 0
+tf_preround_push_from_damage_enable 1
+tf_spawn_glows_duration 0
+
+tv_name "Gameye SourceTV Stream"         // Title for SourceTV
+tv_title "Gameye SourceTV Stream"        // Title for SourceTV spectator UI
+tv_maxclients 10   // SourceTV max clients
+tv_autorecord 1                          // Autorecord SourceTV demo
+tv_delay 0            // SourceTV stream delay in seconds
+tv_delaymapchange 1
+tv_relayvoice 0                          
+tv_transmitall 1
+tv_delaymapchange 1                      // Delays map change until broadcast is complete
+
+mp_tournament_restart                    // Restart Tournament Mode on the current level
+
+say ETF2L config (2016-01-26) loaded.
+say * Please check that the settings are correct for this game mode!
+say * You must record POV demos and take screenshots of all results.
+
+echo "Configure ready..."
+
+Server is hibernating
+SourceTV broadcast active.
+Connection to Steam servers successful.
+   Public IP is 185.94.197.3.
+Assigned anonymous gameserver Steam ID [A:1:964675594:9902].
+VAC secure mode is activated.
+Configure... 
+echo "Loading game mode cp"            // Gameye TF2 game mode identifier
+Loading game mode cp 
+
+log on                                 // Enable server logging
+Server logging enabled.
+Server logging data to file logs/L0508000.log
+L 05/08/2018 - 13:23:39: Log file started (file "logs/L0508000.log") (game "/home/steam/tf2/tf") (version "4478108")
+
+mp_maxrounds 2          // Number of rounds to win before the game will end
+L 05/08/2018 - 13:23:39: server_cvar: "mp_maxrounds" "2"
+
+host_framerate 0
+
+tf_tournament_classlimit_scout -1
+tf_tournament_classlimit_soldier -1
+tf_tournament_classlimit_pyro -1
+tf_tournament_classlimit_demoman -1
+tf_tournament_classlimit_heavy -1
+tf_tournament_classlimit_engineer -1
+tf_tournament_classlimit_medic -1
+tf_tournament_classlimit_sniper -1
+tf_tournament_classlimit_spy -1
+
+mp_allowspectators 1
+mp_bonusroundtime 10
+mp_disable_respawn_times 0
+mp_enableroundwaittime 1
+mp_fadetoblack 0
+mp_footsteps 1
+mp_forcecamera 1
+mp_fraglimit 0
+mp_friendlyfire 0
+mp_highlander 0
+mp_idledealmethod 0
+mp_match_end_at_timelimit 1
+L 05/08/2018 - 13:23:40: server_cvar: "mp_match_end_at_timelimit" "1"
+mp_respawnwavetime 10.0
+mp_stalemate_enable 0
+mp_teams_unbalance_limit 0
+mp_tournament 2
+L 05/08/2018 - 13:23:40: server_cvar: "mp_tournament" "2"
+mp_tournament_allow_non_admin_restart 0
+mp_tournament_stopwatch 1
+
+sv_allow_votes 0
+sv_allow_wait_command 0
+sv_allowupload 0
+sv_alltalk 0
+sv_cheats 0
+sv_client_max_interp_ratio 5
+sv_client_min_interp_ratio 1
+sv_client_predict 1
+sv_consistency 1
+sv_gravity 800
+sv_maxcmdrate 66
+sv_maxrate 0
+sv_maxupdaterate 66
+sv_mincmdrate 66
+sv_minrate 20000
+sv_minupdaterate 66
+sv_pausable 1
+L 05/08/2018 - 13:23:41: server_cvar: "sv_pausable" "1"
+sv_pure 2
+--------------------------------------------------------
+sv_pure set to 2.
+Note: Waiting for the next changelevel to apply the current value.
+--------------------------------------------------------
+sv_pure_kick_clients 1
+sv_restrict_aspect_ratio_fov 0
+sv_timeout 10
+
+tf_arena_first_blood 0
+L 05/08/2018 - 13:23:41: server_cvar: "tf_arena_first_blood" "0"
+tf_avoidteammates_pushaway 0
+tf_clamp_airducks 1
+tf_ctf_bonus_time 0
+L 05/08/2018 - 13:23:41: server_cvar: "tf_ctf_bonus_time" "0"
+tf_damage_disablespread 1
+tf_teamtalk 1
+Unknown command "tf_teamtalk"
+tf_tournament_hide_domination_icons 1
+tf_use_fixed_weaponspreads 1
+L 05/08/2018 - 13:23:41: server_cvar: "tf_use_fixed_weaponspreads" "1"
+tf_weapon_criticals 0
+L 05/08/2018 - 13:23:41: server_cvar: "tf_weapon_criticals" "0"
+L 05/08/2018 - 13:23:41: server_cvar: "sv_tags" "cp,nocrits"
+L 05/08/2018 - 13:23:41: server_cvar: "sv_tags" "cp,nocrits"
+tf_dropped_weapon_lifetime 0
+Can't use cheat cvar tf_dropped_weapon_lifetime in multiplayer, unless the server has sv_cheats set to 1.
+tf_preround_push_from_damage_enable 1
+tf_spawn_glows_duration 0
+L 05/08/2018 - 13:23:41: server_cvar: "tf_spawn_glows_duration" "0"
+
+tv_name "Gameye SourceTV Stream"         // Title for SourceTV
+tv_title "Gameye SourceTV Stream"        // Title for SourceTV spectator UI
+tv_maxclients 10   // SourceTV max clients
+tv_autorecord 1                          // Autorecord SourceTV demo
+tv_delay 0            // SourceTV stream delay in seconds
+tv_delaymapchange 1
+tv_relayvoice 0                          
+tv_transmitall 1
+tv_delaymapchange 1                      // Delays map change until broadcast is  complete
+L 05/08/2018 - 13:23:41: "elmerbulthuis<3><[U:1:426663176]><>" connected, address "172.17.0.1:57916"
+Client "elmerbulthuis" connected (172.17.0.1:57916).
+Server waking up from hibernation
+
+mp_tournament_restart                    // Restart Tournament Mode on the curre nt level
+Item Whitelist file 'item_whitelist.txt' could not be found. All items will be allowed.
+
+say ETF2L config (2016-01-26) loaded.
+Console: ETF2L config (2016-01-26) loaded.
+L 05/08/2018 - 13:23:41: "Console<0><Console><Console>" say "ETF2L config (2016-01-26) loaded."
+say * Please check that the settings are correct for this game mode!
+Console: * Please check that the settings are correct for this game mode!
+L 05/08/2018 - 13:23:41: "Console<0><Console><Console>" say "* Please check that the settings are correct for this game mode!"
+say * You must record POV demos and take screenshots of all results.
+Console: * You must record POV demos and take screenshots of all results.
+L 05/08/2018 - 13:23:42: "Console<0><Console><Console>" say "* You must record POV demos and take screenshots of all results."
+
+echo "Configure ready..."
+Configure ready... 
+echo "Idle..."
+
+
+echo "Idle..."
+Idle... 
+
+L 05/08/2018 - 13:23:42: "elmerbulthuis<3><[U:1:426663176]><>" STEAM USERID validated
+L 05/08/2018 - 13:23:46: "elmerbulthuis<3><[U:1:426663176]><>" entered the game
+L 05/08/2018 - 13:23:49: "Smashmint<4><[U:1:49496129]><>" connected, address "172.17.0.1:50617"
+Client "Smashmint" connected (172.17.0.1:50617).
+L 05/08/2018 - 13:23:49: "Smashmint<4><[U:1:49496129]><>" STEAM USERID validated
+L 05/08/2018 - 13:23:56: "Smashmint<4><[U:1:49496129]><>" entered the game
+L 05/08/2018 - 13:24:12: "Smashmint<4><[U:1:49496129]><Unassigned>" joined team "Blue"
+L 05/08/2018 - 13:24:12: "Smashmint<4><[U:1:49496129]><Blue>" changed role to "scout"
+L 05/08/2018 - 13:24:29: "elmerbulthuis<3><[U:1:426663176]><Unassigned>" joined team "Red"
+L 05/08/2018 - 13:24:30: "elmerbulthuis<3><[U:1:426663176]><Red>" changed role to "scout"
+L 05/08/2018 - 13:24:43: World triggered "Round_Start"
+echo "Playing..."
+L 05/08/2018 - 13:24:43: World triggered "Round_Start"
+Playing... 
+
+L 05/08/2018 - 13:34:44: World triggered "Round_Stalemate"
+L 05/08/2018 - 13:34:44: Team "Red" current score "0" with "1" players
+L 05/08/2018 - 13:34:44: Team "Blue" current score "0" with "1" players
+L 05/08/2018 - 13:34:54: World triggered "Round_Start"
+L 05/08/2018 - 13:44:54: World triggered "Round_Stalemate"
+L 05/08/2018 - 13:44:54: Team "Red" current score "0" with "1" players
+L 05/08/2018 - 13:44:54: Team "Blue" current score "0" with "1" players
+L 05/08/2018 - 13:45:04: World triggered "Game_Over" reason "Reached Round Limit"
+L 05/08/2018 - 13:45:04: Team "Red" final score "0" with "1" players
+L 05/08/2018 - 13:45:04: Team "Blue" final score "0" with "1" players
+echo "End..."
+Item Whitelist file 'item_whitelist.txt' could not be found. All items will be allowed.
+End... 
+say The match has ended, thank you for playing!
+Console: The match has ended, thank you for playing!
+L 05/08/2018 - 13:45:04: "Console<0><Console><Console>" say "The match has ended, thank you for playing!"
+say This server will shutdown in 10 seconds
+Console: This server will shutdown in 10 seconds
+L 05/08/2018 - 13:45:04: "Console<0><Console><Console>" say "This server will shutdown in 10 seconds"
+
+echo "Quit..."
+Quit... 
+quit
+
+L 05/08/2018 - 13:45:14: "Smashmint<4><[U:1:49496129]><>" disconnected (reason "Server shutting down")
+Dropped Smashmint from server (Server shutting down)
+L 05/08/2018 - 13:45:14: "elmerbulthuis<3><[U:1:426663176]><>" disconnected (reason "Server shutting down")
+Dropped elmerbulthuis from server (Server shutting down)
+L 05/08/2018 - 13:45:14: "SourceTV<2><BOT><>" disconnected (reason "Server shutting down")
+Dropped SourceTV from server (Server shutting down)
+L 05/08/2018 - 13:45:14: server_message: "quit"
+L 05/08/2018 - 13:45:15: Log file closed.
+L 05/08/2018 - 13:45:15: server_message: "restart"
+Tue May  8 13:45:15 UTC 2018: Server Quit
