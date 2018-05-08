@@ -42,7 +42,7 @@ cucumber.When(
 );
 
 cucumber.When(
-    /^I process the logs until line (\d+)$/i,
+    /^I process the first (\d+) log lines$/i,
     async function (line) {
         line = Number(line);
 

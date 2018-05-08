@@ -4,7 +4,7 @@ Feature: Get team score from log-files
     Scenario Outline: control points mode
         Given I play a game of tf2
         And I store logs in <logfile>
-        When I process the logs until line <line>
+        When I process the first <line> log lines
         And team <team 1> has a score of <score 1>
         And team <team 2> has a score of <score 2>
 
