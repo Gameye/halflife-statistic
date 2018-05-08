@@ -50,13 +50,6 @@ jobs:
       - run: npm run feature-all -- -- --format "json:/tmp/test-results/feature/feature.cucumber"
       - store_test_results: *store_test_results
 
-  spelling:
-    docker: *docker_node
-    steps:
-      - checkout
-      - attach_workspace: *attach_workspace
-      - run: npm run spelling
-
   deploy-production:
     docker:
       - image: circleci/python:3
@@ -117,13 +110,10 @@ workflows:
       - feature:
           requires: [ prepare ]
           filters: *filter_all
-      - spelling:
-          requires: [ prepare ]
-          filters: *filter_all
 
       - approve-deploy:
           type: approval
-          requires: [ lint, spec, feature, spelling ]
+          requires: [ lint, spec, feature ]
           filters:
             branches:
               ignore: /.*?/

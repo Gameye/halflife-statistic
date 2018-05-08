@@ -4,4 +4,3 @@ set -e
 
 npm run compile
 npm run lint
-npm run spelling

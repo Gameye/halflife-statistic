@@ -15,15 +15,14 @@
     "spec-all": "npm run spec \"src/**/*.spec.ts\"",
     "feature": "cucumber-js --tags \"not @skip\" --require-module \"ts-node/register\" --require ./src/cucumber/**/*.ts",
     "feature-all": "npm run feature \"./features/**/*.feature\"",
-    "coverage": "nyc --report-dir report --reporter text-summary --reporter lcov --include \"src/**/*.ts\" --exclude \"src/**/*.spec.ts\" --extension \".ts\" npm test",
-    "spelling": "mdspell --report \"**/*.md\" \"!**/node_modules/**/*.md\""
+    "coverage": "nyc --report-dir report --reporter text-summary --reporter lcov --include \"src/**/*.ts\" --exclude \"src/**/*.spec.ts\" --extension \".ts\" npm test"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "9.6.7",
     "@types/blue-tape": "^0.1.31",
-    "@types/cucumber": "^4.0.2",
+    "@types/cucumber": "^4.0.4",
+    "@types/node": "9.6.7",
     "@types/tape": "^4.2.32",
     "blue-tape": "^1.0.0",
     "cucumber": "^4.2.1",
@@ -32,12 +31,11 @@
     "nyc": "^11.7.1",
     "promise-u": "^1.2.2",
     "tape": "^4.9.0",
-    "ts-loader": "^4.2.0",
     "ts-node": "^5.0.1",
-    "tslint": "^5.9.1",
+    "tslint": "^5.10.0",
     "typescript": "^2.8.3",
-    "webpack": "^4.6.0",
-    "webpack-cli": "^2.0.15"
+    "webpack": "^4.8.1",
+    "webpack-cli": "^2.1.3"
   },
   "dependencies": {
     "@gameye/statistic-common": "^1.0.1",
