@@ -15,11 +15,31 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
     // private teamNameHelper = ["1", "2"];
 
     // private activeTeams: {[key: string]: TeamModel} = {};
-    private activeTeams: TeamContainerState = { team: {} };
+    private activeTeams: TeamContainerState = {
+        team: {
+            Blue: {
+                teamKey: "Blue",
+                name: "Blue",
+                statistic: {
+                    score: 0,
+                },
+                player: {},
+            } as TeamModel,
+            Red: {
+                teamKey: "Red",
+                name: "Red",
+                statistic: {
+                    score: 0,
+                },
+                player: {},
+            } as TeamModel,
+        },
+    };
 
     private playerHelper: {
         [key: string]: number;
     } = {};
+
     private statsHelper = {
         "player-assisted": "assist",
         "player-dominated": "domination",
@@ -28,6 +48,7 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
         "player-destructed": "destruction",
         "player-ubercharged": "ubercharge",
     };
+
     private zeroStatistics = {
         assist: 0,
         death: 0,
@@ -53,11 +74,28 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
             startedRounds: 0,
             finishedRounds: 0,
             player: {},
-            team: {},
+            team: {
+                Blue: {
+                    teamKey: "Blue",
+                    name: "Blue",
+                    statistic: {
+                        score: 0,
+                    },
+                    player: {},
+                } as TeamModel,
+                Red: {
+                    teamKey: "Red",
+                    name: "Red",
+                    statistic: {
+                        score: 0,
+                    },
+                    player: {},
+                } as TeamModel,
+            },
         };
     }
 
-    protected *reduceEvent(
+    protected * reduceEvent(
         event: Tf2LogEvents,
     ): Iterable<Tf2Patch> {
         // yield* this.reduceSettingEvent(event);
@@ -67,7 +105,7 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
         yield* this.reduceTeamEvent(event);
     }
 
-    protected *reduceStartStopEvent(
+    protected * reduceStartStopEvent(
         event: Tf2LogEvents,
     ): Iterable<Tf2Patch> {
         const state = this.getState();
@@ -106,7 +144,7 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
         }
     }
 
-    protected *reduceRoundStartStopEvent(
+    protected * reduceRoundStartStopEvent(
         event: Tf2LogEvents,
     ): Iterable<Tf2Patch> {
         const { gameOver } = this;
@@ -149,7 +187,7 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
         }
     }
 
-    protected *reduceTeamEvent(
+    protected * reduceTeamEvent(
         event: Tf2LogEvents,
     ): Iterable<Tf2Patch> {
 
@@ -205,7 +243,7 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
         }
     }
 
-    protected *reducePlayerEvent(
+    protected * reducePlayerEvent(
         event: Tf2LogEvents,
     ): Iterable<Tf2Patch> {
         const state = this.getState();
