@@ -1,3 +1,4 @@
+@skip
 Feature: Get team score from log-files
 
     Scenario Outline: payload mode
