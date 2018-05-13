@@ -10,6 +10,7 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
     private roundId: string = "";
     private roundCount: number = 0;
     private gameMode: string = "";
+    private roundStatus: string = "stopped"; // or "started"
     // private sides = ["Red", "Blue"];
     // private sideScoreHelper = [0, 0];
     // private teamNameHelper = ["1", "2"];
@@ -152,6 +153,7 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
 
         switch (event.type) {
             case "round-start": {
+                if (this.roundStatus === "started") break;
                 this.gameOver = false;
                 if (this.roundCount === 0) {
                     yield {
@@ -169,14 +171,17 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
                     path: ["startedRounds"],
                     value: state.startedRounds + 1,
                 };
+                this.roundStatus = "started";
                 break;
             }
             case "round-end": {
+                if (this.roundStatus === "stopped") break;
                 if (gameOver) break;
                 yield {
                     path: ["finishedRounds"],
                     value: state.finishedRounds + 1,
                 };
+                this.roundStatus = "stopped";
                 break;
             }
             case "game-over": {

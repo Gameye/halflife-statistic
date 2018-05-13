@@ -1,4 +1,3 @@
-@skip
 Feature: Get rounds from log-files
 
     Scenario Outline:
