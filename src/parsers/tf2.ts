@@ -231,7 +231,22 @@ export class Tf2LogParser extends HalflifeLogParserBase<Tf2LogEvents> {
                 payload: {
                     team,
                     score: Number(scoreString),
-                    players: Number(playerString),
+                    players: 999, // skip this event in payload game mode
+                    timestamp: halflifeLine.timestamp,
+                },
+            }),
+        );
+
+        // L 04/16/2018 - 14:26:02: Team "Blue" triggered "pointcaptured" (cp "0") (cpname "#Badwater_cap_1") (numcappers "1") (player1 "Smashmint<3><[U:1:49496129]><Blue>") (position1 "1016 -1517 206")
+        this.registerHalflifeParser(
+            // /^Team\s+"(\w+?)"\s+triggered "pointcaptured" \(cp "(\d+)"\)/i,
+            /^Team\s+"(\w+?)"\s+triggered "pointcaptured"/i,
+            (halflifeLine, team) => ({
+                type: "team-score",
+                payload: {
+                    team,
+                    score: Number(halflifeLine.argMap.cp) + 1,
+                    players: Number(halflifeLine.argMap.numcappers),
                     timestamp: halflifeLine.timestamp,
                 },
             }),
