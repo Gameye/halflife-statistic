@@ -78,7 +78,8 @@ Connection to Steam servers successful.
 Assigned anonymous gameserver Steam ID [A:1:617212930:9848].
 VAC secure mode is activated.
 Configure... 
-
+echo "Loading game mode payload"
+Loading game mode payload
 log on                                 // Enable server logging
 Server logging enabled.
 Server logging data to file logs/L0419000.log
