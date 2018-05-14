@@ -172,6 +172,16 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
                     value: state.startedRounds + 1,
                 };
                 this.roundStatus = "started";
+                if (this.gameMode === "playload") {
+                    // switch the team scores
+                    [this.activeTeams.team.Blue.statistic.score,
+                    this.activeTeams.team.Red.statistic.score] = [this.activeTeams.team.Red.statistic.score,
+                    this.activeTeams.team.Blue.statistic.score];
+                }
+                yield {
+                    path: ["team"],
+                    value: this.activeTeams.team,
+                };
                 break;
             }
             case "round-end": {
@@ -230,6 +240,7 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
             }
 
             case "team-score": {
+                if (this.gameMode === "payload" && event.payload.players === 999) break;
                 const teamKey = event.payload.team;
                 this.activeTeams.team[teamKey].statistic.score = event.payload.score;
 
