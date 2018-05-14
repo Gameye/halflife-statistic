@@ -10,6 +10,7 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
     private roundId: string = "";
     private roundCount: number = 0;
     private gameMode: string = "";
+    private roundStatus: string = "stopped"; // or "started"
     // private sides = ["Red", "Blue"];
     // private sideScoreHelper = [0, 0];
     // private teamNameHelper = ["1", "2"];
@@ -152,6 +153,7 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
 
         switch (event.type) {
             case "round-start": {
+                if (this.roundStatus === "started") break;
                 this.gameOver = false;
                 if (this.roundCount === 0) {
                     yield {
@@ -169,14 +171,27 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
                     path: ["startedRounds"],
                     value: state.startedRounds + 1,
                 };
+                this.roundStatus = "started";
+                if (this.gameMode === "playload") {
+                    // switch the team scores
+                    [this.activeTeams.team.Blue.statistic.score,
+                    this.activeTeams.team.Red.statistic.score] = [this.activeTeams.team.Red.statistic.score,
+                    this.activeTeams.team.Blue.statistic.score];
+                }
+                yield {
+                    path: ["team"],
+                    value: this.activeTeams.team,
+                };
                 break;
             }
             case "round-end": {
+                if (this.roundStatus === "stopped") break;
                 if (gameOver) break;
                 yield {
                     path: ["finishedRounds"],
                     value: state.finishedRounds + 1,
                 };
+                this.roundStatus = "stopped";
                 break;
             }
             case "game-over": {
@@ -224,7 +239,8 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
                 break;
             }
 
-            case "team-score": {
+            case "team-pointcaptured": {
+                if (this.gameMode !== "payload") break;
                 const teamKey = event.payload.team;
                 this.activeTeams.team[teamKey].statistic.score = event.payload.score;
 
@@ -232,12 +248,18 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
                     path: ["team"],
                     value: this.activeTeams.team,
                 };
+                break;
+            }
 
-                // TODO: should we make the reduce payload as small as possible ...
-                // yield {
-                //     path: ["team", teamKey, "statistic", "score"],
-                //     value: this.activeTeams.team[teamKey].statistic.score,
-                // };
+            case "team-score": {
+                if (this.gameMode === "payload") break;
+                const teamKey = event.payload.team;
+                this.activeTeams.team[teamKey].statistic.score = event.payload.score;
+
+                yield {
+                    path: ["team"],
+                    value: this.activeTeams.team,
+                };
                 break;
             }
         }

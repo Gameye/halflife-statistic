@@ -26,6 +26,7 @@ export type Tf2LogEvents = // assume we share events with CsGo ...
     event.PlayerJoinedTeamEvent |
     event.TeamPlayingEvent |
     event.TeamScoreEvent |
+    event.TeamPointCapturedEvent |
     event.StringParameterValueEvent |
     event.NumberParameterValueEvent;
 
@@ -232,6 +233,21 @@ export class Tf2LogParser extends HalflifeLogParserBase<Tf2LogEvents> {
                     team,
                     score: Number(scoreString),
                     players: Number(playerString),
+                    timestamp: halflifeLine.timestamp,
+                },
+            }),
+        );
+
+        // L 04/16/2018 - 14:26:02: Team "Blue" triggered "pointcaptured" (cp "0") (cpname "#Badwater_cap_1") (numcappers "1") (player1 "Smashmint<3><[U:1:49496129]><Blue>") (position1 "1016 -1517 206")
+        this.registerHalflifeParser(
+            // /^Team\s+"(\w+?)"\s+triggered "pointcaptured" \(cp "(\d+)"\)/i,
+            /^Team\s+"(\w+?)"\s+triggered "pointcaptured"/i,
+            (halflifeLine, team) => ({
+                type: "team-pointcaptured",
+                payload: {
+                    team,
+                    score: Number(halflifeLine.argMap.cp) + 1,
+                    numcappers: Number(halflifeLine.argMap.numcappers),
                     timestamp: halflifeLine.timestamp,
                 },
             }),

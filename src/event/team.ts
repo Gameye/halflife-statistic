@@ -14,6 +14,13 @@ export interface TeamScorePayload extends TimestampPayload {
 }
 export type TeamScoreEvent = EventBase<"team-score", TeamScorePayload>;
 
+export interface TeamPointCapturedPayload extends TimestampPayload {
+    team: string;
+    score: number;
+    numcappers: number;
+}
+export type TeamPointCapturedEvent = EventBase<"team-pointcaptured", TeamPointCapturedPayload>;
+
 export interface PlayerSwitchedTeamPayload extends TimestampPayload {
     player: PlayerWithoutTeamModel;
     oldTeam: string;

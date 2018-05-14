@@ -9,11 +9,11 @@ Feature: Get team score from log-files
 
     Examples:
         | logfile                                 | line | team 1 | team 2 | score 1 | score 2 |
-        | tf2-6v6test-control-point-v2.log        | 479  | Blue   | Red    | 0       | 0       |
-        | tf2-6v6test-control-point-v2.log        | 1208 | Blue   | Red    | 1       | 0       |
-        | tf2-6v6test-control-point-v2.log        | 1251 | Blue   | Red    | 2       | 0       |
-        | tf2-6v6test-control-point-v2.log        | 1276 | Blue   | Red    | 3       | 0       |
-        | tf2-6v6test-control-point-v2.log        | 1302 | Blue   | Red    | 4       | 0       |
+        | tf2-6v6test-control-point-v2.log        | 481  | Blue   | Red    | 0       | 0       |
+        | tf2-6v6test-control-point-v2.log        | 1210 | Blue   | Red    | 1       | 0       |
+        | tf2-6v6test-control-point-v2.log        | 1253 | Blue   | Red    | 2       | 0       |
+        | tf2-6v6test-control-point-v2.log        | 1278 | Blue   | Red    | 3       | 0       |
+        | tf2-6v6test-control-point-v2.log        | 1305 | Blue   | Red    | 4       | 0       |
         | tf2-6v6test-control-point-v3.log        | 304  | Blue   | Red    | 0       | 0       |
         | tf2-6v6test-control-point-v3.log        | 320  | Blue   | Red    | 1       | 0       |
         | tf2-6v6test-control-point-v3.log        | 335  | Blue   | Red    | 2       | 0       |

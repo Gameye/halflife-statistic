@@ -253,6 +253,8 @@ Idle...
 L 04/16/2018 - 10:42:17: "Smashmint<3><[U:1:49496129]><>" connected, address "172.17.0.1:59541"
 Client "Smashmint" connected (172.17.0.1:59541).
 Server waking up from hibernation
+echo "Loading game mode payload"
+Loading game mode payload
 L 04/16/2018 - 10:42:18: "Smashmint<3><[U:1:49496129]><>" STEAM USERID validated
 L 04/16/2018 - 10:42:23: "Smashmint<3><[U:1:49496129]><>" entered the game
 L 04/16/2018 - 10:42:49: "Smashmint<3><[U:1:49496129]><Unassigned>" joined team "Blue"

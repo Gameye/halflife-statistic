@@ -168,7 +168,8 @@ Assigned anonymous gameserver Steam ID [A:1:3442632706:9771].
 VAC secure mode is activated.
 Received 3927069 bytes item schema version 77A7A514 direct data; update is queued.
 Configure... 
-
+echo "Loading game mode cp"
+Loading game mode cp
 log on
 Server logging enabled.
 Server logging data to file logs/L0326000.log
