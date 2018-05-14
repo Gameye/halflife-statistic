@@ -26,6 +26,7 @@ export type Tf2LogEvents = // assume we share events with CsGo ...
     event.PlayerJoinedTeamEvent |
     event.TeamPlayingEvent |
     event.TeamScoreEvent |
+    event.TeamPointCapturedEvent |
     event.StringParameterValueEvent |
     event.NumberParameterValueEvent;
 
@@ -231,7 +232,7 @@ export class Tf2LogParser extends HalflifeLogParserBase<Tf2LogEvents> {
                 payload: {
                     team,
                     score: Number(scoreString),
-                    players: 999, // skip this event in payload game mode
+                    players: Number(playerString),
                     timestamp: halflifeLine.timestamp,
                 },
             }),
@@ -242,11 +243,11 @@ export class Tf2LogParser extends HalflifeLogParserBase<Tf2LogEvents> {
             // /^Team\s+"(\w+?)"\s+triggered "pointcaptured" \(cp "(\d+)"\)/i,
             /^Team\s+"(\w+?)"\s+triggered "pointcaptured"/i,
             (halflifeLine, team) => ({
-                type: "team-score",
+                type: "team-pointcaptured",
                 payload: {
                     team,
                     score: Number(halflifeLine.argMap.cp) + 1,
-                    players: Number(halflifeLine.argMap.numcappers),
+                    numcappers: Number(halflifeLine.argMap.numcappers),
                     timestamp: halflifeLine.timestamp,
                 },
             }),

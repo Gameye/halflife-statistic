@@ -239,8 +239,8 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
                 break;
             }
 
-            case "team-score": {
-                if (this.gameMode === "payload" && event.payload.players === 999) break;
+            case "team-pointcaptured": {
+                if (this.gameMode !== "payload") break;
                 const teamKey = event.payload.team;
                 this.activeTeams.team[teamKey].statistic.score = event.payload.score;
 
@@ -248,12 +248,18 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
                     path: ["team"],
                     value: this.activeTeams.team,
                 };
+                break;
+            }
 
-                // TODO: should we make the reduce payload as small as possible ...
-                // yield {
-                //     path: ["team", teamKey, "statistic", "score"],
-                //     value: this.activeTeams.team[teamKey].statistic.score,
-                // };
+            case "team-score": {
+                if (this.gameMode === "payload") break;
+                const teamKey = event.payload.team;
+                this.activeTeams.team[teamKey].statistic.score = event.payload.score;
+
+                yield {
+                    path: ["team"],
+                    value: this.activeTeams.team,
+                };
                 break;
             }
         }
