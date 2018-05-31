@@ -9,12 +9,12 @@ export class CsGoLogReducer
 
     // #region helper state
 
-    private gameOver = false;
-    private sides = ["CT", "TERRORIST"];
-    private sideScoreHelper = [0, 0];
-    private teamNameHelper = ["1", "2"];
     private overtimeRounds = 6;
     private regularRounds = 30;
+    private gameOver = false;
+    private sideNameHelper = ["CT", "TERRORIST"];
+    private sideScoreHelper = [0, 0];
+    private teamNameHelper = ["1", "2"];
     private playerSideHelper: {
         [key: string]: number;
     } = {};
@@ -367,8 +367,8 @@ export class CsGoLogReducer
     // #region helper methods
 
     private getSideIndex(sideName: string) {
-        const { sides } = this;
-        const sideIndex = sides.indexOf(sideName);
+        const { sideNameHelper } = this;
+        const sideIndex = sideNameHelper.indexOf(sideName);
         return sideIndex;
     }
 
@@ -385,12 +385,12 @@ export class CsGoLogReducer
     }
 
     private makeTeamState() {
-        const { sides, sideScoreHelper, teamNameHelper } = this;
+        const { sideNameHelper, sideScoreHelper, teamNameHelper } = this;
         const state = this.getState();
         const team = {} as { [team: string]: TeamModel };
-        for (let sideIndex = 0; sideIndex < sides.length; sideIndex++) {
-            const score = sideScoreHelper[sideIndex];
+        for (let sideIndex = 0; sideIndex < sideNameHelper.length; sideIndex++) {
             const teamIndex = this.getTeamIndex(sideIndex);
+            const score = sideScoreHelper[sideIndex];
             const teamKey = String(teamIndex + 1);
             const name = teamNameHelper[teamIndex];
             const player: {
