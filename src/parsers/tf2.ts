@@ -7,12 +7,11 @@ import { HalflifeLogParserBase } from "./halflife";
 // TODO: should we refactor to  a HalfLiveLogEvents type ??
 
 export type Tf2LogEvents = // assume we share events with CsGo ...
-    // event.GameCommencingEvent |
     event.GameOverEvent |
     event.MatchStartEvent |
     event.RoundStartEvent |
     event.RoundEndEvent |
-    event.PlayerConnectedEvent |
+    event.PlayerEnteredGameEvent |
     event.PlayerDisconnectedEvent |
     event.PlayerAssistedEvent |
     event.PlayerRevengeEvent |
@@ -60,11 +59,11 @@ export class Tf2LogParser extends HalflifeLogParserBase<Tf2LogEvents> {
             }),
         );
 
-        // L 04/16/2018 - 10:42:17: "Smashmint<3><[U:1:49496129]><>" connected, address "172.17.0.1:59541"
+        // L 05/16/2018 - 08:36:48: "super cool superhero<6><[U:1:238303253]><>" entered the game
         this.registerHalflifeParser(
-            /^(".*?")\s+connected,\s+address\s+"(.*)"$/i,
+            /^(".*?")\s+entered\s+the\s+game$/i,
             (halflifeLine, playerString, address) => ({
-                type: "player-connected",
+                type: "player-entered-game",
                 payload: {
                     player: this.parsePlayerWithTeam(playerString),
                     timestamp: halflifeLine.timestamp,

@@ -7,6 +7,7 @@ Feature: As an API user I want to know which players
         Then the players <players> were active in the game
 
     Examples:
-        | logfile                          | players                          |
-        | tf2-6v6test-control-point-v3.log | Smashmint, denise                | 
-        | tf2-6v6test-payload-v3.log       | Smashmint, denise, elmerbulthuis | 
+        | logfile                          | players                                                    |
+        | tf2-6v6test-control-point-v3.log | Smashmint, denise                                          |
+        | tf2-6v6test-payload-v3.log       | Smashmint, denise, elmerbulthuis                           |
+        | tf2-connect-before-configure.log | elmerbulthuis, Smashmint, super cool superhero             |

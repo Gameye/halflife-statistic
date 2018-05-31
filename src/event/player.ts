@@ -26,6 +26,11 @@ export interface PlayerDisconnectedPayload extends TimestampPayload {
 }
 export type PlayerDisconnectedEvent = EventBase<"player-disconnected", PlayerDisconnectedPayload>;
 
+export interface PlayerEnteredGamePayload extends TimestampPayload {
+    player: PlayerWithTeamModel;
+}
+export type PlayerEnteredGameEvent = EventBase<"player-entered-game", PlayerEnteredGamePayload>;
+
 export interface PlayerSuicidePayload extends TimestampPayload {
     player: PlayerWithTeamModel;
     playerPosition: PositionModel;

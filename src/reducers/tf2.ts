@@ -208,18 +208,25 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
 
         switch (event.type) {
 
-            case "player-connected": {
-                const playerKey = event.payload.player.key;
+            case "player-entered-game": {
+                const { payload } = event;
+                const { player } = payload;
+
+                if (
+                    player.uid === "BOT" &&
+                    player.name === "SourceTV"
+                ) break;
+
                 const playerState: PlayerModel = {
                     connected: true,
-                    playerKey,
-                    uid: event.payload.player.uid,
-                    name: event.payload.player.name,
+                    playerKey: player.key,
+                    uid: player.uid,
+                    name: player.name,
                     statistic: this.zeroStatistics,
                 };
 
                 yield {
-                    path: ["player", playerKey],
+                    path: ["player", player.key],
                     value: playerState,
                 } as Tf2Patch;
                 break;
