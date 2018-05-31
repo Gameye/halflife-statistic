@@ -15,7 +15,7 @@ export class CsGoLogReducer
     private teamNameHelper = ["1", "2"];
     private overtimeRounds = 6;
     private regularRounds = 30;
-    private playerHelper: {
+    private playerSideHelper: {
         [key: string]: number;
     } = {};
 
@@ -351,7 +351,7 @@ export class CsGoLogReducer
                 const playerKey = payload.player.key;
                 const sideIndex = this.getSideIndex(payload.newTeam);
 
-                this.playerHelper[playerKey] = sideIndex;
+                this.playerSideHelper[playerKey] = sideIndex;
 
                 yield {
                     path: ["team"],
@@ -399,8 +399,8 @@ export class CsGoLogReducer
             const statistic = {
                 score,
             };
-            for (const playerKey of Object.keys(this.playerHelper).map(String)) {
-                if (this.playerHelper[playerKey] !== sideIndex) continue;
+            for (const playerKey of Object.keys(this.playerSideHelper).map(String)) {
+                if (this.playerSideHelper[playerKey] !== sideIndex) continue;
                 player[playerKey] = true;
             }
             team[teamKey] = { teamKey, name, statistic, player };
