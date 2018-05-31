@@ -246,7 +246,7 @@ export class Tf2LogParser extends HalflifeLogParserBase<Tf2LogEvents> {
                 type: "team-pointcaptured",
                 payload: {
                     team,
-                    score: Number(halflifeLine.argMap.cp) + 1,
+                    pointIndex: Number(halflifeLine.argMap.cp),
                     numcappers: Number(halflifeLine.argMap.numcappers),
                     timestamp: halflifeLine.timestamp,
                 },

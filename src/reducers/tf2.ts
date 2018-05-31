@@ -5,39 +5,12 @@ import { Tf2Patch, Tf2State } from "../state";
 @LogReducerBase.register("tf2")
 export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
 {
-    // TODO: implement the reducer ;-)
     private gameOver: boolean = false;
-    private roundId: string = "";
-    private roundCount: number = 0;
     private gameMode: string = "";
-    private roundStatus: string = "stopped"; // or "started"
-    // private sides = ["Red", "Blue"];
-    // private sideScoreHelper = [0, 0];
-    // private teamNameHelper = ["1", "2"];
-
-    // private activeTeams: {[key: string]: TeamModel} = {};
-    private activeTeams: TeamContainerState = {
-        team: {
-            Blue: {
-                teamKey: "Blue",
-                name: "Blue",
-                statistic: {
-                    score: 0,
-                },
-                player: {},
-            } as TeamModel,
-            Red: {
-                teamKey: "Red",
-                name: "Red",
-                statistic: {
-                    score: 0,
-                },
-                player: {},
-            } as TeamModel,
-        },
-    };
-
-    private playerHelper: {
+    private sideNameHelper = ["Blue", "Red"];
+    private teamScoreHelper = [0, 0];
+    private teamNameHelper = ["Blue", "Red"];
+    private playerSideHelper: {
         [key: string]: number;
     } = {};
 
@@ -71,42 +44,24 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
         return {
             start: null,
             stop: null,
-            // mode: null,
             startedRounds: 0,
             finishedRounds: 0,
             player: {},
-            team: {
-                Blue: {
-                    teamKey: "Blue",
-                    name: "Blue",
-                    statistic: {
-                        score: 0,
-                    },
-                    player: {},
-                } as TeamModel,
-                Red: {
-                    teamKey: "Red",
-                    name: "Red",
-                    statistic: {
-                        score: 0,
-                    },
-                    player: {},
-                } as TeamModel,
-            },
+            team: {},
         };
     }
 
     protected * reduceEvent(
         event: Tf2LogEvents,
     ): Iterable<Tf2Patch> {
-        // yield* this.reduceSettingEvent(event);
+        yield* this.reduceSettingEvent(event);
         yield* this.reduceStartStopEvent(event);
         yield* this.reduceRoundStartStopEvent(event);
         yield* this.reducePlayerEvent(event);
         yield* this.reduceTeamEvent(event);
     }
 
-    protected * reduceStartStopEvent(
+    protected * reduceSettingEvent(
         event: Tf2LogEvents,
     ): Iterable<Tf2Patch> {
         const state = this.getState();
@@ -116,14 +71,19 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
             case "string-parameter-value": {
                 if (event.payload.name === "gameMode") {
                     this.gameMode = event.payload.value;
-                    // TODO: should a patch type for gameMode ?
-                    // yield {
-                    //     path: ["mode"],
-                    //     value: this.gameMode,
-                    // };
                 }
                 break;
             }
+
+        }
+    }
+
+    protected * reduceStartStopEvent(
+        event: Tf2LogEvents,
+    ): Iterable<Tf2Patch> {
+        const state = this.getState();
+
+        switch (event.type) {
 
             case "round-start": {
                 const start = event.payload.timestamp;
@@ -142,6 +102,7 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
                 };
                 break;
             }
+
         }
     }
 
@@ -153,45 +114,20 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
 
         switch (event.type) {
             case "round-start": {
-                if (this.roundStatus === "started") break;
-                this.gameOver = false;
-                if (this.roundCount === 0) {
-                    yield {
-                        path: ["startedRounds"],
-                        value: 0,
-                    };
-                    yield {
-                        path: ["finishedRounds"],
-                        value: 0,
-                    };
-                }
-                this.roundCount++;
                 if (gameOver) break;
+                if (state.finishedRounds < state.startedRounds) break;
                 yield {
                     path: ["startedRounds"],
                     value: state.startedRounds + 1,
                 };
-                this.roundStatus = "started";
-                if (this.gameMode === "playload") {
-                    // switch the team scores
-                    [this.activeTeams.team.Blue.statistic.score,
-                    this.activeTeams.team.Red.statistic.score] = [this.activeTeams.team.Red.statistic.score,
-                    this.activeTeams.team.Blue.statistic.score];
-                }
-                yield {
-                    path: ["team"],
-                    value: this.activeTeams.team,
-                };
                 break;
             }
             case "round-end": {
-                if (this.roundStatus === "stopped") break;
                 if (gameOver) break;
                 yield {
                     path: ["finishedRounds"],
                     value: state.finishedRounds + 1,
                 };
-                this.roundStatus = "stopped";
                 break;
             }
             case "game-over": {
@@ -205,63 +141,63 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
     protected * reduceTeamEvent(
         event: Tf2LogEvents,
     ): Iterable<Tf2Patch> {
+        const state = this.getState();
 
         switch (event.type) {
 
             case "player-joined-team": {
-
-                const playerKey = event.payload.player.key;
-                const oldTeamKey = event.payload.player.team;
-                const newTeamKey = event.payload.newTeam;
-
-                // this.playerHelper[playerKey] = sideIndex;
-
-                if (!this.activeTeams.team[newTeamKey]) {
-                    this.activeTeams.team[newTeamKey] = {
-                        teamKey: newTeamKey,
-                        name: newTeamKey,
-                        statistic: {
-                            score: 0,
-                        },
-                        player: {},
-                    } as TeamModel;
-                }
-                this.activeTeams.team[newTeamKey].player[playerKey] = true;
-
-                if (oldTeamKey && oldTeamKey !== "Unassigned" && oldTeamKey !== newTeamKey) {
-                    this.activeTeams.team[oldTeamKey].player[playerKey] = false;
-                }
+                const { payload } = event;
+                const playerKey = payload.player.key;
+                const sideIndex = this.getSideIndex(payload.newTeam);
+                if (sideIndex < 0) break;
+                this.playerSideHelper[playerKey] = sideIndex;
 
                 yield {
                     path: ["team"],
-                    value: this.activeTeams.team,
-                } as Tf2Patch;
+                    value: this.makeTeamState(),
+                };
                 break;
             }
 
             case "team-pointcaptured": {
                 if (this.gameMode !== "payload") break;
-                const teamKey = event.payload.team;
-                this.activeTeams.team[teamKey].statistic.score = event.payload.score;
+
+                const { payload } = event;
+                const sideIndex = this.getSideIndex(payload.team);
+                if (sideIndex < 0) break;
+                const teamIndex = this.getTeamIndex(sideIndex);
+                this.teamScoreHelper[teamIndex] = payload.pointIndex + 1;
 
                 yield {
                     path: ["team"],
-                    value: this.activeTeams.team,
+                    value: this.makeTeamState(),
                 };
                 break;
             }
 
             case "team-score": {
-                if (this.gameMode === "payload") break;
-                const teamKey = event.payload.team;
-                this.activeTeams.team[teamKey].statistic.score = event.payload.score;
+                const { payload } = event;
+                const sideIndex = this.getSideIndex(payload.team);
+                if (sideIndex < 0) break;
+                const teamIndex = this.getTeamIndex(sideIndex);
+                this.teamScoreHelper[teamIndex] = payload.score;
 
                 yield {
                     path: ["team"],
-                    value: this.activeTeams.team,
+                    value: this.makeTeamState(),
                 };
                 break;
             }
+
+            case "round-start":
+            case "round-end": {
+                yield {
+                    path: ["team"],
+                    value: this.makeTeamState(),
+                };
+                break;
+            }
+
         }
     }
 
@@ -424,5 +360,58 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
         }
 
     }
+
+    // #region helper methods
+
+    private getSideIndex(sideName: string) {
+        const { sideNameHelper } = this;
+        const sideIndex = sideNameHelper.indexOf(sideName);
+        return sideIndex;
+    }
+
+    private getTeamIndex(sideIndex: number) {
+        if (sideIndex < 0) return sideIndex;
+
+        const state = this.getState();
+        const switchCount = this.calculateSwitchCount(
+            state.startedRounds,
+        );
+        const teamIndex = (sideIndex + switchCount) % 2;
+        return teamIndex;
+    }
+
+    private makeTeamState() {
+        const { sideNameHelper, teamScoreHelper, teamNameHelper } = this;
+        const state = this.getState();
+        const team = {} as { [team: string]: TeamModel };
+        for (let sideIndex = 0; sideIndex < sideNameHelper.length; sideIndex++) {
+            const teamIndex = this.getTeamIndex(sideIndex);
+            const score = teamScoreHelper[teamIndex];
+            const teamKey = String(teamIndex + 1);
+            const name = teamNameHelper[teamIndex];
+            const player: {
+                [key: string]: true;
+            } = {};
+            const statistic = {
+                score,
+            };
+            for (const playerKey of Object.keys(this.playerSideHelper).map(String)) {
+                if (this.playerSideHelper[playerKey] !== sideIndex) continue;
+                player[playerKey] = true;
+            }
+            team[teamKey] = { teamKey, name, statistic, player };
+        }
+        return team;
+    }
+
+    private calculateSwitchCount(
+        rounds: number,
+    ): number {
+        if (this.gameMode !== "payload") return 0;
+        if (rounds <= 0) return 0;
+        return rounds - 1;
+    }
+
+    // #endregion
 
 }
