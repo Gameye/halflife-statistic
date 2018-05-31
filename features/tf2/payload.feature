@@ -29,4 +29,6 @@ Feature: Get team score from log-files
         | tf2-6v6test-payload-v6.log | 341  | Blue   | Red    | 4       | 4       |
         | tf2-6v6test-payload-v6.log | 342  | Blue   | Red    | 4       | 4       |
         | tf2-6v6test-payload-v6.log | 343  | Blue   | Red    | 4       | 4       |
+        | tf2-6v6test-payload-v7.log | 287  | Blue   | Red    | 1       | 0       |
+        | tf2-6v6test-payload-v7.log | 305  | Blue   | Red    | 1       | 1       |
 
