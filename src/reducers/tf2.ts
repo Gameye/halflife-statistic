@@ -6,9 +6,7 @@ import { Tf2Patch, Tf2State } from "../state";
 export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
 {
     private gameOver: boolean = false;
-    private roundCount: number = 0;
     private gameMode: string = "";
-    private roundStatus: "started" | "stopped" = "stopped";
 
     private statsHelper = {
         "player-assisted": "assist",
@@ -44,17 +42,17 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
             finishedRounds: 0,
             player: {},
             team: {
-                Blue: {
-                    teamKey: "Blue",
-                    name: "Blue",
+                Red: {
+                    teamKey: "Red",
+                    name: "Red",
                     statistic: {
                         score: 0,
                     },
                     player: {},
                 } as TeamModel,
-                Red: {
-                    teamKey: "Red",
-                    name: "Red",
+                Blue: {
+                    teamKey: "Blue",
+                    name: "Blue",
                     statistic: {
                         score: 0,
                     },
@@ -83,11 +81,6 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
             case "string-parameter-value": {
                 if (event.payload.name === "gameMode") {
                     this.gameMode = event.payload.value;
-                    // TODO: should a patch type for gameMode ?
-                    // yield {
-                    //     path: ["mode"],
-                    //     value: this.gameMode,
-                    // };
                 }
                 break;
             }
@@ -120,35 +113,20 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
 
         switch (event.type) {
             case "round-start": {
-                if (this.roundStatus === "started") break;
-                this.gameOver = false;
-                if (this.roundCount === 0) {
-                    yield {
-                        path: ["startedRounds"],
-                        value: 0,
-                    };
-                    yield {
-                        path: ["finishedRounds"],
-                        value: 0,
-                    };
-                }
-                this.roundCount++;
                 if (gameOver) break;
+                if (state.finishedRounds < state.startedRounds) break;
                 yield {
                     path: ["startedRounds"],
                     value: state.startedRounds + 1,
                 };
-                this.roundStatus = "started";
                 break;
             }
             case "round-end": {
-                if (this.roundStatus === "stopped") break;
                 if (gameOver) break;
                 yield {
                     path: ["finishedRounds"],
                     value: state.finishedRounds + 1,
                 };
-                this.roundStatus = "stopped";
                 break;
             }
             case "game-over": {
@@ -219,8 +197,7 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
             }
 
             case "round-start": {
-                if (this.roundStatus === "started") break;
-                if (this.gameMode !== "playload") break;
+                if (this.gameMode !== "payload") break;
 
                 // switch the team scores
                 // [this.activeTeams.team.Blue.statistic.score,
