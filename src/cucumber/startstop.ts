@@ -47,3 +47,20 @@ cucumber.Then(
         );
     },
 );
+
+cucumber.Then(
+    /^the game has ended$/i,
+    async function () {
+        const { bag } = this as TestWorld<GameBag>;
+        const { game } = bag;
+        if (!game) throw new Error(`game not set`);
+
+        const { reducer } = game;
+        const state: StartStopState = reducer.getState();
+
+        assert.notEqual(
+            state.stop,
+            null,
+        );
+    },
+);
