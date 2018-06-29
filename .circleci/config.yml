@@ -69,6 +69,7 @@ jobs:
           pub/
           s3://$BUCKET/statistic/$CIRCLE_PROJECT_REPONAME/
           --recursive
+          --cache-control no-cache
 
   notify-production: &notify
     docker: &docker_buildpack
