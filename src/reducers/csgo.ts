@@ -9,6 +9,7 @@ export class CsGoLogReducer
 
     // #region helper state
 
+    private teammatesAreEnemies = false;
     private overtimeRounds = 6;
     private regularRounds = 30;
     private gameOver = false;
@@ -59,6 +60,10 @@ export class CsGoLogReducer
 
                     case "mp_overtime_maxrounds":
                         this.overtimeRounds = payload.value;
+                        break;
+
+                    case "mp_teammates_are_enemies":
+                        this.teammatesAreEnemies = Boolean(event.payload.value);
                         break;
                 }
                 break;
