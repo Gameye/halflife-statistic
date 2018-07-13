@@ -9,6 +9,7 @@ export class CsGoLogReducer
 
     // #region helper state
 
+    private teammatesAreEnemies = false;
     private overtimeRounds = 6;
     private regularRounds = 30;
     private gameOver = false;
@@ -59,6 +60,10 @@ export class CsGoLogReducer
 
                     case "mp_overtime_maxrounds":
                         this.overtimeRounds = payload.value;
+                        break;
+
+                    case "mp_teammates_are_enemies":
+                        this.teammatesAreEnemies = Boolean(event.payload.value);
                         break;
                 }
                 break;
@@ -223,14 +228,26 @@ export class CsGoLogReducer
                     if (!playerState) break;
 
                     const statisticKey = "kill";
-                    yield {
-                        path: ["player", playerKey, "statistic", statisticKey],
-                        /**
-                         * Killing someone from your own team will result in a
-                         * kill penalty
-                         */
-                        value: playerState.statistic[statisticKey] - 1,
-                    } as CsGoPatch;
+                    if (this.teammatesAreEnemies) {
+                        yield {
+                            path: ["player", playerKey, "statistic", statisticKey],
+                            /**
+                             * Killing someone is a point when
+                             * teammatesAreEnemies is enabled
+                             */
+                            value: playerState.statistic[statisticKey] + 1,
+                        } as CsGoPatch;
+                    }
+                    else {
+                        yield {
+                            path: ["player", playerKey, "statistic", statisticKey],
+                            /**
+                             * Killing someone from your own team will result
+                             * in a kill penalty
+                             */
+                            value: playerState.statistic[statisticKey] - 1,
+                        } as CsGoPatch;
+                    }
                 }
                 else {
                     const playerKey = payload.killer.key;
