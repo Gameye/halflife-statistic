@@ -4,8 +4,9 @@ Feature: Get game over event from log-files for games with the game mode FFA
     Scenario Outline: 
         Given I play a game of csgo
         And I store logs in <logfile>
+        When I process the logs
         Then player <player> had <kills> kills
-        Then the game has ended
+        And the game has ended
 
     Examples:
         | logfile  | player       | kills | 
