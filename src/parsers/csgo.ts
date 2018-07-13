@@ -37,6 +37,16 @@ export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
             }),
         );
 
+        this.registerRegexParser(
+            /^(mp_[a-z_]+)\s+"(\d+)"/i,
+            (line, name, value) => ({
+                type: "number-parameter-value",
+                payload: {
+                    name, value: Number(value),
+                },
+            }),
+        );
+
         // Game Over: casual mg_active de_dust2 score 16:7 after 15 min
         this.registerHalflifeParser(
             /^World\s+triggered\s+"Game_Commencing"$/i,
