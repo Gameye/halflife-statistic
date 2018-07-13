@@ -52,7 +52,7 @@ jobs:
 
   deploy-production:
     docker:
-      - image: circleci/python:3
+      - image: circleci/python:3.6
         environment:
           - BUCKET: private.gameye.com
     steps: &steps_deploy
@@ -84,7 +84,7 @@ jobs:
 
   deploy-staging:
     docker:
-      - image: circleci/python:3
+      - image: circleci/python:3.6
         environment:
           - BUCKET: private.gameye.org
     steps: *steps_deploy
