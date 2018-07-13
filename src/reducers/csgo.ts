@@ -228,14 +228,26 @@ export class CsGoLogReducer
                     if (!playerState) break;
 
                     const statisticKey = "kill";
-                    yield {
-                        path: ["player", playerKey, "statistic", statisticKey],
-                        /**
-                         * Killing someone from your own team will result in a
-                         * kill penalty
-                         */
-                        value: playerState.statistic[statisticKey] - 1,
-                    } as CsGoPatch;
+                    if (this.teammatesAreEnemies) {
+                        yield {
+                            path: ["player", playerKey, "statistic", statisticKey],
+                            /**
+                             * Killing someone is a point when
+                             * teammatesAreEnemies is enabled
+                             */
+                            value: playerState.statistic[statisticKey] + 1,
+                        } as CsGoPatch;
+                    }
+                    else {
+                        yield {
+                            path: ["player", playerKey, "statistic", statisticKey],
+                            /**
+                             * Killing someone from your own team will result
+                             * in a kill penalty
+                             */
+                            value: playerState.statistic[statisticKey] - 1,
+                        } as CsGoPatch;
+                    }
                 }
                 else {
                     const playerKey = payload.killer.key;
