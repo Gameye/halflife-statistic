@@ -1,4 +1,3 @@
-@skip
 Feature: Get game over event from log-files for games with the game mode FFA
 
     Scenario Outline: 
