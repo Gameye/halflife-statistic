@@ -47,7 +47,6 @@ export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
             }),
         );
 
-        // Game Over: casual mg_active de_dust2 score 16:7 after 15 min
         this.registerHalflifeParser(
             /^World\s+triggered\s+"Game_Commencing"$/i,
             halflifeLine => ({
