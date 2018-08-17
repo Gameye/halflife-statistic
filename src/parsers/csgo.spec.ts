@@ -40,3 +40,28 @@ test("mp_teammates_are_enemies", async (t) => {
 
     t.equal(es.length, 2);
 });
+
+test("bot killed bot", async (t) => {
+    const parser = new CsGoLogParser();
+
+    const lines = [
+        `L 03/21/2018 - 13:23:47: ` +
+        `"Kevin<4><BOT><CT>" [-275 854 -9] killed ` +
+        `"Brad<5><BOT><TERRORIST>" [-323 456 60] with "m4a1"`,
+    ];
+
+    const es = Array.from(parser.parse(lines));
+
+    t.equal(es.length, 1);
+    t.deepEqual(
+        es[0],
+        {
+            type: "player-killed",
+            payload: {
+                killer: { name: "Kevin", key: "4", uid: "BOT", team: "CT" },
+                victim: { name: "Brad", key: "5", uid: "BOT", team: "TERRORIST" },
+                timestamp: 1521638627000,
+            },
+        },
+    );
+});
