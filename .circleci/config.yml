@@ -114,7 +114,6 @@ workflows:
 
       - approve-deploy:
           type: approval
-          requires: [ lint, spec, feature ]
           filters:
             branches:
               ignore: /.*?/
@@ -127,7 +126,7 @@ workflows:
 
       - deploy-production:
           context: aws-authorized
-          requires: [ approve-deploy ]
+          requires: [ approve-deploy, lint, spec, feature ]
           filters: &filters_production
             branches:
               ignore: /.*?/
@@ -135,22 +134,12 @@ workflows:
             tags:
               only: /^v\d+\.\d+\.\d+$/
 
-      - notify-production:
-          context: slack-production
-          requires: [ deploy-production ]
-          filters: *filters_production
-
       - deploy-staging:
           context: aws-authorized
-          requires: [ approve-deploy ]
+          requires: [ approve-deploy, lint, spec, feature ]
           filters: &filters_staging
             branches:
               ignore: /.*?/
             # v1.0.0-1 / v1.0.0
             tags:
               only: /^v\d+\.\d+\.\d+(\-\d+)?$/
-
-      - notify-staging:
-          context: slack-staging
-          requires: [ deploy-staging ]
-          filters: *filters_staging
