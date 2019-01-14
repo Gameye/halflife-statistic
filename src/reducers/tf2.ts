@@ -2,6 +2,7 @@ import { LogReducerBase, PlayerModel, StatePatch, TeamContainerState, TeamModel 
 import { Tf2LogEvents, Tf2LogParser } from "../parsers";
 import { Tf2Patch, Tf2State } from "../state";
 
+@LogReducerBase.register("tf2-serveme")
 @LogReducerBase.register("tf2")
 export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
 {
