@@ -71,26 +71,12 @@ jobs:
           --recursive
           --cache-control no-cache
 
-  notify-production: &notify
-    docker: &docker_buildpack
-      - image: circleci/buildpack-deps
-    steps:
-      - run: >
-          curl
-          --request POST
-          --header 'Content-type: application/json'
-          --data '{"text":"Deploy '$CIRCLE_PROJECT_REPONAME' - '$CIRCLE_TAG'"}'
-          $SLACK_HOOK
-
   deploy-staging:
     docker:
       - image: circleci/python:3.6
         environment:
           - BUCKET: private.gameye.org
     steps: *steps_deploy
-
-  notify-staging: *notify
-
 
 
 workflows:
