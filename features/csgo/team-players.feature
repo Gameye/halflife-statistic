@@ -9,7 +9,7 @@ Feature: As an API user I want to know which team a player is currently in
 
     Examples:
         | logfile                       | team 1       | team 2      | players 1                         | players 2                      |
-        | esl1on1-ralph-denise.log      | TeamA        | TeamB       | Smashmint, denise                 |                                |
+        | esl1on1-ralph-denise.log      | TeamA        | TeamB       | denise                            | Smashmint                      |
         | esl1on1-bots.log              | TeamA        | TeamB       | Derek, Kevin                      | Smashmint, Brad                |
         | esl1on1-team-switch.log       | TeamA        | TeamB       | Xavier, Joe                       | Smashmint, Erik                |
         | esl1on1-spectator.log         | TeamA        | TeamB       | Joe, Eric                         | Troy, Kevin                    |
