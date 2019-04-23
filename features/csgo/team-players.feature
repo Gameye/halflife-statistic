@@ -14,4 +14,14 @@ Feature: As an API user I want to know which team a player is currently in
         | esl1on1-team-switch.log       | TeamA        | TeamB       | Xavier, Joe                       | Smashmint, Erik                |
         | esl1on1-spectator.log         | TeamA        | TeamB       | Joe, Eric                         | Troy, Kevin                    |
         | esl1on1-coaching-mode.log     | TeamA        | TeamB       | Cory, Adrian                      | Xander, Derek                  |
-        | csgo-get5-dreamteam.log       | DEAGL.PPRROO | hemingwayco | yourhemingway, DEAGLE.PPRROO-Kiss | malczyk541"G4SKINS.COM", Klein |
+
+    Scenario Outline:
+        Given I play a game of csgo
+        And I store logs in <logfile>
+        When I process the first <line> log lines
+        And team <team 1> consists of <players 1> as the players
+        And team <team 2> consists of <players 2> as the players
+
+    Examples:
+        | logfile                 | line | team 1       | team 2      | players 1                      | players 2          |
+        | csgo-get5-dreamteam.log | 1689 | DEAGL.PPRROO | hemingwayco | Klein, malczyk541"G4SKINS.COM" | DEAGLE.PPRROO-Kiss |
