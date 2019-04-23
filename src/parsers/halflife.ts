@@ -31,6 +31,7 @@ export abstract class HalflifeLogParserBase<TEvent extends EventBase = any>
     // "Micrux ¬ GAMEYE<3><STEAM_1:0:31398789><CT>"
     // "Smashmint""<2><STEAM_1:1:24748064><>"
     // "Smashmint<><12><STEAM_1:1:24748064><Unassigned>"
+    // "malczyk541"G4SKINS.COM"<5><STEAM_1:0:444334529><>"
     protected parsePlayerWithTeam(playerString: string): event.PlayerWithTeamModel {
         const match = /^"(.*)\<(.*?)\>\<(.*?)\>\<(.*?)\>"$/i.exec(playerString);
         if (match === null) throw new Error(`${playerString} is not a valid player string (did you include the "'s?)`);
