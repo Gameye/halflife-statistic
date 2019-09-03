@@ -2,6 +2,7 @@ import { LogReducerBase, PlayerModel, StatePatch, TeamModel } from "@gameye/stat
 import { CsGoLogEvents, CsGoLogParser } from "../parsers";
 import { CsGoPatch, CsGoState } from "../state";
 
+@LogReducerBase.register("csgo-cmode")
 @LogReducerBase.register("csgo-practice")
 @LogReducerBase.register("csgo-get5")
 @LogReducerBase.register("csgo-dem")
