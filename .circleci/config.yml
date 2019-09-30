@@ -54,7 +54,7 @@ jobs:
     docker:
       - image: circleci/python:3.6
         environment:
-          - BUCKET: private.gameye.com
+          BUCKET: private.gameye.com
     steps: &steps_deploy
       - attach_workspace: *attach_workspace
       - restore_cache: &restore_cache_pip
@@ -75,9 +75,8 @@ jobs:
     docker:
       - image: circleci/python:3.6
         environment:
-          - BUCKET: private.gameye.org
+          BUCKET: private.gameye.org
     steps: *steps_deploy
-
 
 workflows:
   version: 2
@@ -89,18 +88,18 @@ workflows:
             tags:
               only: /.*?/
       - lint:
-          requires: [ prepare ]
+          requires: [prepare]
           filters: *filter_all
       - spec:
-          requires: [ prepare ]
+          requires: [prepare]
           filters: *filter_all
       - feature:
-          requires: [ prepare ]
+          requires: [prepare]
           filters: *filter_all
 
       - deploy-production:
           context: aws-authorized
-          requires: [ lint, spec, feature ]
+          requires: [lint, spec, feature]
           filters: &filters_production
             branches:
               ignore: /.*?/
@@ -110,7 +109,7 @@ workflows:
 
       - deploy-staging:
           context: aws-authorized
-          requires: [ lint, spec, feature ]
+          requires: [lint, spec, feature]
           filters: &filters_staging
             branches:
               ignore: /.*?/
