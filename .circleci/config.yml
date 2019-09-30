@@ -127,7 +127,7 @@ workflows:
             tags:
               only: /^v\d+\.\d+\.\d+(\-\d+)?$/
 
-      - publish-node:
+      - publish:
           context: npm-authorized
           requires: [lint, spec, feature]
           filters:
