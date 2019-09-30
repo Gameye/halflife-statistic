@@ -1,6 +1,5 @@
 {
   "name": "@gameye/halflife-statistic",
-  "version": "1.3.2",
   "description": "",
   "main": "./node/main.js",
   "module": "./module/main.js",
