@@ -50,6 +50,16 @@ jobs:
       - run: npm run feature-all -- -- --format "json:/tmp/test-results/feature/feature.cucumber"
       - store_test_results: *store_test_results
 
+  publish:
+    docker: *docker_node
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
+      - run: npm version ${CIRCLE_TAG}
+      - run: npm publish
+
   deploy-production:
     docker:
       - image: circleci/python:3.6
@@ -116,3 +126,13 @@ workflows:
             # v1.0.0-1 / v1.0.0
             tags:
               only: /^v\d+\.\d+\.\d+(\-\d+)?$/
+
+      - publish-node:
+          context: npm-authorized
+          requires: [lint, spec, feature]
+          filters:
+            branches:
+              ignore: /.*?/
+            tags:
+              # v1.0.0-1 / v1.0.0-pre1 / v1.0.0
+              only: /^v\d+\.\d+\.\d+(\-.+)?$/
