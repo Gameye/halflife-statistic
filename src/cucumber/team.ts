@@ -25,6 +25,42 @@ cucumber.Then(
 );
 
 cucumber.Then(
+    /^the first team has a score of (\d+)$/i,
+    async function (teamScore) {
+        teamScore = Number(teamScore);
+
+        const { bag } = this as TestWorld<GameBag>;
+        const { game } = bag;
+        if (!game) throw new Error(`game not set`);
+
+        const { reducer } = game;
+        const state: TeamContainerState = reducer.getState();
+
+        const teamItem = state.team["1"];
+
+        assert.equal(teamItem.statistic.score, teamScore);
+    },
+);
+
+cucumber.Then(
+    /^the second team has a score of (\d+)$/i,
+    async function (teamScore) {
+        teamScore = Number(teamScore);
+
+        const { bag } = this as TestWorld<GameBag>;
+        const { game } = bag;
+        if (!game) throw new Error(`game not set`);
+
+        const { reducer } = game;
+        const state: TeamContainerState = reducer.getState();
+
+        const teamItem = state.team["2"];
+
+        assert.equal(teamItem.statistic.score, teamScore);
+    },
+);
+
+cucumber.Then(
     /^team (.*) consists of (.*) as the players$/i,
     async function (teamName, playerNames) {
         teamName = String(teamName);
