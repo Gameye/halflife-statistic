@@ -49,6 +49,7 @@ export class CsGoLogReducer
         yield* this.reduceRoundStartStopEvent(event);
         yield* this.reducePlayerEvent(event);
         yield* this.reduceTeamEvent(event);
+        yield* this.reduceGet5Event(event);
     }
 
     protected * reduceSettingEvent(
@@ -383,6 +384,40 @@ export class CsGoLogReducer
 
         }
 
+    }
+
+    protected *reduceGet5Event(
+        event: CsGoLogEvents,
+    ): Iterable<CsGoPatch> {
+        if (event.type !== "get5-event") return;
+
+        switch (event.payload.event) {
+            case "knife_won": {
+                const { selected_side, winner } = event.payload.params;
+                const { sideNameHelper } = this;
+                if (winner === "team1") {
+                    if (selected_side === "T") {
+                        sideNameHelper[0] = "TERRORIST";
+                        sideNameHelper[1] = "CT";
+                    }
+                    if (selected_side === "CT") {
+                        sideNameHelper[0] = "CT";
+                        sideNameHelper[1] = "TERRORIST";
+                    }
+                }
+                if (winner === "team2") {
+                    if (selected_side === "T") {
+                        sideNameHelper[0] = "CT";
+                        sideNameHelper[1] = "TERRORIST";
+                    }
+                    if (selected_side === "CT") {
+                        sideNameHelper[0] = "TERRORIST";
+                        sideNameHelper[1] = "CT";
+                    }
+                }
+
+            }
+        }
     }
 
     // #region helper methods

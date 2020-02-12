@@ -1,6 +1,5 @@
 // tslint:disable:max-line-length
 
-import { EventBase } from "@gameye/statistic-common";
 import * as event from "../event";
 import { HalflifeLogParserBase } from "./halflife";
 
@@ -18,7 +17,8 @@ export type CsGoLogEvents =
     event.PlayerSwitchedTeamEvent |
     event.TeamPlayingEvent |
     event.TeamScoreEvent |
-    event.NumberParameterValueEvent;
+    event.NumberParameterValueEvent |
+    event.Get5Event;
 
 export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
 
@@ -26,6 +26,25 @@ export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
         super();
 
         //#region rules
+        // get5_event: {"matchid`":"example_match","params":{"selected_side":"T","winner":"team1","map_number":0,"map_name":"de_dust2"},"event":"knife_won"}
+        this.registerHalflifeParser(
+            /^get5_event:\s*(.*)\s*$/i,
+            (halflifeLine, data) => {
+                try {
+                    return {
+                        type: "get5-event",
+                        payload: JSON.parse(data),
+                    };
+                }
+                catch (error) {
+                    if (error instanceof SyntaxError) return {
+                        type: "get5-event",
+                        payload: {},
+                    };
+                    throw error;
+                }
+            },
+        );
 
         this.registerRegexParser(
             /^(mp_[a-z_]+)\s+(\d+)/i,

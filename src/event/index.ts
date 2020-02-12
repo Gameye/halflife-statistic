@@ -5,3 +5,4 @@ export * from "./team";
 export * from "./position";
 export * from "./timestamp";
 export * from "./parameter";
+export * from "./get5";

@@ -7,8 +7,6 @@ Feature: Get team score from log-files
         Then I have finished <rounds> rounds
         And team <team 1> has a score of <score 1>
         And team <team 2> has a score of <score 2>
-        And the first team has a score of <score 1>
-        And the second team has a score of <score 2>
 
         Examples:
             | logfile                                    | team 1             | team 2     | score 1 | score 2 | rounds |
