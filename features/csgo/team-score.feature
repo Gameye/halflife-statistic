@@ -11,12 +11,14 @@ Feature: Get team score from log-files
         And the second team has a score of <score 2>
 
         Examples:
-            | logfile                                    | team 1 | team 2 | score 1 | score 2 | rounds |
-            | esl1on1-5-rounds.log                       | TeamA  | TeamB  | 3       | 1       | 4      |
-            | esl5on5-36-rounds-1-overtime.log           | TeamA  | TeamB  | 17      | 19      | 36     |
-            | testone-20-rounds-3-overtime.log           | TeamA  | TeamB  | 12      | 8       | 20     |
-            | esl1on1-5-rounds-with-warmup.log           | TeamA  | TeamB  | 1       | 4       | 5      |
-            | esl1on1-5-rounds-with-warmup-reconnect.log | TeamA  | TeamB  | 2       | 4       | 6      |
-            | esl1on1-5-rounds-warmup-reconnect-v2.log   | TeamA  | TeamB  | 1       | 4       | 5      |
-            | esl1on1-6-rounds-warmup-reconnect-v3.log   | TeamA  | TeamB  | 3       | 3       | 6      |
-            | testone-7-rounds-1-overtime.log            | TeamA  | TeamB  | 3       | 4       | 7      |
+            | logfile                                    | team 1             | team 2     | score 1 | score 2 | rounds |
+            | esl1on1-5-rounds.log                       | TeamA              | TeamB      | 3       | 1       | 4      |
+            | esl5on5-36-rounds-1-overtime.log           | TeamA              | TeamB      | 17      | 19      | 36     |
+            | testone-20-rounds-3-overtime.log           | TeamA              | TeamB      | 12      | 8       | 20     |
+            | esl1on1-5-rounds-with-warmup.log           | TeamA              | TeamB      | 1       | 4       | 5      |
+            | esl1on1-5-rounds-with-warmup-reconnect.log | TeamA              | TeamB      | 2       | 4       | 6      |
+            | esl1on1-5-rounds-warmup-reconnect-v2.log   | TeamA              | TeamB      | 1       | 4       | 5      |
+            | esl1on1-6-rounds-warmup-reconnect-v3.log   | TeamA              | TeamB      | 3       | 3       | 6      |
+            | testone-7-rounds-1-overtime.log            | TeamA              | TeamB      | 3       | 4       | 7      |
+            | csgo-get5-freaks4u-stay.log                | Counter Terrorists | Terrorists | 3       | 1       | 4      |
+            | csgo-get5-freaks4u-swap.log                | Counter Terrorists | Terrorists | 3       | 1       | 4      |
