@@ -25,9 +25,9 @@ cucumber.Then(
 );
 
 cucumber.Then(
-    /^the first team has a score of (\d+)$/i,
-    async function (teamScore) {
-        teamScore = Number(teamScore);
+    /^the first team is called (.+)$/i,
+    async function (teamName) {
+        teamName = String(teamName);
 
         const { bag } = this as TestWorld<GameBag>;
         const { game } = bag;
@@ -38,14 +38,14 @@ cucumber.Then(
 
         const teamItem = state.team["1"];
 
-        assert.equal(teamItem.statistic.score, teamScore);
+        assert.equal(teamItem.name, teamName);
     },
 );
 
 cucumber.Then(
-    /^the second team has a score of (\d+)$/i,
-    async function (teamScore) {
-        teamScore = Number(teamScore);
+    /^the second team is called (.+)$/i,
+    async function (teamName) {
+        teamName = String(teamName);
 
         const { bag } = this as TestWorld<GameBag>;
         const { game } = bag;
@@ -56,7 +56,7 @@ cucumber.Then(
 
         const teamItem = state.team["2"];
 
-        assert.equal(teamItem.statistic.score, teamScore);
+        assert.equal(teamItem.name, teamName);
     },
 );
 
