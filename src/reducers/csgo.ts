@@ -23,6 +23,7 @@ export class CsGoLogReducer
     private playerSideHelper: {
         [key: string]: number;
     } = {};
+    private manualSwapCount = 0;
 
     // #endregion
 
@@ -49,6 +50,7 @@ export class CsGoLogReducer
         yield* this.reduceRoundStartStopEvent(event);
         yield* this.reducePlayerEvent(event);
         yield* this.reduceTeamEvent(event);
+        yield* this.reduceGet5Event(event);
     }
 
     protected * reduceSettingEvent(
@@ -385,6 +387,24 @@ export class CsGoLogReducer
 
     }
 
+    protected *reduceGet5Event(
+        event: CsGoLogEvents,
+    ): Iterable<CsGoPatch> {
+        if (event.type !== "get5-event") return;
+
+        switch (event.payload.event) {
+            case "knife_won": {
+                const { selected_side, winner } = event.payload.params;
+                if (
+                    winner === "team1" && selected_side === "T" ||
+                    winner === "team2" && selected_side === "CT"
+                ) {
+                    this.manualSwapCount++;
+                }
+            }
+        }
+    }
+
     // #region helper methods
 
     private getSideIndex(sideName: string) {
@@ -445,7 +465,7 @@ export class CsGoLogReducer
             r -= overtimeRounds;
         }
 
-        return s;
+        return s + this.manualSwapCount;
     }
 
     // #endregion
