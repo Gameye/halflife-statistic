@@ -23,6 +23,7 @@ export class CsGoLogReducer
     private playerSideHelper: {
         [key: string]: number;
     } = {};
+    private swapped = 0;
 
     // #endregion
 
@@ -394,25 +395,14 @@ export class CsGoLogReducer
         switch (event.payload.event) {
             case "knife_won": {
                 const { selected_side, winner } = event.payload.params;
-                const { sideNameHelper } = this;
                 if (winner === "team1") {
                     if (selected_side === "T") {
-                        sideNameHelper[0] = "TERRORIST";
-                        sideNameHelper[1] = "CT";
-                    }
-                    if (selected_side === "CT") {
-                        sideNameHelper[0] = "CT";
-                        sideNameHelper[1] = "TERRORIST";
+                        this.swapped++;
                     }
                 }
                 if (winner === "team2") {
-                    if (selected_side === "T") {
-                        sideNameHelper[0] = "CT";
-                        sideNameHelper[1] = "TERRORIST";
-                    }
                     if (selected_side === "CT") {
-                        sideNameHelper[0] = "TERRORIST";
-                        sideNameHelper[1] = "CT";
+                        this.swapped++;
                     }
                 }
 
@@ -480,7 +470,7 @@ export class CsGoLogReducer
             r -= overtimeRounds;
         }
 
-        return s;
+        return s + this.swapped;
     }
 
     // #endregion
