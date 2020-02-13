@@ -23,7 +23,7 @@ export class CsGoLogReducer
     private playerSideHelper: {
         [key: string]: number;
     } = {};
-    private swapped = 0;
+    private manualSwapCount = 0;
 
     // #endregion
 
@@ -395,17 +395,12 @@ export class CsGoLogReducer
         switch (event.payload.event) {
             case "knife_won": {
                 const { selected_side, winner } = event.payload.params;
-                if (winner === "team1") {
-                    if (selected_side === "T") {
-                        this.swapped++;
-                    }
+                if (
+                    winner === "team1" && selected_side === "T" ||
+                    winner === "team2" && selected_side === "CT"
+                ) {
+                    this.manualSwapCount++;
                 }
-                if (winner === "team2") {
-                    if (selected_side === "CT") {
-                        this.swapped++;
-                    }
-                }
-
             }
         }
     }
@@ -470,7 +465,7 @@ export class CsGoLogReducer
             r -= overtimeRounds;
         }
 
-        return s + this.swapped;
+        return s + this.manualSwapCount;
     }
 
     // #endregion
