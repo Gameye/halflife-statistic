@@ -1,0 +1,1590 @@
+/home/steam/csgo/srcds_run: 32: /home/steam/csgo/srcds_run: pushd: not found
+/home/steam/csgo/srcds_run: 35: /home/steam/csgo/srcds_run: popd: not found
+Server will auto-restart if there is a crash.
+LD_LIBRARY_PATH=/home/steam/csgo/bin:/home/steam/csgo:/home/steam/csgo/bin:
+#
+#Console initialized.
+Setting breakpad minidump AppID = 740
+#Using breakpad minidump system 740/13751.1101.DC
+Using breakpad crash handler
+Forcing breakpad minidump interfaces to load
+dlopen failed trying to load:
+/home/steam/.steam/sdk32/steamclient.so
+with error:
+/home/steam/.steam/sdk32/steamclient.so: cannot open shared object file: No such file or directory
+Looking up breakpad interfaces from steamclient
+Calling BreakpadMiniDumpSystemInit
+#Loading VPK file hashes for pure server operation.
+#Loading VPK file hashes for pure server operation.
+#Loading VPK file hashes for pure server operation.
+#Loading VPK file hashes for pure server operation.
+#Game.dll loaded for "Counter-Strike: Global Offensive"
+#CGameEventManager::AddListener: event 'server_pre_shutdown' unknown.
+#CGameEventManager::AddListener: event 'game_newmap' unknown.
+#CGameEventManager::AddListener: event 'finale_start' unknown.
+#CGameEventManager::AddListener: event 'round_start' unknown.
+#CGameEventManager::AddListener: event 'round_end' unknown.
+#CGameEventManager::AddListener: event 'difficulty_changed' unknown.
+#CGameEventManager::AddListener: event 'player_death' unknown.
+#CGameEventManager::AddListener: event 'hltv_replay' unknown.
+#CGameEventManager::AddListener: event 'player_connect' unknown.
+#CGameEventManager::AddListener: event 'player_disconnect' unknown.
+#GameTypes: missing mapgroupsSP entry for game type/mode (custom/custom).
+#GameTypes: missing mapgroupsSP entry for game type/mode (cooperative/cooperative).
+#GameTypes: missing mapgroupsSP entry for game type/mode (cooperative/coopmission).
+Failed to load gamerulescvars.txt, game rules cvars might not be reported to management tools.
+Server is hibernating
+[S_API FAIL] SteamAPI_Init() failed; SteamAPI_IsSteamRunning() failed.
+[S_API FAIL] SteamAPI_Init() failed; unable to locate a running instance of Steam, or a local steamclient.so.
+maxplayers set to 64
+ConVarRef cl_embedded_stream_video_playing doesn't point to an existing ConVar
+Unknown command "cl_bobamt_vert"
+Unknown command "cl_bobamt_lat"
+Unknown command "cl_bob_lower_amt"
+Unknown command "cl_viewmodel_shift_left_amt"
+Unknown command "cl_viewmodel_shift_right_amt"
+Unknown command "cl_teamid_min"
+Unknown command "cl_teamid_max"
+Unknown command "cl_teamid_overhead"
+Unknown command "cl_teamid_overhead_maxdist"
+Setting mapgroup to 'mg_active'
+maxplayers set to 64
+Server waking up from hibernation
+Usage: host_workshop_map <fileid>
+"rcon_password" = ""                                                             - remote console password.
+NET_CloseAllSockets
+---- Host_NewGame ----
+Host_NewGame on map de_dust2
+L 05/07/2020 - 20:25:51: [SDKTOOLS] Invalid detour address passed - Disabling detour to prevent crashes
+L 05/07/2020 - 20:25:51: [SDKTOOLS] Failed to find WriteBaselines signature -- stringtable error workaround disabled.
+GameTypes: missing mapgroupsSP entry for game type/mode (custom/custom).
+GameTypes: missing mapgroupsSP entry for game type/mode (cooperative/cooperative).
+GameTypes: missing mapgroupsSP entry for game type/mode (cooperative/coopmission).
+ConVarRef room_type doesn't point to an existing ConVar
+ammo_grenade_limit_default - 1
+ammo_grenade_limit_flashbang - 1
+ammo_grenade_limit_total - 3
+ammo_item_limit_healthshot - 4
+bot_allow_grenades - 1
+bot_allow_machine_guns - 1
+bot_allow_pistols - 1
+bot_allow_rifles - 1
+bot_allow_rogues - 1
+bot_allow_shotguns - 1
+bot_allow_snipers - 1
+bot_allow_sub_machine_guns - 1
+bot_autodifficulty_threshold_high - 5.0
+bot_autodifficulty_threshold_low - -2.0
+bot_chatter - normal
+bot_coop_idle_max_vision_distance - 1400
+bot_defer_to_human_goals - 0
+bot_defer_to_human_items - 1
+bot_difficulty - 1
+bot_max_hearing_distance_override - -1
+bot_max_visible_smoke_length - 200
+bot_max_vision_distance_override - -1
+bot_quota - 10
+bot_quota_mode - normal
+bot_coop_idle_max_vision_distance - 1400
+bot_max_vision_distance_override - -1
+bot_max_hearing_distance_override - -1
+bot_coopmission_dz_engagement_limit - missing cvar specified in bspconvar_whitelist.txt
+cash_player_bomb_defused - 300
+cash_player_bomb_planted - 300
+cash_player_damage_hostage - -30
+cash_player_get_killed - 0
+cash_player_interact_with_hostage - 150
+cash_player_killed_enemy_default - 300
+cash_player_killed_enemy_factor - 1
+cash_player_killed_hostage - -1000
+cash_player_killed_teammate - -300
+cash_player_rescued_hostage - 1000
+cash_player_respawn_amount - 0
+cash_team_elimination_bomb_map - 3250
+cash_team_elimination_hostage_map_ct - 2000
+cash_team_elimination_hostage_map_t - 1000
+cash_team_hostage_alive - 0
+cash_team_hostage_interaction - 500
+cash_team_loser_bonus - 1400
+cash_team_loser_bonus_consecutive_rounds - 500
+cash_team_planted_bomb_but_defused - 800
+cash_team_rescued_hostage - 0
+cash_team_survive_guardian_wave - 1000
+cash_team_terrorist_win_bomb - 3500
+cash_team_win_by_defusing_bomb - 3250
+cash_team_win_by_hostage_rescue - 3500
+cash_team_win_by_time_running_out_bomb - 3250
+cash_team_win_by_time_running_out_hostage - 3250
+contributionscore_assist - 1
+contributionscore_bomb_defuse_major - 3
+contributionscore_bomb_defuse_minor - 1
+contributionscore_bomb_exploded - 1
+contributionscore_bomb_planted - 2
+contributionscore_cash_bundle - 0
+contributionscore_crate_break - 0
+contributionscore_hostage_kill - -2
+contributionscore_hostage_rescue_major - 3
+contributionscore_hostage_rescue_minor - 1
+contributionscore_kill - 2
+contributionscore_kill_factor - 0
+contributionscore_objective_kill - 3
+contributionscore_suicide - -2
+contributionscore_team_kill - -2
+ff_damage_reduction_bullets - 0.1
+ff_damage_reduction_grenade - 0.25
+ff_damage_reduction_grenade_self - 1
+ff_damage_reduction_other - 0.25
+global_chatter_info -
+healthshot_healthboost_damage_multiplier - 1
+healthshot_healthboost_speed_multiplier - 1
+healthshot_healthboost_time - 0
+inferno_child_spawn_max_depth - 4
+inferno_max_flames - 16
+inferno_max_range - 150
+molotov_throw_detonate_time - 2.0
+mp_afterroundmoney - 0
+mp_anyone_can_pickup_c4 - 0
+mp_autokick - 1
+mp_autoteambalance - 1
+mp_bot_ai_bt -
+mp_buy_allow_grenades - 1
+mp_buy_allow_guns - 255
+mp_buy_anywhere - 0
+mp_buy_during_immunity - 0
+mp_buytime - 90
+mp_c4_cannot_be_defused - 0
+mp_c4timer - 40
+mp_consecutive_loss_max - 4
+mp_coop_force_join_ct - 0
+mp_coopmission_bot_difficulty_offset - 0
+mp_coopmission_dz - 0
+mp_coopmission_mission_number - 0
+mp_coopmission_dz - 0
+mp_ct_default_grenades -
+mp_ct_default_melee - weapon_knife
+mp_ct_default_primary -
+mp_ct_default_secondary - weapon_hkp2000
+mp_damage_headshot_only - 0
+mp_damage_scale_ct_body - 1.0
+mp_damage_scale_ct_head - 1.0
+mp_damage_scale_t_body - 1.0
+mp_damage_scale_t_head - 1.0
+mp_damage_vampiric_amount - 0
+mp_death_drop_c4 - 1
+mp_death_drop_defuser - 1
+mp_death_drop_grenade - 2
+mp_death_drop_gun - 1
+mp_deathcam_skippable - 1
+mp_default_team_winner_no_objective - -1
+mp_defuser_allocation - 0
+mp_display_kill_assists - 1
+mp_dm_bonus_percent - 50
+mp_dm_bonus_respawn - 0
+mp_dm_bonusweapon_dogtags - 0
+mp_dm_dogtag_score - 0
+mp_dm_kill_base_score - 10
+mp_dm_teammode - 0
+mp_dm_teammode_bonus_score - 1
+mp_dm_teammode_dogtag_score - 0
+mp_dm_teammode_kill_score - 1
+mp_dogtag_despawn_on_killer_death - 1
+mp_dogtag_despawn_time - 120
+mp_dogtag_pickup_rule - 0
+mp_drop_grenade_enable - 0
+mp_drop_knife_enable - 0
+mp_economy_reset_rounds - 0
+mp_equipment_reset_rounds - 0
+mp_force_assign_teams - 0
+mp_force_pick_time - 15
+mp_forcecamera - 1
+mp_free_armor - 0
+mp_freezetime - 6
+mp_friendlyfire - 0
+mp_ggprogressive_round_restart_delay - 15.0
+mp_ggtr_always_upgrade - 0
+mp_ggtr_bomb_defuse_bonus - 1
+mp_ggtr_bomb_detonation_bonus - 1
+mp_ggtr_bomb_pts_for_flash - 4
+mp_ggtr_bomb_pts_for_he - 3
+mp_ggtr_bomb_pts_for_molotov - 5
+mp_ggtr_bomb_pts_for_upgrade - 2.0
+mp_ggtr_bomb_respawn_delay - 0.0
+mp_ggtr_end_round_kill_bonus - 1
+mp_ggtr_halftime_delay - 0.0
+mp_ggtr_last_weapon_kill_ends_half - 0
+mp_give_player_c4 - 1
+mp_global_damage_per_second - 0.0
+mp_guardian_bot_money_per_wave - 800
+mp_guardian_force_collect_hostages_timeout - 50
+mp_guardian_loc_icon - missing cvar specified in bspconvar_whitelist.txt
+mp_guardian_loc_string_desc -
+mp_guardian_loc_string_hud - #guardian_mission_type_kills
+mp_guardian_loc_weapon -
+mp_guardian_player_dist_max - 2000
+mp_guardian_player_dist_min - 1300
+mp_guardian_special_kills_needed - 10
+mp_guardian_special_weapon_needed - awp
+mp_guardian_target_site - -1
+mp_guardian_force_collect_hostages_timeout - 50
+mp_guardian_give_random_grenades_to_bots - 1
+mp_halftime - 0
+mp_halftime_pausetimer - 0
+mp_heavyassaultsuit_aimpunch - 1.0
+mp_heavyassaultsuit_cooldown - 5
+mp_heavyassaultsuit_deploy_timescale - 0.8
+mp_heavyassaultsuit_speed - 130
+mp_heavybot_damage_reduction_scale - 1.0
+mp_hostagepenalty - 10
+mp_hostages_max - 2
+mp_hostages_spawn_force_positions -
+mp_hostages_spawn_same_every_round - 1
+mp_items_prohibited -
+mp_limitteams - 2
+mp_match_can_clinch - 1
+mp_match_end_changelevel - 0
+mp_max_armor - 2
+mp_maxmoney - 16000
+mp_maxrounds - 0
+mp_molotovusedelay - 15.0
+mp_only_cts_rescue_hostages - 1
+mp_plant_c4_anywhere - 0
+mp_playercashawards - 1
+mp_radar_showall - 0
+mp_randomspawn - 0
+mp_randomspawn_dist - 0
+mp_randomspawn_los - 1
+mp_respawn_immunitytime - 4.0
+mp_respawn_on_death_ct - 0
+mp_respawn_on_death_t - 0
+mp_respawnwavetime_ct - 10.0
+mp_respawnwavetime_t - 10.0
+mp_round_restart_delay - 7.0
+mp_roundtime - 5
+mp_roundtime_defuse - 0
+mp_roundtime_hostage - 0
+mp_solid_teammates - 1
+mp_starting_losses - 0
+mp_startmoney - 800
+mp_suicide_penalty - 1
+mp_t_default_grenades -
+mp_t_default_melee - weapon_knife
+mp_t_default_primary -
+mp_t_default_secondary - weapon_glock
+mp_tagging_scale - 1.0
+mp_taser_recharge_time - -1
+mp_teamcashawards - 1
+mp_teammates_are_enemies - 0
+mp_timelimit - 5
+mp_use_respawn_waves - 0
+mp_warmup_pausetimer - 0
+mp_warmuptime - 30
+mp_warmuptime_all_players_connected - 0
+mp_weapon_self_inflict_amount - 0
+mp_weapons_allow_heavy - -1
+mp_weapons_allow_heavyassaultsuit - 0
+mp_weapons_allow_map_placed - 0
+mp_weapons_allow_pistols - -1
+mp_weapons_allow_rifles - -1
+mp_weapons_allow_smgs - -1
+mp_weapons_allow_typecount - 5
+mp_weapons_allow_zeus - 1
+mp_weapons_glow_on_ground - 0
+mp_weapons_max_gun_purchases_per_weapon_per_match - -1
+mp_win_panel_display_time - 3
+occlusion_test_async - 0
+spec_freeze_panel_extended_time - 0.0
+spec_freeze_time - 3.0
+spec_replay_bot - 0
+spec_replay_enable - 0
+spec_replay_leadup_time - 5.3438
+sv_accelerate - 5.5
+sv_air_pushaway_dist - 0
+sv_airaccelerate - 12
+sv_allow_votes - 1
+sv_alltalk - 0
+sv_arms_race_vote_to_restart_disallowed_after - 0
+sv_auto_adjust_bot_difficulty - 1
+sv_auto_full_alltalk_during_warmup_half_end - 1
+sv_autobunnyhopping - 0
+sv_autobuyammo - 0
+sv_bot_buy_decoy_weight - 1
+sv_bot_buy_flash_weight - 1
+sv_bot_buy_grenade_chance - 33
+sv_bot_buy_hegrenade_weight - 6
+sv_bot_buy_molotov_weight - 1
+sv_bot_buy_smoke_weight - 1
+sv_bots_force_rebuy_every_round - 0
+sv_bots_get_easier_each_win - 0
+sv_bots_get_harder_after_each_wave - 0
+sv_bounce - 0
+sv_buy_status_override - -1
+sv_deadtalk - 0
+sv_disable_immunity_alpha - 0
+sv_disable_radar - 0
+sv_disable_show_team_select_menu - missing cvar specified in bspconvar_whitelist.txt
+sv_duplicate_playernames_ok - 0
+sv_enablebunnyhopping - 0
+sv_env_entity_makers_enabled - 1
+sv_extract_ammo_from_dropped_weapons - 0
+sv_falldamage_scale - 1
+sv_falldamage_to_below_player_multiplier - 1
+sv_falldamage_to_below_player_ratio - 0
+sv_force_reflections - 0
+sv_friction - 5.2
+sv_grassburn - 0
+sv_gravity - 800
+sv_guardian_extra_equipment_ct -
+sv_guardian_extra_equipment_t -
+sv_guardian_health_refresh_per_wave - 50
+sv_guardian_heavy_all - 0
+sv_guardian_heavy_count - 0
+sv_guardian_max_wave_for_heavy - 0
+sv_guardian_min_wave_for_heavy - 0
+sv_guardian_refresh_ammo_for_items_on_waves -
+sv_guardian_reset_c4_every_wave - 0
+sv_guardian_respawn_health - 50
+sv_guardian_spawn_health_ct - 100
+sv_guardian_spawn_health_t - 100
+sv_health_approach_enabled - 0
+sv_health_approach_speed - 10
+sv_hegrenade_damage_multiplier - 1
+sv_hegrenade_radius_multiplier - 1
+sv_hide_roundtime_until_seconds - missing cvar specified in bspconvar_whitelist.txt
+sv_highlight_distance - 500
+sv_highlight_duration - 3.5
+sv_ignoregrenaderadio - 0
+sv_infinite_ammo - 0
+sv_knife_attack_extend_from_player_aabb - 0
+sv_maxspeed - 320
+sv_maxvelocity - 3500
+sv_occlude_players - 1
+sv_outofammo_indicator - 0
+sv_show_ragdoll_playernames - missing cvar specified in bspconvar_whitelist.txt
+sv_show_team_equipment_force_on - 0
+sv_staminajumpcost - .080
+sv_staminalandcost - .050
+sv_stopspeed - 80
+sv_talk_enemy_dead - 0
+sv_talk_enemy_living - 0
+sv_teamid_overhead_maxdist - 0
+sv_teamid_overhead_maxdist_spec - 0
+sv_versus_screen_scene_id - 0
+sv_vote_to_changelevel_before_match_point - 0
+sv_warmup_to_freezetime_delay - 4
+sv_water_movespeed_multiplier - 0.8
+sv_water_swim_mode - 0
+sv_wateraccelerate - 10
+sv_waterfriction - 1
+sv_weapon_encumbrance_per_item - 0.85
+sv_weapon_encumbrance_scale - 0
+tv_delay - 10
+weapon_accuracy_nospread - 0
+weapon_air_spread_scale - 1.0
+weapon_max_before_cleanup - 0
+weapon_recoil_scale - 2.0
+weapon_reticle_knife_show - 1
+weapon_sound_falloff_multiplier - 1.0
+sv_camera_fly_enabled - missing cvar specified in bspconvar_whitelist.txt
+Executing dedicated server config file
+exec: couldn't exec server.cfg
+exec: couldn't exec gamemode_competitive_server.cfg
+PrecacheScriptSound 'Survival.VO.Taunt4a' failed, no such sound script entry
+PrecacheScriptSound 'Snowball.Bounce' failed, no such sound script entry
+CHostage::Precache: missing hostage models for map de_dust2. Adding the default models.
+PrecacheScriptSound 'balkan_epic_blank' failed, no such sound script entry
+Commentary: Could not find commentary data file 'maps/de_dust2_commentary.txt'.
+Error parsing BotProfile.db - unknown attribute 'Rank'
+Error parsing BotProfile.db - unknown attribute 'Rank'
+Error parsing BotProfile.db - unknown attribute 'Rank'
+Error parsing BotProfile.db - unknown attribute 'Rank'
+Error parsing BotProfile.db - unknown attribute 'Rank'
+Error parsing BotProfile.db - unknown attribute 'Rank'
+Error parsing BotProfile.db - unknown attribute 'Rank'
+Error parsing BotProfile.db - unknown attribute 'Rank'
+Initializing Steam libraries for secure Internet server
+[S_API FAIL] SteamAPI_Init() failed; SteamAPI_IsSteamRunning() failed.
+CAppInfoCacheReadFromDiskThread took 1 milliseconds to initialize
+CApplicationManagerPopulateThread took 0 milliseconds to initialize (will have waited on CAppInfoCacheReadFromDiskThread)
+RecordSteamInterfaceCreation (PID 21): SteamGameServer012 / GameServer
+RecordSteamInterfaceCreation (PID 21): SteamUtils008 / Utils
+Setting breakpad minidump AppID = 730
+dlopen failed trying to load:
+/home/steam/.steam/sdk32/steamclient.so
+with error:
+/home/steam/.steam/sdk32/steamclient.so: cannot open shared object file: No such file or directory
+Looking up breakpad interfaces from steamclient
+Calling BreakpadMiniDumpSystemInit
+Setting breakpad minidump AppID = 740
+RecordSteamInterfaceCreation (PID 21): SteamGameServer012 / GameServer
+RecordSteamInterfaceCreation (PID 21): SteamUtils008 / Utils
+RecordSteamInterfaceCreation (PID 21): SteamNetworking005 / Networking
+RecordSteamInterfaceCreation (PID 21): SteamGameServerStats001 / GameServerStats
+RecordSteamInterfaceCreation (PID 21): STEAMHTTP_INTERFACE_VERSION002 / HTTP
+RecordSteamInterfaceCreation (PID 21): STEAMINVENTORY_INTERFACE_V001 / Inventory
+RecordSteamInterfaceCreation (PID 21): STEAMUGC_INTERFACE_VERSION008 / UGC
+RecordSteamInterfaceCreation (PID 21): STEAMAPPS_INTERFACE_VERSION008 / Apps
+Logging into Steam gameserver account with logon token '149C8BD9xxxxxxxxxxxxxxxxxxxxxxxx'
+RecordSteamInterfaceCreation (PID 21): SteamUtils009 / Utils
+RecordSteamInterfaceCreation (PID 21): SteamNetworkingSocketsSerialized003 /
+RecordSteamInterfaceCreation (PID 21): SteamGameServer012 / GameServer
+RecordSteamInterfaceCreation (PID 21): STEAMHTTP_INTERFACE_VERSION003 / HTTP
+SteamDatagramServer_Init succeeded
+RecordSteamInterfaceCreation (PID 21): SteamGameServer012 / GameServer
+RecordSteamInterfaceCreation (PID 21): SteamUtils008 / Utils
+RecordSteamInterfaceCreation (PID 21): SteamNetworking005 / Networking
+RecordSteamInterfaceCreation (PID 21): SteamGameServerStats001 / GameServerStats
+RecordSteamInterfaceCreation (PID 21): STEAMHTTP_INTERFACE_VERSION002 / HTTP
+RecordSteamInterfaceCreation (PID 21): STEAMINVENTORY_INTERFACE_V001 / Inventory
+RecordSteamInterfaceCreation (PID 21): STEAMUGC_INTERFACE_VERSION008 / UGC
+RecordSteamInterfaceCreation (PID 21): STEAMAPPS_INTERFACE_VERSION008 / Apps
+RecordSteamInterfaceCreation (PID 21): SteamGameCoordinator001 /
+RecordSteamInterfaceCreation (PID 21): SteamGameServer012 / GameServer
+PutClientInServer: no info_player_start on level
+Unknown command "sm_flood_time"
+Unknown command "sm_reserve_type"
+Unknown command "sm_reserved_slots"
+Unknown command "sm_hide_slots"
+Unknown command "sm_chat_mode"
+Unknown command "sm_timeleft_interval"
+Unknown command "sm_trigger_show"
+L 05/07/2020 - 20:25:54: [UPDATER] Successfully updated gamedata file "sdkhooks.games/engine.csgo.txt"
+L 05/07/2020 - 20:25:54: [UPDATER] Successfully updated gamedata file "sdkhooks.games/engine.contagion.txt"
+L 05/07/2020 - 20:25:54: [UPDATER] Successfully updated gamedata file "sdkhooks.games/game.pvkii.txt"
+L 05/07/2020 - 20:25:54: [UPDATER] Successfully updated gamedata file "sdktools.games/game.nucleardawn.txt"
+L 05/07/2020 - 20:25:54: [UPDATER] Successfully updated gamedata file "sdktools.games/engine.csgo.txt"
+L 05/07/2020 - 20:25:54: [UPDATER] Successfully updated gamedata file "sdktools.games/engine.contagion.txt"
+L 05/07/2020 - 20:25:54: [UPDATER] Successfully updated gamedata file "sdktools.games/game.pvkii.txt"
+L 05/07/2020 - 20:25:54: [UPDATER] Successfully updated gamedata file "sdktools.games/game.nmrih.txt"
+L 05/07/2020 - 20:25:54: [UPDATER] SourceMod has been updated, please reload it or restart your server.
+RecordSteamInterfaceCreation (PID 21): SteamGameServer012 / GameServer
+RecordSteamInterfaceCreation (PID 21): SteamUtils008 / Utils
+RecordSteamInterfaceCreation (PID 21): SteamNetworking005 / Networking
+RecordSteamInterfaceCreation (PID 21): SteamGameServerStats001 / GameServerStats
+RecordSteamInterfaceCreation (PID 21): STEAMHTTP_INTERFACE_VERSION002 / HTTP
+RecordSteamInterfaceCreation (PID 21): STEAMINVENTORY_INTERFACE_V001 / Inventory
+RecordSteamInterfaceCreation (PID 21): STEAMUGC_INTERFACE_VERSION008 / UGC
+RecordSteamInterfaceCreation (PID 21): STEAMAPPS_INTERFACE_VERSION008 / Apps
+GOTV[0] broadcast active.
+echo "Configure..."
+
+log on                                            // Enable server logging.
+bot_quota "0"                                     // Determines the total number of bots in the game.
+bot_join_after_player 0                           // If nonzero, bots wait until a player joins before entering the game.
+hostname "test"                        // Set the server name.
+sv_password ""               // Set the server password.
+
+mp_logdetail 3                                    // Logs attacks.  Values are: 0=off, 1=enemy, 2=teammate, 3=both)
+mp_logdetail_items 1                              // Logs a line any time a player acquires or loses an item.
+mp_logmoney 1                                     // Enables money logging. Values are: 0=off, 1=on
+
+mp_t_default_secondary "weapon_elite"  // set terrorists seconday weapon
+mp_ct_default_secondary "weapon_elite" // set counter-terrorists seconday weapon
+
+mp_t_default_primary "weapon_ak47"      // set terrorists primary weapon
+mp_ct_default_primary "weapon_ak47"     // set counter-terrorists primary weapon
+
+mp_halftime 0                                     // disable halftime
+mp_halftime_duration 0                            // set haltime duration
+
+mp_hostages_max 0                                 // set the number of hostages on a map
+mp_autoteambalance 0
+mp_teams_unbalance_limit 0
+mp_allowspectators 1
+mp_give_player_c4 0                               // remove bomb from game
+mp_teammates_are_enemies "1"                      // everyone is a enemy
+mp_buytime "0"                                    // set buy time to 0 seconds
+mp_death_drop_gun "0"
+mp_roundtime 1.92                     // set round time
+mp_roundtime_defuse 1.92              // set round time
+mp_roundtime_hostage 1.92             // set round time
+mp_respawn_on_death_ct "1"
+mp_respawn_on_death_t "1"
+mp_randomspawn "1"                                // enable random spawnpoints
+mp_radar_showall "0"                              // makes it so you see the enemy team on the radar, since you already see your teammates
+mp_warmuptime 120                   // set the warmup time
+mp_warmuptime_all_players_connected 60
+mp_startmoney 0                                   // prevent buying weapons by setting money to zero
+
+mp_maxrounds 2                     // max number of rounds to play before server changes maps
+mp_teamname_1 CT                  // Override the name of team 1
+mp_teamname_2 T                  // Override the name of team 2
+mp_match_restart_delay 120                        // Delay in seconds when the servers restarts after the match has been ended.
+mp_endmatch_votenextmap 0                         // Disable map voting at the end of a match.
+mp_halftime 0                                     // Disable halftime when only playing 1 round
+
+sv_allow_votes 0                                  // Disable voting
+sv_vote_issue_kick_allowed 0                      // Disallow voting to reset
+sv_vote_issue_loadbackup_allowed 0                // Disallow voting to load round backup
+sv_lan 0                                          // Server is a lan server ( no heartbeat, no authentication, no non-class C addresses )
+sv_log_onefile 0                                  // Log server information to only one file.
+sv_logbans 1                                      // Log server bans in the server logs.
+sv_logecho 1                                      // Echo log information to the console.
+sv_logfile 1                                      // Log server information in the log file.
+sv_logflush 0                                     // Flush the log file to disk on each write (slow).
+sv_logsdir logfiles                               // Folder in the game directory where server logs will be stored.
+sv_maxrate 0                                      // min. 0.000000 max. 30000.000000 replicated  Max bandwidth rate allowed on server, 0 == unlimited
+sv_mincmdrate 30                                  // This sets the minimum value for cl_cmdrate. 0 == unlimited.
+sv_minrate 20000                                  // Min bandwidth rate allowed on server, 0 == unlimited
+sv_competitive_minspec 1                          // Enable to force certain client convars to minimum/maximum values to help prevent competitive advantages.
+sv_pausable 1                                     // Is the server pausable.
+sv_pure 1
+sv_pure_kick_clients 1                            // If set to 1, the server will kick clients with mismatching files. Otherwise, it will issue a warning to the client.
+sv_pure_trace 0                                   // If set to 1, the server will print a message whenever a client is verifying a CR
+sv_spawn_afk_bomb_drop_time 30                    // Players that spawn and don't move for longer than sv_spawn_afk_bomb_drop_time (default 15 seconds) will automatically drop the bomb.
+sv_steamgroup_exclusive 0                         // If set, only members of Steam group will be able to join the server when it's empty, public people will be able to join the server only if it has players.
+sv_coaching_enabled 1           // Enable coaching mode.
+sv_voiceenable 0                                  // Disable ingame voice
+
+tv_advertise_watchable 1                          // Enable GOTV in a empty server
+tv_allow_camera_man 1                             // Auto director allows spectators to become camera man
+tv_allow_static_shots 1                           // Auto director uses fixed level cameras for shots
+tv_chatgroupsize 0                                // Set the default chat group size
+tv_chattimelimit 8                                // Limits spectators to chat only every n seconds
+tv_debug 0                                        // GOTV debug info.
+tv_delay 0                         // GOTV stream delay in seconds
+tv_delaymapchange 1                               // Delays map change until broadcast is complete
+tv_deltacache 2                                   // Enable delta entity bit stream cache
+tv_dispatchmode 1                                 // Dispatch clients to relay proxies: 0=never, 1=if appropriate, 2=always
+tv_enable 1                                       // Activates GOTV on server.
+tv_maxclients 10               // Maximum client number on GOTV server.
+tv_maxrate 20000                                  // Max GOTV spectator bandwidth rate allowed, 0 == unlimited
+tv_name "Gameye GOTV Stream"                      // GOTV host name
+tv_overridemaster 0                               // Overrides the GOTV master root address.
+tv_port 53978                              // Host SourceTV port
+tv_relaypassword "gameyegotv"                     // GOTV password for relay proxies
+tv_relayvoice 0                                   // Relay voice data: 0=off, 1=on
+tv_snapshotrate 24                                // Snapshots broadcasted per second
+tv_timeout 60                                     // GOTV connection timeout in seconds.
+tv_title "Gameye GOTV Stream"                     // Set title for GOTV spectator UI
+tv_transmitall 1                                  // Transmit all entities (not only director view)
+
+say ">FFA config loaded<"
+sm plugins load disabled/okletsplay.smx sm plugins list
+echo "Configure ready..."
+
+Configure...
+Server logging enabled.
+Server logging data to file logs/L000_000_000_000_57614_202005072025_000.log
+L 05/07/2020 - 20:25:54: Log file started (file "logs/L000_000_000_000_57614_202005072025_000.log") (game "/home/steam/csgo/csgo") (version "7803")
+L 05/07/2020 - 20:25:54: server_cvar: "mp_autoteambalance" "0"
+Unknown command "mp_teams_unbalance_limit"
+Unknown command "mp_allowspectators"
+L 05/07/2020 - 20:25:54: server_cvar: "mp_teammates_are_enemies" "1"
+L 05/07/2020 - 20:25:54: server_cvar: "mp_maxrounds" "2"
+L 05/07/2020 - 20:25:54: server_cvar: "sv_vote_issue_kick_allowed" "0"
+L 05/07/2020 - 20:25:54: server_cvar: "sv_vote_issue_loadbackup_allowed" "0"
+--------------------------------------------------------
+sv_pure value unchanged (current value is 1).
+--------------------------------------------------------
+L 05/07/2020 - 20:25:54: server_cvar: "sv_voiceenable" "0"
+L 05/07/2020 - 20:25:54: server_cvar: "tv_advertise_watchable" "***PROTECTED***"
+Unknown command "tv_allow_camera_man"
+maxplayers set to 64
+L 05/07/2020 - 20:25:54: server_cvar: "tv_relaypassword" "***PROTECTED***"
+Console: ">FFA config loaded<"
+[OkLetsPlay] Initializing
+[OkLetsPlay] Trying to load config file: cfg/okletsplay.cfg
+[OkLetsPlay] Adding auth '76561198360174697' to team T
+[OkLetsPlay] Adding auth '00061198360174697' to team T
+[OkLetsPlay] Adding auth '00001198360174697' to team T
+[OkLetsPlay] Adding auth '00000198360174697' to team T
+[OkLetsPlay] Adding auth '00000098360174697' to team T
+[OkLetsPlay] Adding auth '76561197996457702' to team CT
+[OkLetsPlay] Adding auth '00061197996457702' to team CT
+[OkLetsPlay] Adding auth '00001197996457702' to team CT
+[OkLetsPlay] Adding auth '00000197996457702' to team CT
+[OkLetsPlay] Adding auth '00000097996457702' to team CT
+[OkLetsPlay] Loaded team file
+[SM] Loaded plugin disabled/okletsplay.smx successfully.
+Configure ready...
+echo "Idle..."
+
+Idle...
+Connection to Steam servers successful.
+   Public IP is 107.6.115.39.
+Assigned persistent gameserver Steam ID [G:1:3119423].
+Gameserver logged on to Steam, assigned identity steamid:85568392923158847
+VAC secure mode is activated.
+GC Connection established for server version 1101, instance idx 1
+-> Reservation cookie e2dbe32ebec8cd27:  reason [R] Connect from 46.64.240.223:63741
+L 05/07/2020 - 20:26:00: server_cvar: "nextlevel" "de_dust2"
+L 05/07/2020 - 20:26:00: [META] Loaded 0 plugins (1 already loaded)
+---- Host_Changelevel ----
+L 05/07/2020 - 20:26:00: [META] Loaded 0 plugins (1 already loaded)
+*** Map Load: de_dust2: Map Group mg_activeL 05/07/2020 - 20:26:00: Log file closed
+Server logging data to file logfiles/L000_000_000_000_57614_202005072026_000.log
+L 05/07/2020 - 20:26:00: Log file started (file "logfiles/L000_000_000_000_57614_202005072026_000.log") (game "/home/steam/csgo/csgo") (version "7803")
+L 05/07/2020 - 20:26:00: Loading map "de_dust2"
+L 05/07/2020 - 20:26:00: server cvars start
+L 05/07/2020 - 20:26:00: "cash_player_killed_teammate" = "-300"
+L 05/07/2020 - 20:26:00: "cash_player_respawn_amount" = "0"
+L 05/07/2020 - 20:26:00: "sv_maxspeed" = "320"
+L 05/07/2020 - 20:26:00: "cash_team_winner_bonus_consecutive_rounds" = "0"
+L 05/07/2020 - 20:26:00: "cash_team_rescued_hostage" = "600"
+L 05/07/2020 - 20:26:00: "cash_team_win_by_defusing_bomb" = "3500"
+L 05/07/2020 - 20:26:00: "sv_rollangle" = "0"
+L 05/07/2020 - 20:26:00: "r_AirboatViewZHeight" = "0.0"
+L 05/07/2020 - 20:26:00: "sv_cheats" = "0"
+L 05/07/2020 - 20:26:00: "r_VehicleViewDampen" = "1"
+L 05/07/2020 - 20:26:00: "metamod_version" = "1.10.7-devV"
+L 05/07/2020 - 20:26:00: "mp_allowNPCs" = "1"
+L 05/07/2020 - 20:26:00: "mp_tournament" = "0"
+L 05/07/2020 - 20:26:00: "sv_vote_issue_pause_match_spec_only" = "0"
+L 05/07/2020 - 20:26:00: "sv_spec_hear" = "1"
+L 05/07/2020 - 20:26:00: "cash_player_interact_with_hostage" = "300"
+L 05/07/2020 - 20:26:00: "mp_maxrounds" = "2"
+L 05/07/2020 - 20:26:00: "mp_flashlight" = "0"
+L 05/07/2020 - 20:26:00: "sv_tags" = ""
+L 05/07/2020 - 20:26:00: "sv_stepsize" = "18"
+L 05/07/2020 - 20:26:00: "sv_alltalk" = "0"
+L 05/07/2020 - 20:26:00: "mp_teamlist" = "hgrunt;scientist"
+L 05/07/2020 - 20:26:00: "mp_footsteps" = "1"
+L 05/07/2020 - 20:26:00: "sv_noclipaccelerate" = "5"
+L 05/07/2020 - 20:26:00: "sv_accelerate_debug_speed" = "0"
+L 05/07/2020 - 20:26:00: "sv_wateraccelerate" = "10"
+L 05/07/2020 - 20:26:00: "mp_stalemate_enable" = "0"
+L 05/07/2020 - 20:26:00: "mp_autocrosshair" = "1"
+L 05/07/2020 - 20:26:00: "sourcemod_version" = "1.10.0.6462"
+L 05/07/2020 - 20:26:00: "cash_team_elimination_bomb_map" = "3250"
+L 05/07/2020 - 20:26:00: "cash_player_get_killed" = "0"
+L 05/07/2020 - 20:26:00: "mp_roundtime_defuse" = "1.92"
+L 05/07/2020 - 20:26:00: "sv_autobuyammo" = "0"
+L 05/07/2020 - 20:26:00: "sv_rollspeed" = "200"
+L 05/07/2020 - 20:26:00: "sv_airaccelerate" = "12"
+L 05/07/2020 - 20:26:00: "sv_show_team_equipment_prohibit" = "0"
+L 05/07/2020 - 20:26:00: "mp_teams_unbalance_limit" = "1"
+L 05/07/2020 - 20:26:00: "mp_timelimit" = "0"
+L 05/07/2020 - 20:26:00: "cash_team_loser_bonus" = "1400"
+L 05/07/2020 - 20:26:00: "sv_deadtalk" = "1"
+L 05/07/2020 - 20:26:00: "cash_player_rescued_hostage" = "1000"
+L 05/07/2020 - 20:26:00: "sv_waterfriction" = "1"
+L 05/07/2020 - 20:26:00: "sv_competitive_official_5v5" = "0"
+L 05/07/2020 - 20:26:00: "sv_steamgroup" = ""
+L 05/07/2020 - 20:26:00: "cash_player_killed_enemy_default" = "300"
+L 05/07/2020 - 20:26:00: "coop" = "0"
+L 05/07/2020 - 20:26:00: "mp_respawnwavetime" = "10.0"
+L 05/07/2020 - 20:26:00: "sv_teamid_overhead" = "1"
+L 05/07/2020 - 20:26:00: "tv_enable1" = "0"
+L 05/07/2020 - 20:26:00: "nextlevel" = "de_dust2"
+L 05/07/2020 - 20:26:00: "sv_stopspeed" = "80"
+L 05/07/2020 - 20:26:00: "sv_specaccelerate" = "5"
+L 05/07/2020 - 20:26:00: "deathmatch" = "1"
+L 05/07/2020 - 20:26:00: "tv_enable" = "1"
+L 05/07/2020 - 20:26:00: "mp_roundtime_hostage" = "1.92"
+L 05/07/2020 - 20:26:00: "mp_freezetime" = "15"
+L 05/07/2020 - 20:26:00: "mp_teammates_are_enemies" = "1"
+L 05/07/2020 - 20:26:00: "mp_falldamage" = "0"
+L 05/07/2020 - 20:26:00: "sv_accelerate_use_weapon_speed" = "1"
+L 05/07/2020 - 20:26:00: "sv_voiceenable" = "0"
+L 05/07/2020 - 20:26:00: "sv_teamid_overhead_always_prohibit" = "0"
+L 05/07/2020 - 20:26:00: "sv_bounce" = "0"
+L 05/07/2020 - 20:26:00: "mp_disable_respawn_times" = "0"
+L 05/07/2020 - 20:26:00: "r_AirboatViewDampenFreq" = "7.0"
+L 05/07/2020 - 20:26:00: "mp_weaponstay" = "0"
+L 05/07/2020 - 20:26:00: "mp_hostagepenalty" = "10"
+L 05/07/2020 - 20:26:00: "tv_advertise_watchable" = "1"
+L 05/07/2020 - 20:26:00: "mp_friendlyfire" = "1"
+L 05/07/2020 - 20:26:00: "cash_team_hostage_interaction" = "600"
+L 05/07/2020 - 20:26:00: "sv_noclipspeed" = "5"
+L 05/07/2020 - 20:26:00: "cash_team_win_by_time_running_out_bomb" = "3250"
+L 05/07/2020 - 20:26:00: "sv_allchat" = "1"
+L 05/07/2020 - 20:26:00: "mp_buy_during_immunity" = "0"
+L 05/07/2020 - 20:26:00: "cash_player_killed_enemy_factor" = "1"
+L 05/07/2020 - 20:26:00: "mp_c4timer" = "40"
+L 05/07/2020 - 20:26:00: "r_JeepViewDampenDamp" = "1.0"
+L 05/07/2020 - 20:26:00: "sv_competitive_minspec" = "1"
+L 05/07/2020 - 20:26:00: "r_AirboatViewDampenDamp" = "1.0"
+L 05/07/2020 - 20:26:00: "sm_nextmap" = ""
+L 05/07/2020 - 20:26:00: "sv_max_allowed_net_graph" = "1"
+L 05/07/2020 - 20:26:00: "mp_stalemate_at_timelimit" = "0"
+L 05/07/2020 - 20:26:00: "mp_limitteams" = "2"
+L 05/07/2020 - 20:26:00: "sv_footsteps" = "1"
+L 05/07/2020 - 20:26:00: "sv_vote_issue_kick_allowed" = "0"
+L 05/07/2020 - 20:26:00: "cash_team_survive_guardian_wave" = "1000"
+L 05/07/2020 - 20:26:00: "tv_relaypassword" = "gameyegotv"
+L 05/07/2020 - 20:26:00: "mp_teamplay" = "0"
+L 05/07/2020 - 20:26:00: "cash_team_terrorist_win_bomb" = "3500"
+L 05/07/2020 - 20:26:00: "cash_team_elimination_hostage_map_t" = "3000"
+L 05/07/2020 - 20:26:00: "r_JeepViewDampenFreq" = "7.0"
+L 05/07/2020 - 20:26:00: "cash_team_win_by_time_running_out_hostage" = "3250"
+L 05/07/2020 - 20:26:00: "sv_specnoclip" = "1"
+L 05/07/2020 - 20:26:00: "sv_friction" = "5.2"
+L 05/07/2020 - 20:26:00: "cash_player_bomb_planted" = "300"
+L 05/07/2020 - 20:26:00: "mp_autoteambalance" = "0"
+L 05/07/2020 - 20:26:00: "sv_contact" = ""
+L 05/07/2020 - 20:26:00: "sv_vote_kick_ban_duration" = "15"
+L 05/07/2020 - 20:26:00: "cash_player_bomb_defused" = "300"
+L 05/07/2020 - 20:26:00: "mp_roundtime" = "1.92"
+L 05/07/2020 - 20:26:00: "sv_kick_ban_duration" = "15"
+L 05/07/2020 - 20:26:00: "cash_team_planted_bomb_but_defused" = "800"
+L 05/07/2020 - 20:26:00: "cash_player_killed_hostage" = "-1000"
+L 05/07/2020 - 20:26:00: "sv_vote_issue_loadbackup_allowed" = "0"
+L 05/07/2020 - 20:26:00: "nextmode" = ""
+L 05/07/2020 - 20:26:00: "mp_fraglimit" = "0"
+L 05/07/2020 - 20:26:00: "mp_forcerespawn" = "1"
+L 05/07/2020 - 20:26:00: "mp_winlimit" = "0"
+L 05/07/2020 - 20:26:00: "sv_accelerate" = "5.5"
+L 05/07/2020 - 20:26:00: "mp_buy_anywhere" = "0"
+L 05/07/2020 - 20:26:00: "sv_gravity" = "800"
+L 05/07/2020 - 20:26:00: "sv_password" = ""
+L 05/07/2020 - 20:26:00: "cash_team_elimination_hostage_map_ct" = "3000"
+L 05/07/2020 - 20:26:00: "cash_team_win_by_hostage_rescue" = "2900"
+L 05/07/2020 - 20:26:00: "sv_vote_issue_loadbackup_spec_only" = "0"
+L 05/07/2020 - 20:26:00: "cash_team_loser_bonus_consecutive_rounds" = "500"
+L 05/07/2020 - 20:26:00: "cash_player_damage_hostage" = "-30"
+L 05/07/2020 - 20:26:00: "r_JeepViewZHeight" = "10.0"
+L 05/07/2020 - 20:26:00: "cash_team_hostage_alive" = "0"
+L 05/07/2020 - 20:26:00: "tv_password" = ""
+L 05/07/2020 - 20:26:00: "sv_specspeed" = "3"
+L 05/07/2020 - 20:26:00: server cvars end
+L 05/07/2020 - 20:26:03: Started map "de_dust2" (CRC "-658854066")
+L 05/07/2020 - 20:26:03: -------- Mapchange to de_dust2 --------
+L 05/07/2020 - 20:26:03: Error log file session closed.
+GameTypes: missing mapgroupsSP entry for game type/mode (custom/custom).
+GameTypes: missing mapgroupsSP entry for game type/mode (cooperative/cooperative).
+GameTypes: missing mapgroupsSP entry for game type/mode (cooperative/coopmission).
+ConVarRef room_type doesn't point to an existing ConVar
+ammo_grenade_limit_default - 1
+ammo_grenade_limit_flashbang - 1
+ammo_grenade_limit_total - 3
+ammo_item_limit_healthshot - 4
+bot_allow_grenades - 1
+bot_allow_machine_guns - 1
+bot_allow_pistols - 1
+bot_allow_rifles - 1
+bot_allow_rogues - 1
+bot_allow_shotguns - 1
+bot_allow_snipers - 1
+bot_allow_sub_machine_guns - 1
+bot_autodifficulty_threshold_high - 5.0
+bot_autodifficulty_threshold_low - -2.0
+bot_chatter - normal
+bot_coop_idle_max_vision_distance - 1400
+bot_defer_to_human_goals - 0
+bot_defer_to_human_items - 1
+bot_difficulty - 1
+bot_max_hearing_distance_override - -1
+bot_max_visible_smoke_length - 200
+bot_max_vision_distance_override - -1
+bot_quota - 10
+bot_quota_mode - normal
+bot_coop_idle_max_vision_distance - 1400
+bot_max_vision_distance_override - -1
+bot_max_hearing_distance_override - -1
+bot_coopmission_dz_engagement_limit - missing cvar specified in bspconvar_whitelist.txt
+cash_player_bomb_defused - 300
+cash_player_bomb_planted - 300
+cash_player_damage_hostage - -30
+cash_player_get_killed - 0
+L 05/07/2020 - 20:26:03: server_cvar: "cash_player_interact_with_hostage" "150"
+cash_player_interact_with_hostage - 150
+cash_player_killed_enemy_default - 300
+cash_player_killed_enemy_factor - 1
+cash_player_killed_hostage - -1000
+cash_player_killed_teammate - -300
+cash_player_rescued_hostage - 1000
+cash_player_respawn_amount - 0
+cash_team_elimination_bomb_map - 3250
+L 05/07/2020 - 20:26:03: server_cvar: "cash_team_elimination_hostage_map_ct" "2000"
+cash_team_elimination_hostage_map_ct - 2000
+L 05/07/2020 - 20:26:03: server_cvar: "cash_team_elimination_hostage_map_t" "1000"
+cash_team_elimination_hostage_map_t - 1000
+cash_team_hostage_alive - 0
+L 05/07/2020 - 20:26:03: server_cvar: "cash_team_hostage_interaction" "500"
+cash_team_hostage_interaction - 500
+cash_team_loser_bonus - 1400
+cash_team_loser_bonus_consecutive_rounds - 500
+cash_team_planted_bomb_but_defused - 800
+L 05/07/2020 - 20:26:03: server_cvar: "cash_team_rescued_hostage" "0"
+cash_team_rescued_hostage - 0
+cash_team_survive_guardian_wave - 1000
+cash_team_terrorist_win_bomb - 3500
+L 05/07/2020 - 20:26:03: server_cvar: "cash_team_win_by_defusing_bomb" "3250"
+cash_team_win_by_defusing_bomb - 3250
+L 05/07/2020 - 20:26:03: server_cvar: "cash_team_win_by_hostage_rescue" "3500"
+cash_team_win_by_hostage_rescue - 3500
+cash_team_win_by_time_running_out_bomb - 3250
+cash_team_win_by_time_running_out_hostage - 3250
+contributionscore_assist - 1
+contributionscore_bomb_defuse_major - 3
+contributionscore_bomb_defuse_minor - 1
+contributionscore_bomb_exploded - 1
+contributionscore_bomb_planted - 2
+contributionscore_cash_bundle - 0
+contributionscore_crate_break - 0
+contributionscore_hostage_kill - -2
+contributionscore_hostage_rescue_major - 3
+contributionscore_hostage_rescue_minor - 1
+contributionscore_kill - 2
+contributionscore_kill_factor - 0
+contributionscore_objective_kill - 3
+contributionscore_suicide - -2
+contributionscore_team_kill - -2
+ff_damage_reduction_bullets - 0.1
+ff_damage_reduction_grenade - 0.25
+ff_damage_reduction_grenade_self - 1
+ff_damage_reduction_other - 0.25
+global_chatter_info -
+healthshot_healthboost_damage_multiplier - 1
+healthshot_healthboost_speed_multiplier - 1
+healthshot_healthboost_time - 0
+inferno_child_spawn_max_depth - 4
+inferno_max_flames - 16
+inferno_max_range - 150
+molotov_throw_detonate_time - 2.0
+mp_afterroundmoney - 0
+mp_anyone_can_pickup_c4 - 0
+mp_autokick - 1
+L 05/07/2020 - 20:26:03: server_cvar: "mp_autoteambalance" "1"
+mp_autoteambalance - 1
+mp_bot_ai_bt -
+mp_buy_allow_grenades - 1
+mp_buy_allow_guns - 255
+mp_buy_anywhere - 0
+mp_buy_during_immunity - 0
+mp_buytime - 90
+mp_c4_cannot_be_defused - 0
+mp_c4timer - 40
+mp_consecutive_loss_max - 4
+mp_coop_force_join_ct - 0
+mp_coopmission_bot_difficulty_offset - 0
+mp_coopmission_dz - 0
+mp_coopmission_mission_number - 0
+mp_coopmission_dz - 0
+mp_ct_default_grenades -
+mp_ct_default_melee - weapon_knife
+mp_ct_default_primary -
+mp_ct_default_secondary - weapon_hkp2000
+mp_damage_headshot_only - 0
+mp_damage_scale_ct_body - 1.0
+mp_damage_scale_ct_head - 1.0
+mp_damage_scale_t_body - 1.0
+mp_damage_scale_t_head - 1.0
+mp_damage_vampiric_amount - 0
+mp_death_drop_c4 - 1
+mp_death_drop_defuser - 1
+mp_death_drop_grenade - 2
+mp_death_drop_gun - 1
+mp_deathcam_skippable - 1
+mp_default_team_winner_no_objective - -1
+mp_defuser_allocation - 0
+mp_display_kill_assists - 1
+mp_dm_bonus_percent - 50
+mp_dm_bonus_respawn - 0
+mp_dm_bonusweapon_dogtags - 0
+mp_dm_dogtag_score - 0
+mp_dm_kill_base_score - 10
+mp_dm_teammode - 0
+mp_dm_teammode_bonus_score - 1
+mp_dm_teammode_dogtag_score - 0
+mp_dm_teammode_kill_score - 1
+mp_dogtag_despawn_on_killer_death - 1
+mp_dogtag_despawn_time - 120
+mp_dogtag_pickup_rule - 0
+mp_drop_grenade_enable - 0
+mp_drop_knife_enable - 0
+mp_economy_reset_rounds - 0
+mp_equipment_reset_rounds - 0
+mp_force_assign_teams - 0
+mp_force_pick_time - 15
+mp_forcecamera - 1
+mp_free_armor - 0
+L 05/07/2020 - 20:26:03: server_cvar: "mp_freezetime" "6"
+mp_freezetime - 6
+L 05/07/2020 - 20:26:03: server_cvar: "mp_friendlyfire" "0"
+mp_friendlyfire - 0
+mp_ggprogressive_round_restart_delay - 15.0
+mp_ggtr_always_upgrade - 0
+mp_ggtr_bomb_defuse_bonus - 1
+mp_ggtr_bomb_detonation_bonus - 1
+mp_ggtr_bomb_pts_for_flash - 4
+mp_ggtr_bomb_pts_for_he - 3
+mp_ggtr_bomb_pts_for_molotov - 5
+mp_ggtr_bomb_pts_for_upgrade - 2.0
+mp_ggtr_bomb_respawn_delay - 0.0
+mp_ggtr_end_round_kill_bonus - 1
+mp_ggtr_halftime_delay - 0.0
+mp_ggtr_last_weapon_kill_ends_half - 0
+mp_give_player_c4 - 1
+mp_global_damage_per_second - 0.0
+mp_guardian_bot_money_per_wave - 800
+mp_guardian_force_collect_hostages_timeout - 50
+mp_guardian_loc_icon - missing cvar specified in bspconvar_whitelist.txt
+mp_guardian_loc_string_desc -
+mp_guardian_loc_string_hud - #guardian_mission_type_kills
+mp_guardian_loc_weapon -
+mp_guardian_player_dist_max - 2000
+mp_guardian_player_dist_min - 1300
+mp_guardian_special_kills_needed - 10
+mp_guardian_special_weapon_needed - awp
+mp_guardian_target_site - -1
+mp_guardian_force_collect_hostages_timeout - 50
+mp_guardian_give_random_grenades_to_bots - 1
+mp_halftime - 0
+mp_halftime_pausetimer - 0
+mp_heavyassaultsuit_aimpunch - 1.0
+mp_heavyassaultsuit_cooldown - 5
+mp_heavyassaultsuit_deploy_timescale - 0.8
+mp_heavyassaultsuit_speed - 130
+mp_heavybot_damage_reduction_scale - 1.0
+mp_hostagepenalty - 10
+mp_hostages_max - 2
+mp_hostages_spawn_force_positions -
+mp_hostages_spawn_same_every_round - 1
+mp_items_prohibited -
+mp_limitteams - 2
+mp_match_can_clinch - 1
+mp_match_end_changelevel - 0
+mp_max_armor - 2
+mp_maxmoney - 16000
+L 05/07/2020 - 20:26:03: server_cvar: "mp_maxrounds" "0"
+mp_maxrounds - 0
+mp_molotovusedelay - 15.0
+mp_only_cts_rescue_hostages - 1
+mp_plant_c4_anywhere - 0
+mp_playercashawards - 1
+mp_radar_showall - 0
+mp_randomspawn - 0
+mp_randomspawn_dist - 0
+mp_randomspawn_los - 1
+mp_respawn_immunitytime - 4.0
+mp_respawn_on_death_ct - 0
+mp_respawn_on_death_t - 0
+mp_respawnwavetime_ct - 10.0
+mp_respawnwavetime_t - 10.0
+mp_round_restart_delay - 7.0
+L 05/07/2020 - 20:26:03: server_cvar: "mp_roundtime" "5"
+mp_roundtime - 5
+L 05/07/2020 - 20:26:03: server_cvar: "mp_roundtime_defuse" "0"
+mp_roundtime_defuse - 0
+L 05/07/2020 - 20:26:03: server_cvar: "mp_roundtime_hostage" "0"
+mp_roundtime_hostage - 0
+mp_solid_teammates - 1
+mp_starting_losses - 0
+mp_startmoney - 800
+mp_suicide_penalty - 1
+mp_t_default_grenades -
+mp_t_default_melee - weapon_knife
+mp_t_default_primary -
+mp_t_default_secondary - weapon_glock
+mp_tagging_scale - 1.0
+mp_taser_recharge_time - -1
+mp_teamcashawards - 1
+L 05/07/2020 - 20:26:03: server_cvar: "mp_teammates_are_enemies" "0"
+mp_teammates_are_enemies - 0
+L 05/07/2020 - 20:26:03: server_cvar: "mp_timelimit" "5"
+mp_timelimit - 5
+mp_use_respawn_waves - 0
+mp_warmup_pausetimer - 0
+mp_warmuptime - 30
+mp_warmuptime_all_players_connected - 0
+mp_weapon_self_inflict_amount - 0
+mp_weapons_allow_heavy - -1
+mp_weapons_allow_heavyassaultsuit - 0
+mp_weapons_allow_map_placed - 0
+mp_weapons_allow_pistols - -1
+mp_weapons_allow_rifles - -1
+mp_weapons_allow_smgs - -1
+mp_weapons_allow_typecount - 5
+mp_weapons_allow_zeus - 1
+mp_weapons_glow_on_ground - 0
+mp_weapons_max_gun_purchases_per_weapon_per_match - -1
+mp_win_panel_display_time - 3
+occlusion_test_async - 0
+spec_freeze_panel_extended_time - 0.0
+spec_freeze_time - 3.0
+spec_replay_bot - 0
+spec_replay_enable - 0
+spec_replay_leadup_time - 5.3438
+sv_accelerate - 5.5
+sv_air_pushaway_dist - 0
+sv_airaccelerate - 12
+sv_allow_votes - 1
+sv_alltalk - 0
+sv_arms_race_vote_to_restart_disallowed_after - 0
+sv_auto_adjust_bot_difficulty - 1
+sv_auto_full_alltalk_during_warmup_half_end - 1
+sv_autobunnyhopping - 0
+sv_autobuyammo - 0
+sv_bot_buy_decoy_weight - 1
+sv_bot_buy_flash_weight - 1
+sv_bot_buy_grenade_chance - 33
+sv_bot_buy_hegrenade_weight - 6
+sv_bot_buy_molotov_weight - 1
+sv_bot_buy_smoke_weight - 1
+sv_bots_force_rebuy_every_round - 0
+sv_bots_get_easier_each_win - 0
+sv_bots_get_harder_after_each_wave - 0
+sv_bounce - 0
+sv_buy_status_override - -1
+L 05/07/2020 - 20:26:03: server_cvar: "sv_deadtalk" "0"
+sv_deadtalk - 0
+sv_disable_immunity_alpha - 0
+sv_disable_radar - 0
+sv_disable_show_team_select_menu - missing cvar specified in bspconvar_whitelist.txt
+sv_duplicate_playernames_ok - 0
+sv_enablebunnyhopping - 0
+sv_env_entity_makers_enabled - 1
+sv_extract_ammo_from_dropped_weapons - 0
+sv_falldamage_scale - 1
+sv_falldamage_to_below_player_multiplier - 1
+sv_falldamage_to_below_player_ratio - 0
+sv_force_reflections - 0
+sv_friction - 5.2
+sv_grassburn - 0
+sv_gravity - 800
+sv_guardian_extra_equipment_ct -
+sv_guardian_extra_equipment_t -
+sv_guardian_health_refresh_per_wave - 50
+sv_guardian_heavy_all - 0
+sv_guardian_heavy_count - 0
+sv_guardian_max_wave_for_heavy - 0
+sv_guardian_min_wave_for_heavy - 0
+sv_guardian_refresh_ammo_for_items_on_waves -
+sv_guardian_reset_c4_every_wave - 0
+sv_guardian_respawn_health - 50
+sv_guardian_spawn_health_ct - 100
+sv_guardian_spawn_health_t - 100
+sv_health_approach_enabled - 0
+sv_health_approach_speed - 10
+sv_hegrenade_damage_multiplier - 1
+sv_hegrenade_radius_multiplier - 1
+sv_hide_roundtime_until_seconds - missing cvar specified in bspconvar_whitelist.txt
+sv_highlight_distance - 500
+sv_highlight_duration - 3.5
+sv_ignoregrenaderadio - 0
+sv_infinite_ammo - 0
+sv_knife_attack_extend_from_player_aabb - 0
+sv_maxspeed - 320
+sv_maxvelocity - 3500
+sv_occlude_players - 1
+sv_outofammo_indicator - 0
+sv_show_ragdoll_playernames - missing cvar specified in bspconvar_whitelist.txt
+sv_show_team_equipment_force_on - 0
+sv_staminajumpcost - .080
+sv_staminalandcost - .050
+sv_stopspeed - 80
+sv_talk_enemy_dead - 0
+sv_talk_enemy_living - 0
+sv_teamid_overhead_maxdist - 0
+sv_teamid_overhead_maxdist_spec - 0
+sv_versus_screen_scene_id - 0
+sv_vote_to_changelevel_before_match_point - 0
+sv_warmup_to_freezetime_delay - 4
+sv_water_movespeed_multiplier - 0.8
+sv_water_swim_mode - 0
+sv_wateraccelerate - 10
+sv_waterfriction - 1
+sv_weapon_encumbrance_per_item - 0.85
+sv_weapon_encumbrance_scale - 0
+tv_delay - 10
+weapon_accuracy_nospread - 0
+weapon_air_spread_scale - 1.0
+weapon_max_before_cleanup - 0
+weapon_recoil_scale - 2.0
+weapon_reticle_knife_show - 1
+weapon_sound_falloff_multiplier - 1.0
+sv_camera_fly_enabled - missing cvar specified in bspconvar_whitelist.txt
+Executing dedicated server config file
+L 05/07/2020 - 20:26:03: server_cvar: "nextlevel" ""
+exec: couldn't exec server.cfg
+L 05/07/2020 - 20:26:03: server_cvar: "cash_player_interact_with_hostage" "300"
+L 05/07/2020 - 20:26:03: server_cvar: "cash_team_elimination_hostage_map_t" "3000"
+L 05/07/2020 - 20:26:03: server_cvar: "cash_team_elimination_hostage_map_ct" "3000"
+L 05/07/2020 - 20:26:03: server_cvar: "cash_team_hostage_interaction" "600"
+L 05/07/2020 - 20:26:03: server_cvar: "cash_team_rescued_hostage" "600"
+L 05/07/2020 - 20:26:03: server_cvar: "cash_team_win_by_defusing_bomb" "3500"
+L 05/07/2020 - 20:26:03: server_cvar: "cash_team_win_by_hostage_rescue" "2900"
+L 05/07/2020 - 20:26:03: server_cvar: "mp_freezetime" "15"
+L 05/07/2020 - 20:26:03: server_cvar: "mp_friendlyfire" "1"
+L 05/07/2020 - 20:26:03: server_cvar: "mp_maxrounds" "30"
+L 05/07/2020 - 20:26:03: server_cvar: "mp_roundtime" "1.92"
+L 05/07/2020 - 20:26:03: server_cvar: "mp_roundtime_hostage" "1.92"
+L 05/07/2020 - 20:26:03: server_cvar: "mp_roundtime_defuse" "1.92"
+L 05/07/2020 - 20:26:03: server_cvar: "mp_timelimit" "0"
+L 05/07/2020 - 20:26:03: server_cvar: "sv_deadtalk" "1"
+exec: couldn't exec gamemode_competitive_server.cfg
+CHostage::Precache: missing hostage models for map de_dust2. Adding the default models.
+Commentary: Could not find commentary data file 'maps/de_dust2_commentary.txt'.
+Error parsing BotProfile.db - unknown attribute 'Rank'
+Error parsing BotProfile.db - unknown attribute 'Rank'
+Error parsing BotProfile.db - unknown attribute 'Rank'
+Error parsing BotProfile.db - unknown attribute 'Rank'
+Error parsing BotProfile.db - unknown attribute 'Rank'
+Error parsing BotProfile.db - unknown attribute 'Rank'
+Error parsing BotProfile.db - unknown attribute 'Rank'
+Error parsing BotProfile.db - unknown attribute 'Rank'
+RecordSteamInterfaceCreation (PID 21): SteamGameServer012 / GameServer
+RecordSteamInterfaceCreation (PID 21): SteamUtils008 / Utils
+RecordSteamInterfaceCreation (PID 21): SteamNetworking005 / Networking
+RecordSteamInterfaceCreation (PID 21): SteamGameServerStats001 / GameServerStats
+RecordSteamInterfaceCreation (PID 21): STEAMHTTP_INTERFACE_VERSION002 / HTTP
+RecordSteamInterfaceCreation (PID 21): STEAMINVENTORY_INTERFACE_V001 / Inventory
+RecordSteamInterfaceCreation (PID 21): STEAMUGC_INTERFACE_VERSION008 / UGC
+RecordSteamInterfaceCreation (PID 21): STEAMAPPS_INTERFACE_VERSION008 / Apps
+PutClientInServer: no info_player_start on level
+L 05/07/2020 - 20:26:06: "GOTV<2><BOT><>" entered the game
+L 05/07/2020 - 20:26:06: "GOTV<2><BOT><Unassigned>" changed name to "Gameye GOTV Stream"
+Unknown command "sm_flood_time"
+Unknown command "sm_reserve_type"
+Unknown command "sm_reserved_slots"
+Unknown command "sm_hide_slots"
+Unknown command "sm_chat_mode"
+Unknown command "sm_timeleft_interval"
+Unknown command "sm_trigger_show"
+L 05/07/2020 - 20:26:06: "Gameye<3><STEAM_1:1:199954484><>" connected, address ""
+Client "Gameye" connected (46.64.240.223:63741).
+L 05/07/2020 - 20:26:06: World triggered "Round_Start"
+GOTV[0] broadcast active.
+echo "Configure..."
+
+log on                                            // Enable server logging.
+bot_quota "0"                                     // Determines the total number of bots in the game.
+bot_join_after_player 0                           // If nonzero, bots wait until a player joins before entering the game.
+hostname "test"                        // Set the server name.
+sv_password ""               // Set the server password.
+
+mp_logdetail 3                                    // Logs attacks.  Values are: 0=off, 1=enemy, 2=teammate, 3=both)
+mp_logdetail_items 1                              // Logs a line any time a player acquires or loses an item.
+mp_logmoney 1                                     // Enables money logging. Values are: 0=off, 1=on
+
+mp_t_default_secondary "weapon_elite"  // set terrorists seconday weapon
+mp_ct_default_secondary "weapon_elite" // set counter-terrorists seconday weapon
+
+mp_t_default_primary "weapon_ak47"      // set terrorists primary weapon
+mp_ct_default_primary "weapon_ak47"     // set counter-terrorists primary weapon
+
+mp_halftime 0                                     // disable halftime
+mp_halftime_duration 0                            // set haltime duration
+
+mp_hostages_max 0                                 // set the number of hostages on a map
+mp_autoteambalance 0
+mp_teams_unbalance_limit 0
+mp_allowspectators 1
+mp_give_player_c4 0                               // remove bomb from game
+mp_teammates_are_enemies "1"                      // everyone is a enemy
+mp_buytime "0"                                    // set buy time to 0 seconds
+mp_death_drop_gun "0"
+mp_roundtime 1.92                     // set round time
+mp_roundtime_defuse 1.92              // set round time
+mp_roundtime_hostage 1.92             // set round time
+mp_respawn_on_death_ct "1"
+mp_respawn_on_death_t "1"
+mp_randomspawn "1"                                // enable random spawnpoints
+mp_radar_showall "0"                              // makes it so you see the enemy team on the radar, since you already see your teammates
+mp_warmuptime 120                   // set the warmup time
+mp_warmuptime_all_players_connected 60
+mp_startmoney 0                                   // prevent buying weapons by setting money to zero
+
+mp_maxrounds 2                     // max number of rounds to play before server changes maps
+mp_teamname_1 CT                  // Override the name of team 1
+mp_teamname_2 T                  // Override the name of team 2
+mp_match_restart_delay 120                        // Delay in seconds when the servers restarts after the match has been ended.
+mp_endmatch_votenextmap 0                         // Disable map voting at the end of a match.
+mp_halftime 0                                     // Disable halftime when only playing 1 round
+
+sv_allow_votes 0                                  // Disable voting
+sv_vote_issue_kick_allowed 0                      // Disallow voting to reset
+sv_vote_issue_loadbackup_allowed 0                // Disallow voting to load round backup
+sv_lan 0                                          // Server is a lan server ( no heartbeat, no authentication, no non-class C addresses )
+sv_log_onefile 0                                  // Log server information to only one file.
+sv_logbans 1                                      // Log server bans in the server logs.
+sv_logecho 1                                      // Echo log information to the console.
+sv_logfile 1                                      // Log server information in the log file.
+sv_logflush 0                                     // Flush the log file to disk on each write (slow).
+sv_logsdir logfiles                               // Folder in the game directory where server logs will be stored.
+sv_maxrate 0                                      // min. 0.000000 max. 30000.000000 replicated  Max bandwidth rate allowed on server, 0 == unlimited
+sv_mincmdrate 30                                  // This sets the minimum value for cl_cmdrate. 0 == unlimited.
+sv_minrate 20000                                  // Min bandwidth rate allowed on server, 0 == unlimited
+sv_competitive_minspec 1                          // Enable to force certain client convars to minimum/maximum values to help prevent competitive advantages.
+sv_pausable 1                                     // Is the server pausable.
+sv_pure 1
+sv_pure_kick_clients 1                            // If set to 1, the server will kick clients with mismatching files. Otherwise, it will issue a warning to the client.
+sv_pure_trace 0                                   // If set to 1, the server will print a message whenever a client is verifying a CR
+sv_spawn_afk_bomb_drop_time 30                    // Players that spawn and don't move for longer than sv_spawn_afk_bomb_drop_time (default 15 seconds) will automatically drop the bomb.
+sv_steamgroup_exclusive 0                         // If set, only members of Steam group will be able to join the server when it's empty, public people will be able to join the server only if it has players.
+sv_coaching_enabled 1           // Enable coaching mode.
+sv_voiceenable 0                                  // Disable ingame voice
+
+tv_advertise_watchable 1                          // Enable GOTV in a empty server
+tv_allow_camera_man 1                             // Auto director allows spectators to become camera man
+tv_allow_static_shots 1                           // Auto director uses fixed level cameras for shots
+tv_chatgroupsize 0                                // Set the default chat group size
+tv_chattimelimit 8                                // Limits spectators to chat only every n seconds
+tv_debug 0                                        // GOTV debug info.
+tv_delay 0                         // GOTV stream delay in seconds
+tv_delaymapchange 1                               // Delays map change until broadcast is complete
+tv_deltacache 2                                   // Enable delta entity bit stream cache
+tv_dispatchmode 1                                 // Dispatch clients to relay proxies: 0=never, 1=if appropriate, 2=always
+tv_enable 1                                       // Activates GOTV on server.
+tv_maxclients 10               // Maximum client number on GOTV server.
+tv_maxrate 20000                                  // Max GOTV spectator bandwidth rate allowed, 0 == unlimited
+tv_name "Gameye GOTV Stream"                      // GOTV host name
+tv_overridemaster 0                               // Overrides the GOTV master root address.
+tv_port 53978                              // Host SourceTV port
+tv_relaypassword "gameyegotv"                     // GOTV password for relay proxies
+tv_relayvoice 0                                   // Relay voice data: 0=off, 1=on
+tv_snapshotrate 24                                // Snapshots broadcasted per second
+tv_timeout 60                                     // GOTV connection timeout in seconds.
+tv_title "Gameye GOTV Stream"                     // Set title for GOTV spectator UI
+tv_transmitall 1                                  // Transmit all entities (not only director view)
+
+say ">FFA config loaded<"
+sm plugins load disabled/okletsplay.smx sm plugins list
+echo "Configure ready..."
+
+Configure...
+Server logging enabled.
+L 05/07/2020 - 20:26:06: Log file closed
+Server logging data to file logfiles/L000_000_000_000_57614_202005072026_001.log
+L 05/07/2020 - 20:26:06: Log file started (file "logfiles/L000_000_000_000_57614_202005072026_001.log") (game "/home/steam/csgo/csgo") (version "7803")
+L 05/07/2020 - 20:26:06: server_cvar: "mp_autoteambalance" "0"
+Unknown command "mp_teams_unbalance_limit"
+Unknown command "mp_allowspectators"
+L 05/07/2020 - 20:26:06: server_cvar: "mp_teammates_are_enemies" "1"
+L 05/07/2020 - 20:26:06: server_cvar: "mp_maxrounds" "2"
+--------------------------------------------------------
+sv_pure value unchanged (current value is 1).
+--------------------------------------------------------
+Unknown command "tv_allow_camera_man"
+maxplayers set to 64
+Console: ">FFA config loaded<"
+L 05/07/2020 - 20:26:06: "Console<0><Console><Console>" say "">FFA config loaded<""
+[SM] Plugin disabled/okletsplay.smx is already loaded.
+Configure ready...
+echo "Idle..."
+
+Idle...
+L 05/07/2020 - 20:26:07: "Gameye<3><STEAM_1:1:199954484><>" STEAM USERID validated
+L 05/07/2020 - 20:26:11: "Gameye<3><STEAM_1:1:199954484><>" entered the game
+ConVarRef sv_voice_proximity_minvolume doesn't point to an existing ConVar
+[OkLetsPlay] New command: jointeam (client: 2, new_team: 3)
+[OkLetsPlay] Checking whitelist for Steam id 76561198360174697 (count: 5)
+[OkLetsPlay] Comparing '76561197996457702' and '76561198360174697'
+[OkLetsPlay] Comparing '00061197996457702' and '76561198360174697'
+[OkLetsPlay] Comparing '00001197996457702' and '76561198360174697'
+[OkLetsPlay] Comparing '00000197996457702' and '76561198360174697'
+[OkLetsPlay] Comparing '00000097996457702' and '76561198360174697'
+[OkLetsPlay] Preventing non-whitelisted team join (client: 2, auth: 76561198360174697, new_team: 3)
+[OkLetsPlay] New command: jointeam (client: 2, new_team: 2)
+[OkLetsPlay] Checking whitelist for Steam id 76561198360174697 (count: 5)
+[OkLetsPlay] Comparing '76561198360174697' and '76561198360174697'
+[OkLetsPlay] Allowing team join (client: 2, auth: 76561198360174697, new_team: 2)
+[OkLetsPlay] New event: player_team (client: 2, old_team: 0, new_team: 2)
+[OkLetsPlay] Checking whitelist for Steam id 76561198360174697 (count: 5)
+[OkLetsPlay] Comparing '76561198360174697' and '76561198360174697'
+[OkLetsPlay] Allowing team join (client: 2, auth: 76561198360174697, new_team: 2)
+L 05/07/2020 - 20:26:18: "Gameye<3><STEAM_1:1:199954484>" switched from team <Unassigned> to <TERRORIST>
+L 05/07/2020 - 20:26:18: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" picked up "knife"
+L 05/07/2020 - 20:26:18: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" picked up "elite"
+L 05/07/2020 - 20:26:18: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" picked up "ak47"
+L 05/07/2020 - 20:26:18: World triggered "Game_Commencing"
+L 05/07/2020 - 20:26:18: Team playing "CT": CT
+L 05/07/2020 - 20:26:18: Team playing "TERRORIST": T
+[OkLetsPlay] [round-end-scores] Gameye<2><STEAM_1:1:199954484> 0
+L 05/07/2020 - 20:26:19: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" dropped "knife"
+L 05/07/2020 - 20:26:19: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" dropped "elite"
+L 05/07/2020 - 20:26:19: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" dropped "ak47"
+L 05/07/2020 - 20:26:19: Starting Freeze period
+L 05/07/2020 - 20:26:19: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" picked up "knife"
+L 05/07/2020 - 20:26:19: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" picked up "elite"
+L 05/07/2020 - 20:26:19: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" picked up "ak47"
+L 05/07/2020 - 20:26:19: World triggered "Match_Start" on "de_dust2"
+L 05/07/2020 - 20:26:19: Team playing "CT": CT
+L 05/07/2020 - 20:26:19: Team playing "TERRORIST": T
+echo "Playing..."
+tv_record
+
+Playing...
+Usage:  tv_record  <filename> [-instance <inst> ]
+L 05/07/2020 - 20:26:21: World triggered "Round_Start"
+L 05/07/2020 - 20:27:09: "Slawter<4><STEAM_1:0:18095987><>" connected, address ""
+Client "Slawter" connected (46.64.240.223:63613).
+L 05/07/2020 - 20:27:09: "Slawter<4><STEAM_1:0:18095987><>" STEAM USERID validated
+L 05/07/2020 - 20:27:18: "Slawter<4><STEAM_1:0:18095987><>" entered the game
+[OkLetsPlay] New command: jointeam (client: 3, new_team: 3)
+[OkLetsPlay] Checking whitelist for Steam id 76561197996457702 (count: 5)
+[OkLetsPlay] Comparing '76561197996457702' and '76561197996457702'
+[OkLetsPlay] Allowing team join (client: 3, auth: 76561197996457702, new_team: 3)
+[OkLetsPlay] New event: player_team (client: 3, old_team: 0, new_team: 3)
+[OkLetsPlay] Checking whitelist for Steam id 76561197996457702 (count: 5)
+[OkLetsPlay] Comparing '76561197996457702' and '76561197996457702'
+[OkLetsPlay] Allowing team join (client: 3, auth: 76561197996457702, new_team: 3)
+L 05/07/2020 - 20:27:27: "Slawter<4><STEAM_1:0:18095987>" switched from team <Unassigned> to <CT>
+L 05/07/2020 - 20:27:27: "Slawter<4><STEAM_1:0:18095987><CT>" picked up "knife"
+L 05/07/2020 - 20:27:27: "Slawter<4><STEAM_1:0:18095987><CT>" picked up "elite"
+L 05/07/2020 - 20:27:27: "Slawter<4><STEAM_1:0:18095987><CT>" picked up "ak47"
+L 05/07/2020 - 20:27:47: "Slawter<4><STEAM_1:0:18095987><CT>" left buyzone with [ weapon_knife weapon_elite weapon_ak47 ]
+L 05/07/2020 - 20:28:10: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" dropped "knife"
+L 05/07/2020 - 20:28:10: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" dropped "elite"
+L 05/07/2020 - 20:28:10: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" dropped "ak47"
+L 05/07/2020 - 20:28:10: "Slawter<4><STEAM_1:0:18095987><CT>" dropped "knife"
+L 05/07/2020 - 20:28:10: "Slawter<4><STEAM_1:0:18095987><CT>" dropped "elite"
+L 05/07/2020 - 20:28:10: "Slawter<4><STEAM_1:0:18095987><CT>" dropped "ak47"
+L 05/07/2020 - 20:28:10: Starting Freeze period
+L 05/07/2020 - 20:28:10: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" picked up "knife"
+L 05/07/2020 - 20:28:10: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" picked up "elite"
+L 05/07/2020 - 20:28:10: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" picked up "ak47"
+L 05/07/2020 - 20:28:10: "Slawter<4><STEAM_1:0:18095987><CT>" picked up "knife"
+L 05/07/2020 - 20:28:10: "Slawter<4><STEAM_1:0:18095987><CT>" picked up "elite"
+L 05/07/2020 - 20:28:10: "Slawter<4><STEAM_1:0:18095987><CT>" picked up "ak47"
+L 05/07/2020 - 20:28:10: World triggered "Match_Start" on "de_dust2"
+L 05/07/2020 - 20:28:10: Team playing "CT": CT
+L 05/07/2020 - 20:28:10: Team playing "TERRORIST": T
+RecordSteamInterfaceCreation (PID 21): SteamGameStats001 /
+L 05/07/2020 - 20:28:25: World triggered "Round_Start"
+L 05/07/2020 - 20:28:46: "Slawter<4><STEAM_1:0:18095987><CT>" left buyzone with [ weapon_knife weapon_elite weapon_ak47 ]
+L 05/07/2020 - 20:28:50: "Slawter<4><STEAM_1:0:18095987><CT>" [-1465 -246 129] attacked "Gameye<3><STEAM_1:1:199954484><TERRORIST>" [-1962 388 9] with "ak47" (damage "139") (damage_armor "0") (health "0") (armor "0") (hitgroup "head")
+L 05/07/2020 - 20:28:50: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" dropped "knife"
+L 05/07/2020 - 20:28:50: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" dropped "elite"
+L 05/07/2020 - 20:28:50: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" dropped "ak47"
+L 05/07/2020 - 20:28:50: "Slawter<4><STEAM_1:0:18095987><CT>" [-1465 -246 129] killed "Gameye<3><STEAM_1:1:199954484><TERRORIST>" [-1962 388 73] with "ak47" (headshot)
+L 05/07/2020 - 20:28:50: "Slawter<3><STEAM_1:0:18095987><CT>" money change 0+300 = $300 (tracked)
+L 05/07/2020 - 20:28:54: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" picked up "knife"
+L 05/07/2020 - 20:28:54: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" picked up "elite"
+L 05/07/2020 - 20:28:54: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" picked up "ak47"
+L 05/07/2020 - 20:29:08: "Slawter<4><STEAM_1:0:18095987><CT>" [-329 -945 87] attacked "Gameye<3><STEAM_1:1:199954484><TERRORIST>" [300 -200 -2] with "ak47" (damage "138") (damage_armor "0") (health "0") (armor "0") (hitgroup "head")
+L 05/07/2020 - 20:29:08: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" dropped "knife"
+L 05/07/2020 - 20:29:08: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" dropped "elite"
+L 05/07/2020 - 20:29:08: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" dropped "ak47"
+L 05/07/2020 - 20:29:08: "Slawter<4><STEAM_1:0:18095987><CT>" [-329 -945 87] killed "Gameye<3><STEAM_1:1:199954484><TERRORIST>" [300 -200 62] with "ak47" (headshot)
+L 05/07/2020 - 20:29:08: "Slawter<3><STEAM_1:0:18095987><CT>" money change 300+300 = $600 (tracked)
+L 05/07/2020 - 20:29:10: "Slawter<4><STEAM_1:0:18095987><CT>" left buyzone with [ weapon_knife weapon_elite weapon_ak47 ]
+L 05/07/2020 - 20:29:12: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" picked up "knife"
+L 05/07/2020 - 20:29:12: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" picked up "elite"
+L 05/07/2020 - 20:29:12: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" picked up "ak47"
+L 05/07/2020 - 20:29:26: "Slawter<4><STEAM_1:0:18095987><CT>" left buyzone with [ weapon_knife weapon_elite weapon_ak47 ]
+L 05/07/2020 - 20:29:39: "Slawter<4><STEAM_1:0:18095987><CT>" [1345 1351 -8] attacked "Gameye<3><STEAM_1:1:199954484><TERRORIST>" [1475 2650 85] with "ak47" (damage "136") (damage_armor "0") (health "0") (armor "0") (hitgroup "head")
+L 05/07/2020 - 20:29:39: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" dropped "knife"
+L 05/07/2020 - 20:29:39: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" dropped "elite"
+L 05/07/2020 - 20:29:39: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" dropped "ak47"
+L 05/07/2020 - 20:29:39: "Slawter<4><STEAM_1:0:18095987><CT>" [1345 1351 -8] killed "Gameye<3><STEAM_1:1:199954484><TERRORIST>" [1475 2650 149] with "ak47" (headshot)
+L 05/07/2020 - 20:29:39: "Slawter<3><STEAM_1:0:18095987><CT>" money change 600+300 = $900 (tracked)
+L 05/07/2020 - 20:29:43: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" picked up "knife"
+L 05/07/2020 - 20:29:43: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" picked up "elite"
+L 05/07/2020 - 20:29:43: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" picked up "ak47"
+L 05/07/2020 - 20:29:45: "Slawter<4><STEAM_1:0:18095987><CT>" [1235 2161 1] attacked "Gameye<3><STEAM_1:1:199954484><TERRORIST>" [438 2188 -129] with "ak47" (damage "139") (damage_armor "0") (health "0") (armor "0") (hitgroup "head")
+L 05/07/2020 - 20:29:45: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" dropped "knife"
+L 05/07/2020 - 20:29:45: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" dropped "elite"
+L 05/07/2020 - 20:29:45: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" dropped "ak47"
+L 05/07/2020 - 20:29:45: "Slawter<4><STEAM_1:0:18095987><CT>" [1235 2161 1] killed "Gameye<3><STEAM_1:1:199954484><TERRORIST>" [438 2188 -65] with "ak47" (headshot)
+L 05/07/2020 - 20:29:45: "Slawter<3><STEAM_1:0:18095987><CT>" money change 900+300 = $1200 (tracked)
+L 05/07/2020 - 20:29:45: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" left buyzone with [ ]
+L 05/07/2020 - 20:29:49: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" picked up "knife"
+L 05/07/2020 - 20:29:49: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" picked up "elite"
+L 05/07/2020 - 20:29:49: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" picked up "ak47"
+L 05/07/2020 - 20:29:53: "Slawter<4><STEAM_1:0:18095987><CT>" left buyzone with [ weapon_knife weapon_elite weapon_ak47 ]
+L 05/07/2020 - 20:30:05: "Slawter<4><STEAM_1:0:18095987><CT>" [540 214 4] attacked "Gameye<3><STEAM_1:1:199954484><TERRORIST>" [488 175 -1] with "knife" (damage "65") (damage_armor "0") (health "35") (armor "0") (hitgroup "generic")
+L 05/07/2020 - 20:30:06: "Slawter<4><STEAM_1:0:18095987><CT>" [459 229 1] attacked "Gameye<3><STEAM_1:1:199954484><TERRORIST>" [488 175 -1] with "knife" (damage "65") (damage_armor "0") (health "0") (armor "0") (hitgroup "generic")
+L 05/07/2020 - 20:30:06: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" dropped "knife"
+L 05/07/2020 - 20:30:06: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" dropped "elite"
+L 05/07/2020 - 20:30:06: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" dropped "ak47"
+L 05/07/2020 - 20:30:06: "Slawter<4><STEAM_1:0:18095987><CT>" [459 229 1] killed "Gameye<3><STEAM_1:1:199954484><TERRORIST>" [488 175 63] with "knife"
+L 05/07/2020 - 20:30:06: "Slawter<3><STEAM_1:0:18095987><CT>" money change 1200+1500 = $2700 (tracked)
+L 05/07/2020 - 20:30:10: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" picked up "knife"
+L 05/07/2020 - 20:30:10: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" picked up "elite"
+L 05/07/2020 - 20:30:10: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" picked up "ak47"
+L 05/07/2020 - 20:30:20: Team "CT" triggered "SFUI_Notice_Target_Saved" (CT "1") (T "0")
+L 05/07/2020 - 20:30:20: Team "CT" scored "1" with "1" players
+L 05/07/2020 - 20:30:20: Team "TERRORIST" scored "0" with "1" players
+L 05/07/2020 - 20:30:20: World triggered "Round_End"
+[OkLetsPlay] [round-end-scores] Gameye<2><STEAM_1:1:199954484> 0
+[OkLetsPlay] [round-end-scores] Slawter<3><STEAM_1:0:18095987> 10
+L 05/07/2020 - 20:30:20: "Slawter<3><STEAM_1:0:18095987><CT>" money change 2700+3250 = $5950 (tracked)
+L 05/07/2020 - 20:30:27: Starting Freeze period
+L 05/07/2020 - 20:30:42: World triggered "Round_Start"
+L 05/07/2020 - 20:30:44: "Slawter<4><STEAM_1:0:18095987><CT>" left buyzone with [ weapon_knife weapon_elite weapon_ak47 ]
+L 05/07/2020 - 20:30:50: "Slawter<4><STEAM_1:0:18095987><CT>" [-1957 -366 68] attacked "Gameye<3><STEAM_1:1:199954484><TERRORIST>" [-1925 -388 64] with "knife" (damage "180") (damage_armor "0") (health "0") (armor "0") (hitgroup "generic")
+L 05/07/2020 - 20:30:50: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" dropped "knife"
+L 05/07/2020 - 20:30:50: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" dropped "elite"
+L 05/07/2020 - 20:30:50: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" dropped "ak47"
+L 05/07/2020 - 20:30:50: "Slawter<4><STEAM_1:0:18095987><CT>" [-1957 -366 68] killed "Gameye<3><STEAM_1:1:199954484><TERRORIST>" [-1925 -388 128] with "knife"
+L 05/07/2020 - 20:30:50: "Slawter<3><STEAM_1:0:18095987><CT>" money change 5950+1500 = $7450 (tracked)
+L 05/07/2020 - 20:30:54: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" picked up "knife"
+L 05/07/2020 - 20:30:54: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" picked up "elite"
+L 05/07/2020 - 20:30:54: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" picked up "ak47"
+L 05/07/2020 - 20:31:07: "Slawter<4><STEAM_1:0:18095987><CT>" left buyzone with [ weapon_knife weapon_elite weapon_ak47 ]
+L 05/07/2020 - 20:31:20: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" [1412 2988 120] attacked "Slawter<4><STEAM_1:0:18095987><CT>" [1355 1257 -9] with "ak47" (damage "134") (damage_armor "0") (health "0") (armor "0") (hitgroup "head")
+L 05/07/2020 - 20:31:20: "Slawter<4><STEAM_1:0:18095987><CT>" dropped "knife"
+L 05/07/2020 - 20:31:20: "Slawter<4><STEAM_1:0:18095987><CT>" dropped "elite"
+L 05/07/2020 - 20:31:20: "Slawter<4><STEAM_1:0:18095987><CT>" dropped "ak47"
+L 05/07/2020 - 20:31:20: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" [1412 2988 120] killed "Slawter<4><STEAM_1:0:18095987><CT>" [1355 1257 55] with "ak47" (headshot)
+L 05/07/2020 - 20:31:20: "Gameye<2><STEAM_1:1:199954484><TERRORIST>" money change 0+300 = $300 (tracked)
+L 05/07/2020 - 20:31:24: "Slawter<4><STEAM_1:0:18095987><CT>" picked up "knife"
+L 05/07/2020 - 20:31:24: "Slawter<4><STEAM_1:0:18095987><CT>" picked up "elite"
+L 05/07/2020 - 20:31:24: "Slawter<4><STEAM_1:0:18095987><CT>" picked up "ak47"
+L 05/07/2020 - 20:31:36: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" [1412 2988 120] attacked "Slawter<4><STEAM_1:0:18095987><CT>" [1294 1087 -3] with "ak47" (damage "33") (damage_armor "0") (health "67") (armor "0") (hitgroup "chest")
+L 05/07/2020 - 20:31:38: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" [1412 2988 120] attacked "Slawter<4><STEAM_1:0:18095987><CT>" [1294 1087 -3] with "ak47" (damage "25") (damage_armor "0") (health "42") (armor "0") (hitgroup "left leg")
+L 05/07/2020 - 20:31:38: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" [1412 2988 120] attacked "Slawter<4><STEAM_1:0:18095987><CT>" [1294 1087 -3] with "ak47" (damage "33") (damage_armor "0") (health "9") (armor "0") (hitgroup "chest")
+L 05/07/2020 - 20:31:40: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" [1412 2988 120] attacked "Slawter<4><STEAM_1:0:18095987><CT>" [1294 1087 -3] with "ak47" (damage "24") (damage_armor "0") (health "0") (armor "0") (hitgroup "right leg")
+L 05/07/2020 - 20:31:40: "Slawter<4><STEAM_1:0:18095987><CT>" dropped "knife"
+L 05/07/2020 - 20:31:40: "Slawter<4><STEAM_1:0:18095987><CT>" dropped "elite"
+L 05/07/2020 - 20:31:40: "Slawter<4><STEAM_1:0:18095987><CT>" dropped "ak47"
+L 05/07/2020 - 20:31:40: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" [1412 2988 120] killed "Slawter<4><STEAM_1:0:18095987><CT>" [1294 1087 61] with "ak47"
+L 05/07/2020 - 20:31:40: "Gameye<2><STEAM_1:1:199954484><TERRORIST>" money change 300+300 = $600 (tracked)
+L 05/07/2020 - 20:31:44: "Slawter<4><STEAM_1:0:18095987><CT>" picked up "knife"
+L 05/07/2020 - 20:31:44: "Slawter<4><STEAM_1:0:18095987><CT>" picked up "elite"
+L 05/07/2020 - 20:31:44: "Slawter<4><STEAM_1:0:18095987><CT>" picked up "ak47"
+L 05/07/2020 - 20:31:47: "Slawter<4><STEAM_1:0:18095987><CT>" left buyzone with [ weapon_knife weapon_elite weapon_ak47 ]
+L 05/07/2020 - 20:31:51: "Slawter<4><STEAM_1:0:18095987><CT>" [1273 2172 2] attacked "Gameye<3><STEAM_1:1:199954484><TERRORIST>" [1412 2988 120] with "ak47" (damage "139") (damage_armor "0") (health "0") (armor "0") (hitgroup "head")
+L 05/07/2020 - 20:31:51: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" dropped "knife"
+L 05/07/2020 - 20:31:51: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" dropped "elite"
+L 05/07/2020 - 20:31:51: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" dropped "ak47"
+L 05/07/2020 - 20:31:51: "Slawter<4><STEAM_1:0:18095987><CT>" [1273 2172 2] killed "Gameye<3><STEAM_1:1:199954484><TERRORIST>" [1412 2988 184] with "ak47" (headshot)
+L 05/07/2020 - 20:31:51: "Slawter<3><STEAM_1:0:18095987><CT>" money change 7450+300 = $7750 (tracked)
+L 05/07/2020 - 20:31:56: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" picked up "knife"
+L 05/07/2020 - 20:31:56: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" picked up "elite"
+L 05/07/2020 - 20:31:56: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" picked up "ak47"
+L 05/07/2020 - 20:32:16: "Slawter<4><STEAM_1:0:18095987><CT>" [521 -291 1] attacked "Gameye<3><STEAM_1:1:199954484><TERRORIST>" [-675 -850 117] with "ak47" (damage "136") (damage_armor "0") (health "0") (armor "0") (hitgroup "head")
+L 05/07/2020 - 20:32:16: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" dropped "knife"
+L 05/07/2020 - 20:32:16: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" dropped "elite"
+L 05/07/2020 - 20:32:16: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" dropped "ak47"
+L 05/07/2020 - 20:32:16: "Slawter<4><STEAM_1:0:18095987><CT>" [521 -291 1] killed "Gameye<3><STEAM_1:1:199954484><TERRORIST>" [-675 -850 181] with "ak47" (headshot)
+L 05/07/2020 - 20:32:16: "Slawter<3><STEAM_1:0:18095987><CT>" money change 7750+300 = $8050 (tracked)
+L 05/07/2020 - 20:32:16: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" left buyzone with [ ]
+L 05/07/2020 - 20:32:20: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" picked up "knife"
+L 05/07/2020 - 20:32:20: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" picked up "elite"
+L 05/07/2020 - 20:32:20: "Gameye<3><STEAM_1:1:199954484><TERRORIST>" picked up "ak47"
+L 05/07/2020 - 20:32:37: Team "CT" triggered "SFUI_Notice_Target_Saved" (CT "2") (T "0")
+L 05/07/2020 - 20:32:37: Team "CT" scored "2" with "1" players
+L 05/07/2020 - 20:32:37: Team "TERRORIST" scored "0" with "1" players
+L 05/07/2020 - 20:32:37: World triggered "Round_End"
+[OkLetsPlay] [round-end-scores] Gameye<2><STEAM_1:1:199954484> 4
+[OkLetsPlay] [round-end-scores] Slawter<3><STEAM_1:0:18095987> 16
+L 05/07/2020 - 20:32:37: "Slawter<3><STEAM_1:0:18095987><CT>" money change 8050+3250 = $11300 (tracked)
+Going to intermission...
+L 05/07/2020 - 20:32:37: ACCOLADE, FINAL: {headshotkills},      Slawter<3>,     VALUE: 6.000000,        POS: 1, SCORE: 80.000000
+L 05/07/2020 - 20:32:37: ACCOLADE, FINAL: {deaths},     Gameye<2>,      VALUE: 8.000000,        POS: 1, SCORE: 40.000000
+L 05/07/2020 - 20:32:37: Game Over: competitive mg_active de_dust2 score 2:0 after 5 min
+CHANGELEVEL: Looking for next level in mapgroup 'mg_active'
+Looking for next map in mapgroup 'mg_active'...
+CHANGELEVEL: Choosing map 'de_overpass' (previous was de_dust2)
+L 05/07/2020 - 20:32:37: World triggered "Round_Start"
+echo "End..."
+say "The match has ended, thank you for playing!"
+say "This server will shutdown in 10 seconds"
+
+End...
+Console: "The match has ended, thank you for playing!"
+L 05/07/2020 - 20:32:37: "Console<0><Console><Console>" say ""The match has ended, thank you for playing!""
+Console: "This server will shutdown in 10 seconds"
+L 05/07/2020 - 20:32:37: "Console<0><Console><Console>" say ""This server will shutdown in 10 seconds""
+echo "Quit..."
+quit
+
+Quit...
+RecordSteamInterfaceCreation (PID 21): SteamGameStats001 /
+RecordSteamInterfaceCreation (PID 21): SteamGameStats001 /
+RecordSteamInterfaceCreation (PID 21): SteamGameStats001 /
+L 05/07/2020 - 20:32:47: [META] Loaded 0 plugins (1 already loaded)
+Host_ShutdownServer
+CBaseServer::Shutdown
+L 05/07/2020 - 20:32:48: "Slawter<4><STEAM_1:0:18095987><>" disconnected (reason "Server shutting down")
+Dropped Slawter from server: Server shutting down
+L 05/07/2020 - 20:32:48: "Gameye<3><STEAM_1:1:199954484><>" disconnected (reason "Server shutting down")
+Dropped Gameye from server: Server shutting down
+L 05/07/2020 - 20:32:48: "Gameye GOTV Stream<2><BOT><>" disconnected (reason "Server shutting down")
+CBaseServer::Shutdown
+CSteam3Server::Shutdown
+NET_SteamGameServer_Shutdown
+SteamGameServer_Shutdown
+L 05/07/2020 - 20:32:49: server_message: "quit"
+L 05/07/2020 - 20:32:49: Log file closed
+L 05/07/2020 - 20:32:49: server_message: "restart"
+SV_ShutdownGameDLL
+L 05/07/2020 - 20:32:49: Log file closed.
+Host_Shutdown
+Shutdown function NET_Shutdown() not in list!!!
+NET_Shutdown
+NET_CloseAllSockets
+NET_SteamGameServer_Shutdown
+File /home/steam/csgo/csgo/pak01_090.vpk was never closed
+File /home/steam/csgo/csgo/pak01_090.vpk was never closed
+File /home/steam/csgo/csgo/pak01_000.vpk was never closed
+File /home/steam/csgo/csgo/pak01_000.vpk was never closed
+File /home/steam/csgo/csgo/pak01_007.vpk was never closed
+File /home/steam/csgo/csgo/pak01_007.vpk was never closed
+File /home/steam/csgo/csgo/pak01_003.vpk was never closed
+File /home/steam/csgo/csgo/pak01_003.vpk was never closed
+File /home/steam/csgo/csgo/pak01_063.vpk was never closed
+File /home/steam/csgo/csgo/pak01_063.vpk was never closed
+File /home/steam/csgo/csgo/pak01_080.vpk was never closed
+File /home/steam/csgo/csgo/pak01_080.vpk was never closed
+File /home/steam/csgo/csgo/pak01_105.vpk was never closed
+File /home/steam/csgo/csgo/pak01_105.vpk was never closed
+File /home/steam/csgo/csgo/pak01_108.vpk was never closed
+File /home/steam/csgo/csgo/pak01_108.vpk was never closed
+File /home/steam/csgo/csgo/pak01_004.vpk was never closed
+File /home/steam/csgo/csgo/pak01_004.vpk was never closed
+File /home/steam/csgo/csgo/pak01_083.vpk was never closed
+File /home/steam/csgo/csgo/pak01_083.vpk was never closed
+File /home/steam/csgo/csgo/pak01_074.vpk was never closed
+File /home/steam/csgo/csgo/pak01_074.vpk was never closed
+File /home/steam/csgo/csgo/pak01_101.vpk was never closed
+File /home/steam/csgo/csgo/pak01_101.vpk was never closed
+File /home/steam/csgo/csgo/pak01_076.vpk was never closed
+File /home/steam/csgo/csgo/pak01_076.vpk was never closed
+File /home/steam/csgo/csgo/pak01_127.vpk was never closed
+File /home/steam/csgo/csgo/pak01_127.vpk was never closed
+File /home/steam/csgo/csgo/pak01_049.vpk was never closed
+File /home/steam/csgo/csgo/pak01_049.vpk was never closed
+File /home/steam/csgo/csgo/pak01_028.vpk was never closed
+File /home/steam/csgo/csgo/pak01_028.vpk was never closed
+File /home/steam/csgo/csgo/pak01_068.vpk was never closed
+File /home/steam/csgo/csgo/pak01_068.vpk was never closed
+File /home/steam/csgo/csgo/pak01_065.vpk was never closed
+File /home/steam/csgo/csgo/pak01_065.vpk was never closed
+File /home/steam/csgo/csgo/pak01_053.vpk was never closed
+File /home/steam/csgo/csgo/pak01_053.vpk was never closed
+File /home/steam/csgo/csgo/pak01_061.vpk was never closed
+File /home/steam/csgo/csgo/pak01_061.vpk was never closed
+File /home/steam/csgo/csgo/pak01_040.vpk was never closed
+File /home/steam/csgo/csgo/pak01_040.vpk was never closed
+File /home/steam/csgo/csgo/pak01_064.vpk was never closed
+File /home/steam/csgo/csgo/pak01_064.vpk was never closed
+File /home/steam/csgo/csgo/pak01_078.vpk was never closed
+File /home/steam/csgo/csgo/pak01_078.vpk was never closed
+File /home/steam/csgo/csgo/pak01_070.vpk was never closed
+File /home/steam/csgo/csgo/pak01_070.vpk was never closed
+File /home/steam/csgo/csgo/pak01_095.vpk was never closed
+File /home/steam/csgo/csgo/pak01_095.vpk was never closed
+File /home/steam/csgo/csgo/pak01_067.vpk was never closed
+File /home/steam/csgo/csgo/pak01_067.vpk was never closed
+File /home/steam/csgo/csgo/pak01_013.vpk was never closed
+File /home/steam/csgo/csgo/pak01_013.vpk was never closed
+File /home/steam/csgo/csgo/pak01_006.vpk was never closed
+File /home/steam/csgo/csgo/pak01_006.vpk was never closed
+File /home/steam/csgo/csgo/pak01_001.vpk was never closed
+File /home/steam/csgo/csgo/pak01_001.vpk was never closed
+File /home/steam/csgo/csgo/pak01_011.vpk was never closed
+File /home/steam/csgo/csgo/pak01_011.vpk was never closed
+File /home/steam/csgo/csgo/pak01_008.vpk was never closed
+File /home/steam/csgo/csgo/pak01_008.vpk was never closed
+File /home/steam/csgo/csgo/pak01_050.vpk was never closed
+File /home/steam/csgo/csgo/pak01_050.vpk was never closed
+File /home/steam/csgo/csgo/pak01_094.vpk was never closed
+File /home/steam/csgo/csgo/pak01_094.vpk was never closed
+File /home/steam/csgo/csgo/pak01_104.vpk was never closed
+File /home/steam/csgo/csgo/pak01_104.vpk was never closed
+File /home/steam/csgo/csgo/pak01_116.vpk was never closed
+File /home/steam/csgo/csgo/pak01_116.vpk was never closed
+File /home/steam/csgo/csgo/pak01_073.vpk was never closed
+File /home/steam/csgo/csgo/pak01_073.vpk was never closed
+File /home/steam/csgo/csgo/pak01_056.vpk was never closed
+File /home/steam/csgo/csgo/pak01_056.vpk was never closed
+File /home/steam/csgo/csgo/pak01_071.vpk was never closed
+File /home/steam/csgo/csgo/pak01_071.vpk was never closed
+File /home/steam/csgo/csgo/pak01_088.vpk was never closed
+File /home/steam/csgo/csgo/pak01_088.vpk was never closed
+File /home/steam/csgo/csgo/pak01_111.vpk was never closed
+File /home/steam/csgo/csgo/pak01_111.vpk was never closed
+File /home/steam/csgo/csgo/pak01_079.vpk was never closed
+File /home/steam/csgo/csgo/pak01_079.vpk was never closed
+File /home/steam/csgo/csgo/pak01_081.vpk was never closed
+File /home/steam/csgo/csgo/pak01_081.vpk was never closed
+File /home/steam/csgo/csgo/pak01_005.vpk was never closed
+File /home/steam/csgo/csgo/pak01_005.vpk was never closed
+File /home/steam/csgo/csgo/pak01_096.vpk was never closed
+File /home/steam/csgo/csgo/pak01_096.vpk was never closed
+Thu May  7 20:32:49 UTC 2020: Server Quit
+/home/steam/entrypoint.sh: 17: /home/steam/entrypoint.sh: aws: not found
