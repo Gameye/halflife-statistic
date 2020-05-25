@@ -1,6 +1,5 @@
-// tslint:disable:max-line-length
+/* eslint-disable max-len */
 
-import { EventBase } from "@gameye/statistic-common";
 import * as event from "../event";
 import { HalflifeLogParserBase } from "./halflife";
 
@@ -61,7 +60,7 @@ export class Tf2LogParser extends HalflifeLogParserBase<Tf2LogEvents> {
 
         // L 05/16/2018 - 08:36:48: "super cool superhero<6><[U:1:238303253]><>" entered the game
         this.registerHalflifeParser(
-            /^(".*?(?:\<.*?\>){3}")\s+entered\s+the\s+game$/i,
+            /^(".*?(?:<.*?>){3}")\s+entered\s+the\s+game$/i,
             (halflifeLine, playerString, address) => ({
                 type: "player-entered-game",
                 payload: {
@@ -73,7 +72,7 @@ export class Tf2LogParser extends HalflifeLogParserBase<Tf2LogEvents> {
 
         // "Adam<4><BOT><TERRORIST>" disconnected (reason "Kicked by Console")
         this.registerHalflifeParser(
-            /^(".*?(?:\<.*?\>){3}")\s+disconnected$/i,
+            /^(".*?(?:<.*?>){3}")\s+disconnected$/i,
             (halflifeLine, playerString) => ({
                 type: "player-disconnected",
                 payload: {
@@ -86,7 +85,7 @@ export class Tf2LogParser extends HalflifeLogParserBase<Tf2LogEvents> {
 
         // L 04/16/2018 - 10:52:36: "Smashmint<3><[U:1:49496129]><Blue>" joined team "Red"
         this.registerHalflifeParser(
-            /^(".*?(?:\<.*?\>){3}")\s+joined\s+team\s+"(.*?)"$/i,
+            /^(".*?(?:<.*?>){3}")\s+joined\s+team\s+"(.*?)"$/i,
             (halflifeLine, playerString, newTeam) => ({
                 type: "player-joined-team",
                 payload: {
@@ -100,7 +99,7 @@ export class Tf2LogParser extends HalflifeLogParserBase<Tf2LogEvents> {
 
         // L 04/19/2018 - 12:26:38: "Smashmint<4><[U:1:49496129]><Red>" triggered "kill assist" against "elmerbulthuis<8><[U:1:426663176]><Blue>" (assister_position "1016 1014 297") (attacker_position "1161 1212 271") (victim_position "1287 1120 258")
         this.registerHalflifeParser(
-            /^(".*?(?:\<.*?\>){3}")\s+triggered\s+"kill assist"\s+against\s+(".*?(?:\<.*?\>){3}")/i,
+            /^(".*?(?:<.*?>){3}")\s+triggered\s+"kill assist"\s+against\s+(".*?(?:<.*?>){3}")/i,
             (halflifeLine, assisterPlayerString, victimPlayerString) => ({
                 type: "player-assisted",
                 payload: {
@@ -113,7 +112,7 @@ export class Tf2LogParser extends HalflifeLogParserBase<Tf2LogEvents> {
 
         // L 04/16/2018 - 14:31:27: "Micrux ¬ GAMEYE<4><[U:1:62797578]><Red>" triggered "revenge" against "Smashmint<3><[U:1:49496129]><Blue>"
         this.registerHalflifeParser(
-            /^(".*?(?:\<.*?\>){3}")\s+triggered\s+"revenge"\s+against\s+(".*?(?:\<.*?\>){3}")/i,
+            /^(".*?(?:<.*?>){3}")\s+triggered\s+"revenge"\s+against\s+(".*?(?:<.*?>){3}")/i,
             (halflifeLine, revengePlayerString, victimPlayerString) => ({
                 type: "player-revenged",
                 payload: {
@@ -126,7 +125,7 @@ export class Tf2LogParser extends HalflifeLogParserBase<Tf2LogEvents> {
 
         // L 04/16/2018 - 14:30:51: "Smashmint<3><[U:1:49496129]><Blue>" triggered "domination" against "Micrux ¬ GAMEYE<4><[U:1:62797578]><Red>"
         this.registerHalflifeParser(
-            /^(".*?(?:\<.*?\>){3}")\s+triggered\s+"domination"\s+against\s+(".*?(?:\<.*?\>){3}")/i,
+            /^(".*?(?:<.*?>){3}")\s+triggered\s+"domination"\s+against\s+(".*?(?:<.*?>){3}")/i,
             (halflifeLine, dominatingPlayerString, victimPlayerString) => ({
                 type: "player-dominated",
                 payload: {
@@ -138,7 +137,7 @@ export class Tf2LogParser extends HalflifeLogParserBase<Tf2LogEvents> {
         );
         // L 04/16/2018 - 14:40:08: "Smashmint<3><[U:1:49496129]><Red>" triggered "captureblocked" (cp "0") (cpname "#Badwater_cap_1") (position "-1182 -1570 0")
         this.registerHalflifeParser(
-            /^(".*?(?:\<.*?\>){3}")\s+triggered\s+"captureblocked"/i,
+            /^(".*?(?:<.*?>){3}")\s+triggered\s+"captureblocked"/i,
             (halflifeLine, playerString) => ({
                 type: "player-defensed",
                 payload: {
@@ -150,7 +149,7 @@ export class Tf2LogParser extends HalflifeLogParserBase<Tf2LogEvents> {
 
         // L 04/16/2018 - 14:33:01: "Smashmint<3><[U:1:49496129]><Blue>" triggered "killedobject" (object "OBJ_DISPENSER") (weapon "back_scatter") (objectowner "Micrux ¬ GAMEYE<4><[U:1:62797578]><Red>") (attacker_position "-1011 -285 502")
         this.registerHalflifeParser(
-            /^(".*?(?:\<.*?\>){3}")\s+triggered\s+"killedobject"/i,
+            /^(".*?(?:<.*?>){3}")\s+triggered\s+"killedobject"/i,
             (halflifeLine, playerString) => ({
                 type: "player-destructed",
                 payload: {
@@ -161,7 +160,7 @@ export class Tf2LogParser extends HalflifeLogParserBase<Tf2LogEvents> {
         );
         // L 04/16/2018 - 14:43:17: "Micrux ¬ GAMEYE<4><[U:1:62797578]><Blue>" triggered "chargedeployed"
         this.registerHalflifeParser(
-            /^(".*?(?:\<.*?\>){3}")\s+triggered\s+"chargedeployed"/i,
+            /^(".*?(?:<.*?>){3}")\s+triggered\s+"chargedeployed"/i,
             (halflifeLine, playerString) => ({
                 type: "player-ubercharged",
                 payload: {
@@ -175,7 +174,7 @@ export class Tf2LogParser extends HalflifeLogParserBase<Tf2LogEvents> {
         // L 04/17/2018 - 14:37:58: "Smashmint<3><[U:1:49496129]><Blue>" killed "Micrux ¬ GAMEYE<4><[U:1:62797578]><Red>" with "eternal_reward" (customkill "backstab") (attacker_position "-530 -92 296") (victim_position "-474 -92 296")
         // L 04 / 19 / 2018 - 15: 17: 21: "Smashmint<3><[U:1:49496129]><Blue>" killed "denise<4><[U:1:437819661]><Red>" with "the_classic"(customkill "headshot")(attacker_position "-1432 737 -141")(victim_position "-1517 46 -376")
         this.registerHalflifeParser(
-            /^(".*?(?:\<.*?\>){3}")\s+killed\s+(".*?(?:\<.*?\>){3}")\s+with\s+"(.*?)"/i,
+            /^(".*?(?:<.*?>){3}")\s+killed\s+(".*?(?:<.*?>){3}")\s+with\s+"(.*?)"/i,
             (halflifeLine, killerPlayerString, victimPlayerString, weapon) => ({
                 type: "player-killed",
                 payload: {
@@ -190,7 +189,7 @@ export class Tf2LogParser extends HalflifeLogParserBase<Tf2LogEvents> {
 
         // L 04/16/2018 - 10:49:33: "denise<4><[U:1:437819661]><Red>" committed suicide with "world" (attacker_position "611 -351 -127")
         this.registerHalflifeParser(
-            /^(".*?(?:\<.*?\>){3}")\s+committed suicide with\s+"(.*)"$/i,
+            /^(".*?(?:<.*?>){3}")\s+committed suicide with\s+"(.*)"$/i,
             (halflifeLine, playerString, cause) => ({
                 type: "player-suicide",
                 payload: {

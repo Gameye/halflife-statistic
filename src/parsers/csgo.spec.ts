@@ -2,7 +2,7 @@ import * as test from "blue-tape";
 import * as path from "path";
 import * as events from "../event";
 import { projectRoot, readFileAsLines } from "../utils";
-import { CsGoLogEvents, CsGoLogParser } from "./csgo";
+import { CsGoLogParser } from "./csgo";
 
 test("CsGoLogParser", async (t) => {
     const parser = new CsGoLogParser();

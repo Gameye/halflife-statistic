@@ -9,7 +9,7 @@
     "compile": "tsc && tsc --project tsconfig.module.json && webpack --hide-modules --config ./webpack.config",
     "clean": "rm -rf node types module",
     "test": "npm run spec-all && npm run feature-all",
-    "lint": "tslint \"src/**/*.ts\"",
+    "lint": "eslint \"src/**/*.ts\"",
     "spec": "tape --require \"ts-node/register\"",
     "spec-all": "npm run spec \"src/**/*.spec.ts\"",
     "feature": "cucumber-js --tags \"not @skip\" --require-module \"ts-node/register\" --require ./src/cucumber/**/*.ts",
@@ -30,7 +30,6 @@
     "promise-u": "^3.0.0",
     "tape": "^5.0.1",
     "ts-node": "^8.10.1",
-    "tslint": "^6.1.2",
     "typescript": "^3.9.3",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"

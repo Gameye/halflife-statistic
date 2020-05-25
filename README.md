@@ -48,7 +48,6 @@ the code. However, you cannot set breakpoints in the actual feature file
 itself.
 
 ### Linting
-This projects uses tslint for linting. If you are using visual studio code, you
-can lint while you type and linting errors will be automatically fixed. To
-enable this functionality, you should install the [tslint](https://github.com/Microsoft/vscode-tslint) plugin.
+This projects uses eslint for linting. If you are using visual studio code, you
+can lint while you type and linting errors will be automatically fixed.
 

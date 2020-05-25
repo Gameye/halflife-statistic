@@ -25,14 +25,14 @@ cucumber.Then(
             reduce(
                 (o, i) => Object.assign(o, { [i]: true }),
                 {} as { [name: string]: true },
-        );
+            );
 
         assert.deepEqual(actualPlayerHash, expectedPlayerHash);
     },
 );
 
 cucumber.Then(
-    /^player (.+) had (\-?\d+) ([a-z]+)s$/i,
+    /^player (.+) had (-?\d+) ([a-z]+)s$/i,
     async function (playerName, statisticCount, statisticKey) {
         playerName = String(playerName);
         statisticCount = Number(statisticCount);

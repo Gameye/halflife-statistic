@@ -3,8 +3,6 @@ import * as test from "blue-tape";
 import { HalflifeLineModel, HalflifeLogParserBase } from "./halflife";
 
 test("HalflifeLogParserBase", async t => {
-    // tslint:disable:max-line-length
-
     type TestLogParserEvents = EventBase<"halflife-line", HalflifeLineModel>;
 
     class TestLogParser extends HalflifeLogParserBase<TestLogParserEvents> {

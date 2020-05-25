@@ -1,4 +1,4 @@
-// tslint:disable:max-line-length
+/* eslint-disable max-len */
 
 import * as event from "../event";
 import { HalflifeLogParserBase } from "./halflife";
@@ -122,7 +122,7 @@ export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
 
         // "Micrux ¬ GAMEYE<3><STEAM_1:0:31398789><>" connected, address ""
         this.registerHalflifeParser(
-            /^(".*?(?:\<.*?\>){3}")\s+connected,\s+address\s+"(.*)"$/i,
+            /^(".*?(?:<.*?>){3}")\s+connected,\s+address\s+"(.*)"$/i,
             (halflifeLine, playerString, address) => ({
                 type: "player-connected",
                 payload: {
@@ -134,7 +134,7 @@ export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
 
         // "Adam<4><BOT><TERRORIST>" disconnected (reason "Kicked by Console")
         this.registerHalflifeParser(
-            /^(".*?(?:\<.*?\>){3}")\s+disconnected$/i,
+            /^(".*?(?:<.*?>){3}")\s+disconnected$/i,
             (halflifeLine, playerString) => ({
                 type: "player-disconnected",
                 payload: {
@@ -147,7 +147,7 @@ export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
 
         // "Smashmint<13><STEAM_1:1:24748064><CT>" assisted killing "Micrux ¬ GAMEYE<3><STEAM_1:0:31398789><TERRORIST>"
         this.registerHalflifeParser(
-            /^(".*?(?:\<.*?\>){3}")\s+assisted\s+killing\s+(".*?(?:\<.*?\>){3}")/i,
+            /^(".*?(?:<.*?>){3}")\s+assisted\s+killing\s+(".*?(?:<.*?>){3}")/i,
             (halflifeLine, assisterPlayerString, victimPlayerString) => ({
                 type: "player-assisted",
                 payload: {
@@ -160,7 +160,7 @@ export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
 
         // "Lau<2><STEAM_1:0:16690820><TERRORIST>" [-478 310 4] killed "Micrux ¬ GAMEYE<3><STEAM_1:0:31398789><CT>" [-383 1079 -6] with "p250"
         this.registerHalflifeParser(
-            /^(".*?(?:\<.*?\>){3}")\s+\[.*\]\s+killed\s+(".*?(?:\<.*?\>){3}")/i,
+            /^(".*?(?:<.*?>){3}")\s+\[.*\]\s+killed\s+(".*?(?:<.*?>){3}")/i,
             (halflifeLine, killerPlayerString, victimPlayerString) => ({
                 type: "player-killed",
                 payload: {
@@ -173,7 +173,7 @@ export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
 
         // "Lau<2><STEAM_1:0:16690820><TERRORIST>" [-1015 -808 194] committed suicide with "world"
         this.registerHalflifeParser(
-            /^(".*?(?:\<.*?\>){3}")\s+(\[.*?\])\s+committed\s+suicide\s+with\s+"(.*?)"/i,
+            /^(".*?(?:<.*?>){3}")\s+(\[.*?\])\s+committed\s+suicide\s+with\s+"(.*?)"/i,
             (halflifeLine, playerString, locationString, cause) => ({
                 type: "player-suicide",
                 payload: {
@@ -187,7 +187,7 @@ export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
 
         // "Adam<4><BOT>" switched from team <Unassigned> to <TERRORIST>
         this.registerHalflifeParser(
-            /^(".*?(?:\<.*?\>){2}")\s+switched\s+from\s+team\s+\<(.*?)\>\s+to\s+\<(.*?)\>$/i,
+            /^(".*?(?:<.*?>){2}")\s+switched\s+from\s+team\s+<(.*?)>\s+to\s+<(.*?)>$/i,
             (halflifeLine, playerString, oldTeam, newTeam) => ({
                 type: "player-switched-team",
                 payload: {
@@ -243,7 +243,7 @@ export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
     // "Smashmint""<2><STEAM_1:1:24s748064>"
     // "Smashmint<><12><STEAM_1:1:24748064>"
     protected parsePlayerWithoutTeam(playerString: string): event.PlayerWithoutTeamModel {
-        const match = /^"(.*)\<(.*?)\>\<(.*?)\>"$/i.exec(playerString);
+        const match = /^"(.*)<(.*?)><(.*?)>"$/i.exec(playerString);
         if (match === null) throw new Error(`${playerString} is not a valid player string (did you include the "'s?)`);
 
         const [, name, key, uid] = match;
