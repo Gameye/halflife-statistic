@@ -12,10 +12,10 @@ Feature: Get5 Ready information
         And the match is then shut down
 
         Examples:
-            | logfile                                                   | Winner  |
-            | Gameye_vs_Slawter_both_teams_ready.log                    |         |
-            | Gameye_vs_Slawter_Gameye_Forfeits_(!Forceready_used).log  | Slawter |
-            | Gameye_vs_Slawter_Slawter_Forfeits_(!Forceready_used).log | Gameye  |
-            | Gameye_vs_Slawter_Gameye_Forfeits_(No!Forceready).log     | Slawter |
-            | Gameye_vs_Slawter_Slawter_Forfeits_(No!Forceready).log    | Gameye  |
+            | logfile                                                | Winner  |
+            | Gameye_vs_Slawter_both_teams_ready.log                 |         |
+            | Gameye_vs_Slawter_Gameye_Forfeits_Forceready_used.log  | Slawter |
+            | Gameye_vs_Slawter_Slawter_Forfeits_Forceready_used.log | Gameye  |
+            | Gameye_vs_Slawter_Gameye_Forfeits_NoForceready.log     | Slawter |
+            | Gameye_vs_Slawter_Slawter_Forfeits_NoForceready.log    | Gameye  |
 
