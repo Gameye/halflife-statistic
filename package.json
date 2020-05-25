@@ -24,6 +24,7 @@
     "@types/tape": "^4.13.0",
     "blue-tape": "^1.0.0",
     "cucumber": "^6.0.5",
+    "eslint-config-gameye": "^0.1.2",
     "msecs": "^1.0.0",
     "nyc": "^15.0.1",
     "promise-u": "^3.0.0",
