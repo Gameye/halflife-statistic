@@ -1,4 +1,4 @@
-import { LogReducerBase, PlayerModel, StatePatch, TeamContainerState, TeamModel } from "@gameye/statistic-common";
+import { LogReducerBase, PlayerModel, TeamModel } from "@gameye/statistic-common";
 import { Tf2LogEvents, Tf2LogParser } from "../parsers";
 import { Tf2Patch, Tf2State } from "../state";
 
@@ -6,8 +6,8 @@ import { Tf2Patch, Tf2State } from "../state";
 @LogReducerBase.register("tf2")
 export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
 {
-    private gameOver: boolean = false;
-    private gameMode: string = "";
+    private gameOver = false;
+    private gameMode = "";
     private sideNameHelper = ["Blue", "Red"];
     private teamScoreHelper = [0, 0];
     private teamNameHelper = ["Blue", "Red"];
@@ -62,6 +62,7 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
         yield* this.reduceTeamEvent(event);
     }
 
+    // eslint-disable-next-line require-yield
     protected * reduceSettingEvent(
         event: Tf2LogEvents,
     ): Iterable<Tf2Patch> {
@@ -202,6 +203,7 @@ export class Tf2LogReducer extends LogReducerBase<Tf2State, Tf2LogEvents>
         }
     }
 
+    // eslint-disable-next-line complexity
     protected * reducePlayerEvent(
         event: Tf2LogEvents,
     ): Iterable<Tf2Patch> {

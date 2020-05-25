@@ -1,7 +1,7 @@
-import * as test from "blue-tape";
 import * as path from "path";
+import * as test from "tape-promise/tape";
 import { projectRoot, readFileAsLines } from "../utils";
-import { Tf2LogEvents, Tf2LogParser } from "./tf2";
+import { Tf2LogParser } from "./tf2";
 
 test("Tf2LogParser", async (t) => {
     const parser = new Tf2LogParser();

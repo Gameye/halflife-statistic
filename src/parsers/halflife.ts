@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+
 import { EventBase } from "@gameye/statistic-common";
 import * as moment from "moment";
 import * as event from "../event";
@@ -33,7 +35,7 @@ export abstract class HalflifeLogParserBase<TEvent extends EventBase = any>
     // "Smashmint<><12><STEAM_1:1:24748064><Unassigned>"
     // "malczyk541"G4SKINS.COM"<5><STEAM_1:0:444334529><>"
     protected parsePlayerWithTeam(playerString: string): event.PlayerWithTeamModel {
-        const match = /^"(.*)\<(.*?)\>\<(.*?)\>\<(.*?)\>"$/i.exec(playerString);
+        const match = /^"(.*)<(.*?)><(.*?)><(.*?)>"$/i.exec(playerString);
         if (match === null) throw new Error(`${playerString} is not a valid player string (did you include the "'s?)`);
 
         const [, name, key, uid, team] = match;
@@ -43,17 +45,14 @@ export abstract class HalflifeLogParserBase<TEvent extends EventBase = any>
     }
 
     protected parseHalflifeLine(line: string): HalflifeLineModel | undefined {
-        // tslint:disable:max-line-length
-
         if (!line) return;
         line = line.trim();
         if (line === "") return;
 
         let match: RegExpExecArray | null = null;
         if (match === null) {
-            // tslint:disable-next-line:max-line-length
             // L 01/01/1970 - 00:01:00: hoppetee 10 xyz (damage "110") (health "0")
-            match = /^L\s(\d{2}\/\d{2}\/\d{4})\s\-\s(\d{2}:\d{2}:\d{2}):\s(.*?)((?:\s+\(\w+\s+".*?"\))*)$/.exec(line);
+            match = /^L\s(\d{2}\/\d{2}\/\d{4})\s-\s(\d{2}:\d{2}:\d{2}):\s(.*?)((?:\s+\(\w+\s+".*?"\))*)$/.exec(line);
         }
         // if (match === null) {
         //     // 08/31/2017 - 15:07:40.146 - Log file started (file "logs/L172_017_000_002_50678_201708311507_000.log") (game "/home/steam/csgo/csgo") (version "6852")
@@ -73,7 +72,6 @@ export abstract class HalflifeLogParserBase<TEvent extends EventBase = any>
         {
             const argMapRe = /\s+\((\w+)\s+"(.*?)"\)/g;
             for (
-                // tslint:disable-next-line:no-shadowed-variable
                 let match = argMapRe.exec(argMapGroup);
                 match !== null;
                 match = argMapRe.exec(argMapGroup)

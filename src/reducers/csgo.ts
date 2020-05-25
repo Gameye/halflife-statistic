@@ -1,4 +1,6 @@
-import { LogReducerBase, PlayerModel, StatePatch, TeamModel } from "@gameye/statistic-common";
+/* eslint-disable @typescript-eslint/camelcase */
+
+import { LogReducerBase, PlayerModel, TeamModel } from "@gameye/statistic-common";
 import { CsGoLogEvents, CsGoLogParser } from "../parsers";
 import { CsGoPatch, CsGoState } from "../state";
 
@@ -53,6 +55,7 @@ export class CsGoLogReducer
         yield* this.reduceGet5Event(event);
     }
 
+    // eslint-disable-next-line require-yield
     protected * reduceSettingEvent(
         event: CsGoLogEvents,
     ): Iterable<CsGoPatch> {
@@ -387,6 +390,7 @@ export class CsGoLogReducer
 
     }
 
+    // eslint-disable-next-line require-yield
     protected *reduceGet5Event(
         event: CsGoLogEvents,
     ): Iterable<CsGoPatch> {
