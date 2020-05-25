@@ -27,7 +27,7 @@
     "msecs": "^1.0.0",
     "nyc": "^15.0.1",
     "promise-u": "^3.0.0",
-    "tape": "^4.13.3",
+    "tape": "^5.0.1",
     "ts-node": "^8.10.1",
     "tslint": "^6.1.2",
     "typescript": "^3.9.3",
@@ -38,6 +38,6 @@
     "@gameye/statistic-common": "^1.1.1",
     "deepkit": "^1.1.0",
     "moment": "^2.26.0",
-    "tslib": "^1.13.0"
+    "tslib": "^2.0.0"
   }
 }
