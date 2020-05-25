@@ -1,5 +1,5 @@
-import * as test from "blue-tape";
 import * as path from "path";
+import * as test from "tape-promise/tape";
 import { projectRoot, readFileAsLines } from "../utils";
 import { Tf2LogParser } from "./tf2";
 

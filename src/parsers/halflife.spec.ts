@@ -1,5 +1,5 @@
 import { EventBase } from "@gameye/statistic-common";
-import * as test from "blue-tape";
+import * as test from "tape-promise/tape";
 import { HalflifeLineModel, HalflifeLogParserBase } from "./halflife";
 
 test("HalflifeLogParserBase", async t => {
