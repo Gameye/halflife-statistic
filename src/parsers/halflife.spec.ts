@@ -1,10 +1,8 @@
 import { EventBase } from "@gameye/statistic-common";
-import * as test from "blue-tape";
+import * as test from "tape-promise/tape";
 import { HalflifeLineModel, HalflifeLogParserBase } from "./halflife";
 
 test("HalflifeLogParserBase", async t => {
-    // tslint:disable:max-line-length
-
     type TestLogParserEvents = EventBase<"halflife-line", HalflifeLineModel>;
 
     class TestLogParser extends HalflifeLogParserBase<TestLogParserEvents> {
