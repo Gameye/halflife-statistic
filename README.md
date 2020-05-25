@@ -11,11 +11,11 @@ This project relies completely on automated tests.
 
 ### Hook
 NEVER commit something that breaks the build! You can
-prevent this a bit by linking the `test.sh` script as a git `pre-commit` hook!
+prevent this a bit by linking the `test` script as a git `pre-commit` hook!
 
 like this:
 ```bash
-ln test.sh .git/hooks/pre-commit
+ln test .git/hooks/pre-commit
 ```
 
 This will make sure that all your code compiles and is linted before
