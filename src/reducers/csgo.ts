@@ -53,6 +53,8 @@ export class CsGoLogReducer
         yield* this.reducePlayerEvent(event);
         yield* this.reduceTeamEvent(event);
         yield* this.reduceGet5Event(event);
+        yield* this.reduceOkLetsPlayEvent(event);
+        yield* this.reducePlayerSayEvent(event);
     }
 
     // eslint-disable-next-line require-yield
@@ -164,7 +166,6 @@ export class CsGoLogReducer
         const state = this.getState();
 
         switch (event.type) {
-
             case "player-connected": {
                 const playerKey = event.payload.player.key;
                 const playerState: PlayerModel = {
@@ -405,6 +406,47 @@ export class CsGoLogReducer
                 ) {
                     this.manualSwapCount++;
                 }
+            }
+        }
+    }
+
+    protected *reducePlayerSayEvent(
+        event: CsGoLogEvents,
+    ): Iterable<CsGoPatch> {
+        if (event.type !== "player-say") return;
+
+        switch (event.payload.message) {
+            case "!ready": {
+                const state = this.getState();
+
+                const { payload } = event;
+
+                const playerKey = payload.player.key;
+                const playerState = state.player[playerKey];
+                if (!playerState) break;
+
+                const statisticKey = "ready";
+                yield {
+                    path: ["player", playerKey, "statistic", statisticKey],
+                    value: (playerState.statistic[statisticKey] ?? 0) + 1,
+                } as CsGoPatch;
+                break;
+            }
+        }
+    }
+
+    // eslint-disable-next-line require-yield
+    protected * reduceOkLetsPlayEvent(
+        event: CsGoLogEvents,
+    ): Iterable<CsGoPatch> {
+        switch (event.type) {
+            case "okletsplay-round-end-score": {
+                const playerKey = Number(event.payload.player.key);
+                yield {
+                    path: ["player", String(playerKey + 1), "statistic", "score"],
+                    value: event.payload.score,
+                } as CsGoPatch;
+                break;
             }
         }
     }

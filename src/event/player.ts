@@ -1,6 +1,5 @@
 import { EventBase } from "@gameye/statistic-common";
-import { PositionModel } from ".";
-import { TimestampPayload } from ".";
+import { PositionModel, TimestampPayload } from ".";
 
 export interface PlayerWithTeamModel {
     key: string;
@@ -14,6 +13,12 @@ export interface PlayerWithoutTeamModel {
     uid: string;
     name: string;
 }
+
+export interface PlayerSayPayload extends TimestampPayload {
+    player: PlayerWithTeamModel;
+    message: string;
+}
+export type PlayerSayEvent = EventBase<"player-say", PlayerSayPayload>;
 
 export interface PlayerConnectedPayload extends TimestampPayload {
     player: PlayerWithTeamModel;
