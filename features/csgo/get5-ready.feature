@@ -8,7 +8,7 @@ Feature: As an API user I want to know which player marked itself as ready
         And I store logs in <logfile>
         When I process the logs
         Then player <player> is <is>
-        And the match is shut down
+        # And the match is shut down
 
         Examples:
             | logfile                                                | player  | is        |

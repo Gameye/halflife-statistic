@@ -6,11 +6,11 @@ Feature: As an API user I want to know the game scores per player that is calcul
         Given I play a game of csgo
         And I store logs in <logfile>
         When I process the logs
-        Then player <player> had score of
+        Then player <player> had a score of <score>
 
         Examples:
-            | logfile                     | player  | Score |
-            | slawter_v_gameye_match1.log | slawter | 16    |
-            | slawter_v_gameye_match1.log | gameye  | 4     |
-            | slawter_v_gameye_match2.log | slawter | 66    |
-            | slawter_v_gameye_match2.log | gameye  | 0     |
+            | logfile                     | player  | score |
+            | slawter_v_gameye_match1.log | Slawter | 16    |
+            | slawter_v_gameye_match1.log | Gameye  | 4     |
+            | slawter_v_gameye_match2.log | Slawter | 66    |
+            | slawter_v_gameye_match2.log | Gameye  | 0     |

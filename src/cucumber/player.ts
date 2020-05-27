@@ -33,9 +33,9 @@ cucumber.Then(
 
 cucumber.Then(
     /^player (.+) had (-?\d+) ([a-z]+)s$/i,
-    async function (playerName, statisticCount, statisticKey) {
+    async function (playerName, statisticValue, statisticKey) {
         playerName = String(playerName);
-        statisticCount = Number(statisticCount);
+        statisticValue = Number(statisticValue);
         statisticKey = String(statisticKey);
 
         const { bag } = this as TestWorld<GameBag>;
@@ -50,6 +50,51 @@ cucumber.Then(
 
         if (!player) throw new Error(`player ${playerName} not found`);
 
-        assert.equal(player.statistic[statisticKey], statisticCount);
+        assert.equal(player.statistic[statisticKey], statisticValue);
     },
 );
+
+cucumber.Then(
+    /^player (.+) had a ([a-z]+) of (-?\d+)$/i,
+    async function (playerName, statisticKey, statisticValue) {
+        playerName = String(playerName);
+        statisticValue = Number(statisticValue);
+        statisticKey = String(statisticKey);
+
+        const { bag } = this as TestWorld<GameBag>;
+        const { game } = bag;
+        if (!game) throw new Error(`game not set`);
+
+        const { reducer } = game;
+        const state: PlayerContainerState = reducer.getState();
+
+        const player = Object.values(state.player).
+            reduce<PlayerModel | null>((o, i) => i.name === playerName ? i : o, null);
+
+        if (!player) throw new Error(`player ${playerName} not found`);
+
+        assert.equal(player.statistic[statisticKey], statisticValue);
+    },
+);
+
+cucumber.Then(
+    /^player (.+) is (not ready|ready)$/i,
+    async function (playerName, readyStat) {
+        playerName = String(playerName);
+        const statisticValue = readyStat === "ready" ? 1 : 0;
+        const statisticKey = "ready";
+
+        const { bag } = this as TestWorld<GameBag>;
+        const { game } = bag;
+        if (!game) throw new Error(`game not set`);
+
+        const { reducer } = game;
+        const state: PlayerContainerState = reducer.getState();
+
+        const player = Object.values(state.player).
+            reduce<PlayerModel | null>((o, i) => i.name === playerName ? i : o, null);
+
+        if (!player) throw new Error(`player ${playerName} not found`);
+
+        assert.equal(player.statistic[statisticKey], statisticValue);
+    });
