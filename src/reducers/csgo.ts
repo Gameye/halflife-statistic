@@ -53,6 +53,7 @@ export class CsGoLogReducer
         yield* this.reducePlayerEvent(event);
         yield* this.reduceTeamEvent(event);
         yield* this.reduceGet5Event(event);
+        yield* this.reduceOkLetsPlayEvent(event);
     }
 
     // eslint-disable-next-line require-yield
@@ -405,6 +406,22 @@ export class CsGoLogReducer
                 ) {
                     this.manualSwapCount++;
                 }
+            }
+        }
+    }
+
+    // eslint-disable-next-line require-yield
+    protected *reduceOkLetsPlayEvent(
+        event: CsGoLogEvents,
+    ): Iterable<CsGoPatch> {
+        switch (event.type) {
+            case "okletsplay-round-end-score": {
+                const playerKey = Number(event.payload.player.key);
+                yield {
+                    path: ["player", String(playerKey + 1), "statistic", "score"],
+                    value: event.payload.score,
+                } as CsGoPatch;
+                break;
             }
         }
     }

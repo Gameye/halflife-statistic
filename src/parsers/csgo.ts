@@ -18,12 +18,27 @@ export type CsGoLogEvents =
     event.TeamPlayingEvent |
     event.TeamScoreEvent |
     event.NumberParameterValueEvent |
-    event.Get5Event;
+    event.Get5Event |
+    event.OkLetsPlayRoundEndScoreEvent;
 
 export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
 
     constructor() {
         super();
+
+        // [OkLetsPlay] [round-end-scores] Slawter<3><STEAM_1:0:18095987> 66
+        this.registerRegexParser(
+            /^\[OkLetsPlay\]\s*\[round-end-scores\]\s+(.*?(?:<.*?>){2})\s+(\d+)$/i,
+            (line, playerString, scoreString) => {
+                const score = Number(scoreString);
+                const player = this.parsePlayerWithoutTeam(playerString);
+
+                return {
+                    type: "okletsplay-round-end-score",
+                    payload: { score, player },
+                };
+            },
+        );
 
         //#region rules
         // get5_event: {"matchid`":"example_match","params":{"selected_side":"T","winner":"team1","map_number":0,"map_name":"de_dust2"},"event":"knife_won"}
@@ -243,7 +258,7 @@ export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
     // "Smashmint""<2><STEAM_1:1:24s748064>"
     // "Smashmint<><12><STEAM_1:1:24748064>"
     protected parsePlayerWithoutTeam(playerString: string): event.PlayerWithoutTeamModel {
-        const match = /^"(.*)<(.*?)><(.*?)>"$/i.exec(playerString);
+        const match = /^"?(.*)<(.*?)><(.*?)>"?$/i.exec(playerString);
         if (match === null) throw new Error(`${playerString} is not a valid player string (did you include the "'s?)`);
 
         const [, name, key, uid] = match;
