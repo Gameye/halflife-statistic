@@ -81,7 +81,7 @@ cucumber.Then(
     /^player (.+) is (not ready|ready)$/i,
     async function (playerName, readyStat) {
         playerName = String(playerName);
-        const statisticValue = readyStat === "ready" ? 1 : 0;
+        const hasStatistic = readyStat === "ready" ? true : false;
         const statisticKey = "ready";
 
         const { bag } = this as TestWorld<GameBag>;
@@ -96,5 +96,5 @@ cucumber.Then(
 
         if (!player) throw new Error(`player ${playerName} not found`);
 
-        assert.equal(player.statistic[statisticKey], statisticValue);
+        assert.equal(player.statistic[statisticKey] ?? 0 > 0, hasStatistic);
     });

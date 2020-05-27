@@ -19,12 +19,29 @@ export type CsGoLogEvents =
     event.TeamScoreEvent |
     event.NumberParameterValueEvent |
     event.Get5Event |
-    event.OkLetsPlayRoundEndScoreEvent;
+    event.OkLetsPlayRoundEndScoreEvent |
+    event.PlayerSayEvent;
 
 export class CsGoLogParser extends HalflifeLogParserBase<CsGoLogEvents> {
 
     constructor() {
         super();
+
+        // "Slawter<3><STEAM_1:0:18095987><CT>" say "!ready"
+        this.registerHalflifeParser(
+            /^(".*?(?:<.*?>){3}")\s+say\s+"(.*)"$/i,
+            (halflifeLine, playerString, message) => {
+                const player = this.parsePlayerWithTeam(playerString);
+                return {
+                    type: "player-say",
+                    payload: {
+                        timestamp: halflifeLine.timestamp,
+                        player,
+                        message,
+                    },
+                };
+            },
+        );
 
         // [OkLetsPlay] [round-end-scores] Slawter<3><STEAM_1:0:18095987> 66
         this.registerRegexParser(
