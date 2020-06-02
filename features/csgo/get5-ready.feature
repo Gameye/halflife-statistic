@@ -17,3 +17,5 @@ Feature: As an API user I want to know which player marked itself as ready
             | Gameye_vs_Slawter_Gameye_Forfeits_NoForceready.log     | Gameye  | not ready |
             | Gameye_vs_Slawter_Slawter_Forfeits_NoForceready.log    | Gameye  | ready     |
             | Gameye_vs_Slawter_Slawter_Forfeits_NoForceready.log    | Slawter | not ready |
+            | csgo-get5-both-players-ready.log                       | Slawter | ready     |
+            | csgo-get5-both-players-ready.log                       | Gameye  | ready     |
