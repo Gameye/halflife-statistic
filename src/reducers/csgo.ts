@@ -203,13 +203,26 @@ export class CsGoLogReducer
             case "match-start": {
                 for (const playerKey of Object.keys(state.player).map(String)) {
                     yield {
-                        path: ["player", playerKey, "statistic"],
-                        value: {
-                            assist: 0,
-                            death: 0,
-                            kill: 0,
-                        },
+                        path: ["player", playerKey, "statistic", "assist"],
+                        value: 0,
                     } as CsGoPatch;
+                    yield {
+                        path: ["player", playerKey, "statistic", "death"],
+                        value: 0,
+                    } as CsGoPatch;
+                    yield {
+                        path: ["player", playerKey, "statistic", "kill"],
+                        value: 0,
+                    } as CsGoPatch;
+
+                    // yield {
+                    //     path: ["player", playerKey, "statistic"],
+                    //     value: {
+                    //         assist: 0,
+                    //         death: 0,
+                    //         kill: 0,
+                    //     },
+                    // } as CsGoPatch;
                 }
                 break;
             }
