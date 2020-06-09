@@ -1,0 +1,52 @@
+{
+    "start": 1591715151000,
+    "stop": 1591715862000,
+    "startedRounds": 1,
+    "finishedRounds": 1,
+    "player": {
+        "3": {
+            "connected": false,
+            "playerKey": "3",
+            "uid": "STEAM_1:1:199954484",
+            "name": "Gameye",
+            "statistic": {
+                "assist": 0,
+                "death": 21,
+                "kill": 5
+            }
+        },
+        "4": {
+            "connected": false,
+            "playerKey": "4",
+            "uid": "STEAM_1:0:18095987",
+            "name": "Slawter",
+            "statistic": {
+                "assist": 0,
+                "death": 5,
+                "kill": 21
+            }
+        }
+    },
+    "team": {
+        "1": {
+            "teamKey": "1",
+            "name": "Counter Terrorists",
+            "statistic": {
+                "score": 0
+            },
+            "player": {
+                "4": true
+            }
+        },
+        "2": {
+            "teamKey": "2",
+            "name": "Terrorists",
+            "statistic": {
+                "score": 0
+            },
+            "player": {
+                "3": true
+            }
+        }
+    }
+}
