@@ -14,3 +14,7 @@ Feature: As an API user I want to know the game scores per player that is calcul
             | slawter_v_gameye_match1.log | Gameye  | 4     |
             | slawter_v_gameye_match2.log | Slawter | 66    |
             | slawter_v_gameye_match2.log | Gameye  | 0     |
+            | ffa_test_1_logs.log	      | Slawter | 44    |
+            | ffa_test_1_stats.log	      | Slawter | 44    |
+            | ffa_test_2_logs.log	      | Slawter | 187   |
+            | ffa_test_2_stats.log	      | Slawter | 187   |
