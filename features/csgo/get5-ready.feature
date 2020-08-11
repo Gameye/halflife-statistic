@@ -10,7 +10,7 @@ Feature: As an API user I want to know which player marked itself as ready
         Then player state has both !ready and !forceready listed
 
         Examples:
-            | logfile                                                | player  | !Ready    | !forceready  |
+            | logfile                                                | player  | !Ready    | forceready   |
             | Gameye_vs_Slawter_Gameye_Forfeits_Forceready_used.log  | Slawter | ready     | forceready   |
             | Gameye_vs_Slawter_Gameye_Forfeits_Forceready_used.log  | Gameye  | not ready | forceready   |
             | Gameye_vs_Slawter_Slawter_Forfeits_Forceready_used.log | Gameye  | ready     | forceready   |
@@ -25,7 +25,7 @@ Feature: As an API user I want to know which player marked itself as ready
             
             
  Log line:
- 
+```` 
  Ready:
  L 05/08/2020 - 15:04:32: get5_event: {
     "matchid": "example_match",
@@ -45,3 +45,4 @@ Feature: As an API user I want to know which player marked itself as ready
         "message": "!forceready"
     },
     "event": "client_say"
+```
